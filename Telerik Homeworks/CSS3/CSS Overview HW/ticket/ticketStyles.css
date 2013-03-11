@@ -1,0 +1,53 @@
+h1 {
+	font-weight: normal;
+	font-size: 20pt;
+	padding-left: 5pt;
+}
+
+dt {
+	color: white;
+	font-style: italic;
+	float: left;
+	padding-left: 5pt;
+}
+
+dd {
+	margin-left: 110pt;
+	margin-bottom: 15pt;
+}
+
+#name {
+	margin-bottom: 0pt;
+}
+
+#ticket {
+	margin: 10pt;
+	background-color: #595959;
+	width: 250pt;
+	font-family: sans-serif;
+}
+
+#bull {
+	color: #71B47A;
+	font-size: 35pt;
+	line-height: 15pt;
+	vertical-align: top;
+}
+
+.redText {
+	color: #F00;
+	font-weight: bold;
+}
+
+.goldText {
+	color: #CFB678;
+}
+
+.grayText {
+	color: #A4B0B1;
+}
+
+.orangeText {
+	color: #E36A26;
+	font-weight: bold;
+}

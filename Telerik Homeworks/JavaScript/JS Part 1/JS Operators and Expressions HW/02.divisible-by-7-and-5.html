@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Devisible by 7 and 5 at the same time?</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<div id="js-console"></div>				 
+		<script src="scripts/js-console.js"></script>
+		<script>
+			function devisibleBy35(number)
+			{
+				if (number % 35 == 0)
+				{
+					jsConsole.writeLine("Yes");
+				}
+				else
+				{
+					jsConsole.writeLine("No");
+				}
+			}
+			
+			devisibleBy35(21);
+			devisibleBy35(15);
+			devisibleBy35(35);
+		</script>
+	</body>
+</html>

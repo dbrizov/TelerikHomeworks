@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>04.Sort three real numbers</title>
+		<link rel="stylesheet" href="styles/js-console.css" />
+	</head>
+	<body>
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+			var a = prompt("a = ");
+            var b = prompt("b = ");
+            var c = prompt("c = ");
+
+            if (a > b && a > c)
+            {
+                if (b > c)
+                {
+                    jsConsole.writeLine(a);
+                    jsConsole.writeLine(b);
+                    jsConsole.writeLine(c);
+                }
+                else
+                {
+                    jsConsole.writeLine(a);
+                    jsConsole.writeLine(c);
+                    jsConsole.writeLine(b);
+                }
+            }
+
+            if (b > a && b > c)
+            {
+                if (a > c)
+                {
+                    jsConsole.writeLine(b);
+                    jsConsole.writeLine(a);
+                    jsConsole.writeLine(c);
+                }
+                else
+                {
+                    jsConsole.writeLine(b);
+                    jsConsole.writeLine(c);
+                    jsConsole.writeLine(a);
+                }
+            }
+
+            if (c > a && c > b)
+            {
+                if (a > b)
+                {
+                    jsConsole.writeLine(c);
+                    jsConsole.writeLine(a);
+                    jsConsole.writeLine(b);
+                }
+                else
+                {
+                    jsConsole.writeLine(c);
+                    jsConsole.writeLine(b);
+                    jsConsole.writeLine(a);
+				}
+            }
+		</script>
+	</body>
+</html>

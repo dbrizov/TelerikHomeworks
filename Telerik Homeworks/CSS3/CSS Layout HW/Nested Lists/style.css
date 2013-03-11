@@ -1,0 +1,19 @@
+dl {
+	max-height: 1em;
+	width: 100px;
+	overflow: hidden;
+	transition: max-height 0.5s ease-out;
+}
+
+dl:hover {
+	max-height: 10em;
+}
+
+dl:hover span {
+	text-decoration: underline;
+}
+
+dd {
+	color: gray;
+	margin-left: 10px;
+}

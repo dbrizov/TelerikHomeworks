@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>07.Find the greates of give five variables</title>
+		<link rel="stylesheet" href="styles/js-console.css" />
+	</head>
+	<body>
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+			var a = 5;
+            var b = 3;
+            var c = 5;
+            var d = 4;
+            var e = 1;
+
+            var arr = [a, b, c, d, e];
+
+            for (var i = 0; i < 4; i++)
+            {
+                var minIndex = i;
+
+                for (var j = i + 1; j < 5; j++)
+                {
+                    if (arr[j] < arr[minIndex])
+                    {
+                        minIndex = j;
+                    }
+                }
+
+                var x = arr[i];
+                arr[i] = arr[minIndex];
+                arr[minIndex] = x;
+            }
+
+            jsConsole.writeLine(arr[4]);
+		</script>
+	</body>
+</html>

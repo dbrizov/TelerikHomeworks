@@ -1,0 +1,18 @@
+p {
+	color: #0094ff;
+	font-family: consolas;
+}
+
+p:first-line {
+	line-height: 25pt;
+	font-weight: bold;
+}
+
+p:first-letter {
+	font-family: "Edwardian Script ITC";
+	font-size: 30pt;
+}
+
+#shell {
+	width: 800px;
+}

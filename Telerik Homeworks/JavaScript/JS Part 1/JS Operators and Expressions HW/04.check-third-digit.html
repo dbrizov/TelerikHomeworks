@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Check if the 3th digit from right to left is 7?</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<div id="js-console"></div>				 
+		<script src="scripts/js-console.js"></script>
+		<script>
+			function checkDigit(number)
+			{
+				var digit = Math.floor(number / 100) % 10;
+				
+				if (digit == 7)
+				{
+					jsConsole.writeLine("The digit is 7");
+				}
+				else
+				{
+					jsConsole.writeLine("The digit is not 7");
+				}
+			}
+			
+			checkDigit(1732);
+			checkDigit(120);
+		</script>
+	</body>
+</html>

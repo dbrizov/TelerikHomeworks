@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Point in Circle?</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<div id="js-console"></div>	 
+		<script src="scripts/js-console.js"></script>
+		<script>
+			function checkPoint(x, y)
+			{
+		        if (x * x + y * y < 25)
+		        {
+		            jsConsole.writeLine("The point is in the circle K(0, 5)");
+		        }
+		        else
+		        {
+		            jsConsole.writeLine("The point is not in the circle K(0, 5)");
+		        }
+			}
+			
+			var x = prompt("x = ");
+	        var y = prompt("y = ");
+	        
+	        checkPoint(x, y);
+		</script>
+	</body>
+</html>

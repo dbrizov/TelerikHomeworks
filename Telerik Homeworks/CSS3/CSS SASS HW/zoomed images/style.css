@@ -1,0 +1,33 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	padding: 5px;
+}
+
+div#horse, div#lion, div#tiger, div#bear, div#eagle {
+	width: 500px;
+	height: 500px;
+	display: none;
+}
+
+div#horse:target, div#lion:target, div#tiger:target, div#bear:target, div#eagle:target {
+	display: block;
+}
+
+div img {
+	width: 500px;
+	height: 500px;
+}
+
+a img {
+	width: 150px;
+	height: 150px; 
+}
+
+ul li {
+	list-style: none;
+	display: inline-block;
+}

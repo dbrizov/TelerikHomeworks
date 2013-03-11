@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>05.Print digit name</title>
+		<link rel="stylesheet" href="styles/js-console.css" />
+	</head>
+	<body>
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+            var digit = parseInt(prompt("Input a digit"));
+            var name;
+
+            switch (digit)
+            {
+                case 0: 
+                    name = "zero";
+                    break;
+                case 1:
+                    name = "one";
+                    break;
+                case 2:
+                    name = "two";
+                    break;
+                case 3:
+                    name = "three";
+                    break;
+                case 4:
+                    name = "four";
+                    break;
+                case 5:
+                    name = "five";
+                    break;
+                case 6:
+                    name = "six";
+                    break;
+                case 7:
+                    name = "seven";
+                    break;
+                case 8:
+                    name = "eight";
+                    break;
+                case 9:
+                    name = "nine";
+                    break;
+                default:
+                    name = "Error: the input is not a digit!";
+                    break;
+            }
+
+            jsConsole.writeLine(name);
+		</script>
+	</body>
+</html>

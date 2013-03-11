@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Get 3th Bit</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<div id="js-console"></div>				 
+		<script src="scripts/js-console.js"></script>
+		<script>
+			function getThirthBit(number)
+			{
+				return (number >> 3) & 1;
+			}
+			
+			jsConsole.writeLine(getThirthBit(8)); // 1000 -> 3th bit is 1
+			jsConsole.writeLine(getThirthBit(7)); // 0111 -> 3th bit is 0
+		</script>
+	</body>
+</html>

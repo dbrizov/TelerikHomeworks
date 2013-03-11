@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>02.Two char arrays</title>
+	</head>
+	<body>
+		<h1>02.Lexicographic ordinance of two char arrays</h1>
+		<script>
+			// Input the arrays lengths
+	        var arr1Length = parseInt(prompt("array1 length = ?"));
+	        var arr2Length = parseInt(prompt("array2 length = ?"));
+	
+	        var arr1 = new Array(arr1Length);
+	        var arr2 = new Array(arr2Length);
+	
+	        // Input char array1
+	        for (var i = 0; i < arr1.length; i++)
+	        {
+	            arr1[i] = prompt("array1[" + i + "] = ?");
+	        }
+	
+	        // Input char array2
+	        for (var i = 0; i < arr2.length; i++)
+	        {
+	        	arr2[i] = prompt("array2[" + i + "] = ?");
+	        }
+	
+	        var minLength = Math.min(arr1.length, arr2.length); // The length of the smaller array
+	        var equalToMinLength = true; // Checks if the two arrays are equal from index 0 to index (minLength - 1)
+	
+	        // Complares from index 0 to index (minLength - 1)
+	        for (var i = 0; i < minLength; i++)
+	        {
+	            if (arr1[i] < arr2[i])
+	            {
+	                console.log("array1 is earlier in lexicographic ordinance");
+	                equalToMinLength = false;
+	                break;
+	            }
+	            if (arr1[i] > arr2[i])
+	            {
+	                console.log("array2 is earlier in lexicographic ordinance");
+	                equalToMinLength = false;
+	                break;
+	            }
+	        }
+	
+	        // If they are equal in [0, minIndex - 1], then the lengths are compared
+	        if (equalToMinLength == true)
+	        {
+	            if (arr1.length < arr2.length)
+	            {
+	                console.log("array1 is earlier in lexicographic ordinance");
+	            }
+	            else if (arr1.length > arr2.length)
+	            {
+	                console.log("array2 is earlier in lexicographic ordinance");
+	            }
+	            else
+	            {
+	                console.log("The arrays are equal");
+	            }
+	        }
+		</script>
+	</body>
+</html>

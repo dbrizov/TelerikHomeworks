@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Calculator</title>
+        <style>
+            table
+            {
+                border: 1px solid black;
+            }
+            td {
+                border: 1px solid black;
+                text-align: center;
+                padding: 0px;
+            }
+            th {
+                border: 1px solid black;
+                text-align: right;
+            }
+            button {
+                padding-left: 3px;
+                padding-right: 3px;
+                padding-top: 1px;
+                padding-bottom: 1px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <table cellpadding="0">
+            <thead>
+                <tr>
+                    <th colspan="4">result</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><form><input type="button" value="1"/></form></td>
+                    <td><form><input type="button" value="2"/></form></td>
+                    <td><form><input type="button" value="3"/></form></td>
+                    <td><form><input type="button" value="+"/></form></td>
+                </tr>
+                <tr>
+                    <td><form><input type="button" value="4"/></form></td>
+                    <td><form><input type="button" value="5"/></form></td>
+                    <td><form><input type="button" value="6"/></form></td>
+                    <td><form><input type="button" value="-"/></form></td>
+                </tr>
+                <tr>
+                    <td><form><input type="button" value="7"/></form></td>
+                    <td><form><input type="button" value="8"/></form></td>
+                    <td><form><input type="button" value="9"/></form></td>
+                    <td><form><input type="button" value="*"/></form></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><form><input style="padding-left: 25px; padding-right: 25px;" type="button" value="0" /></form></td>
+                    <td><form><input type="button" value="."/></form></td>
+                    <td><form><input type="button" value="/"/></form></td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <form>
+                            <input type="button" value="=" style="padding-left: 60px; padding-right: 60px"/>
+                        </form>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>

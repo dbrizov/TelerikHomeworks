@@ -1,0 +1,36 @@
+nav ul li {
+	list-style: none;
+	display: inline;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#wrapper {
+	border: 1px solid black;
+	padding: 5px;
+	width: 485px;
+	margin-right: 20px;
+	float: left;
+}
+
+fieldset {
+	border: 1px solid black;
+	width: 210px;
+	display: inline;
+}
+
+div.image {
+	float: left;
+}
+
+div.price div {
+	margin-top: 21px;
+}
+
+form {
+	margin-top: 100px;
+}
+
+a {
+	font-size: 15pt;
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE hmtl>
+<html>
+	<head>
+		<title>Web Form</title>
+		<style>
+			table
+			{
+				border: 1px solid gray;
+				border-spacing: 0px;
+			}
+			td
+			{
+				border: 1px solid gray;
+			}
+			tfoot td
+			{
+				text-align: center;
+				background-color: red;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<form>
+			<table>
+				<tbody>
+					<tr>
+						<td style="text-align: right; font-weight: bold">Last Name</td>
+						<td><input type="text" placeholder="Rizov"/></td>
+					</tr>
+					<tr>
+						<td style="text-align: right; font-weight: bold">First Name</td>
+						<td><input type="text" placeholder="Denis"/></td>
+					</tr>
+					<tr>
+						<td style="text-align: right; font-weight: bold">Address</td>
+						<td><textarea placeholder="Mladost 1..."></textarea></td>
+					</tr>
+					<tr>
+						<td style="text-align: right; font-weight: bold">City</td>
+						<td>
+							<input type="text" placeholder="Sofia"/>
+							<span><strong>State</strong></span>
+							<input type="text" size="3"/>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right; font-weight: bold">Zip/Postal Code</td>
+						<td><input type="text" placeholder="1111"/></td>
+					</tr>
+					<tr>
+						<td style="text-align: right; font-weight: bold">Country</td>
+						<td>
+							<select>
+								<option>Bulgaria</option>
+								<option>Japan</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right; font-weight: bold">
+							Phone(country code,
+							<br/>
+							area code, number)
+						</td>
+						<td>
+							(+
+							<input type="text" placeholder="359" size="5"/>
+							)
+							<input type="text" placeholder="88" size="5"/>
+							-
+							<input type="text" placeholder="8334343" size="10"/>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right; font-weight: bold">E-mail</td>
+						<td><input type="email" placeholder="denis@asd.bg"/></td>
+					</tr>
+					<tr>
+						<td style="text-align: right; font-weight: bold">Birth date</td>
+						<td>
+							Month
+							<select>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+							</select>
+							Day
+							<select>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+								<option>13</option>
+								<option>14</option>
+								<option>15</option>
+								<option>16</option>
+								<option>17</option>
+								<option>18</option>
+								<option>19</option>
+								<option>20</option>
+								<option>21</option>
+								<option>22</option>
+								<option>23</option>
+								<option>24</option>
+								<option>25</option>
+								<option>26</option>
+								<option>27</option>
+								<option>28</option>
+								<option>29</option>
+								<option>30</option>
+								<option>31</option>
+							</select>
+							Year
+							<input type="number" min="1940" max="2013" />
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right; font-weight: bold">Gender</td>
+						<td>
+							<select>
+								<option>Male</option>
+								<option>Female</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right; font-weight: bold">Starting date</td>
+						<td>
+							<input type="radio" name="date"/>
+							Spring 2006
+							<input type="radio" name="date"/>
+							Summer 2006
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right; font-weight: bold">Comments/Questions</td>
+						<td>
+							<textarea placeholder="Comment here..."></textarea>
+						</td>
+					</tr>
+				</tbody>
+				
+				<tfoot>
+					<tr>
+						<td colspan="2">
+							<input type="submit" value="Submit"/>
+							<input type="reset" />
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</form>
+	</body>
+</html>

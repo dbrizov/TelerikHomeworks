@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreshFruitsAndABCDE", "FreshFruitsAndABCDE\FreshFruitsAndABCDE.csproj", "{E96B8223-1D26-4497-A8DB-5BA4C80153A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Calculator.csproj", "{E872C8C5-1C83-49AF-8609-82DA95A249B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegistrationPage", "RegistrationPage\RegistrationPage.csproj", "{63E94621-9B94-44D7-BEC4-EA5CA69C7BEE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E96B8223-1D26-4497-A8DB-5BA4C80153A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E96B8223-1D26-4497-A8DB-5BA4C80153A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E96B8223-1D26-4497-A8DB-5BA4C80153A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E96B8223-1D26-4497-A8DB-5BA4C80153A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E872C8C5-1C83-49AF-8609-82DA95A249B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E872C8C5-1C83-49AF-8609-82DA95A249B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E872C8C5-1C83-49AF-8609-82DA95A249B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E872C8C5-1C83-49AF-8609-82DA95A249B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63E94621-9B94-44D7-BEC4-EA5CA69C7BEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63E94621-9B94-44D7-BEC4-EA5CA69C7BEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63E94621-9B94-44D7-BEC4-EA5CA69C7BEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63E94621-9B94-44D7-BEC4-EA5CA69C7BEE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

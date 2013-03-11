@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>02.Print all number from 1 to N that are not devisible by 21</title>
+	</head>
+	<body>
+		<h1>Print all number from 1 to N that are not devisible by 21 - open the web browser console</h1>
+		<script>
+			var N = prompt("N = ?");
+			
+			for (var i = 1; i <= N; i++)
+			{
+				if (i % 21 == 0)
+				{
+					continue;
+				}
+				
+				console.log(i);
+			}
+		</script>
+	</body>
+</html>

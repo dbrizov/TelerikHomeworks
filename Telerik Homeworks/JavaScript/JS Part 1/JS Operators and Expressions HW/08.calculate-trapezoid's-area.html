@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Trapezoid's Area</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<div id="js-console"></div>				 
+		<script src="scripts/js-console.js"></script>
+		<script>
+			function calculateTrapezoidsArea(a, b, h)
+			{
+				return ((a * b) / 2) * h;
+			}
+			
+			var a = prompt("a = ");
+			var b = prompt("b = ");
+			var h = prompt("h = ");
+			
+			jsConsole.writeLine(calculateTrapezoidsArea(a, b, h));
+		</script>
+	</body>
+</html>

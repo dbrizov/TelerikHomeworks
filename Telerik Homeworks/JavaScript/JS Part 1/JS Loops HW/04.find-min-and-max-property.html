@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>04.Find min and max property in document, navigator and window</title>
+	</head>
+	<body>
+		<h1>04.Find the min and max property in the JS document, JS navigator and JS window</h1>
+		<script>
+			function findMinProperty(obj)
+			{
+				var min = "zzzzzzzzzzzzzzz";
+				
+				for (var property in obj)
+				{
+					if (property < min)
+					{
+						min = property;
+					}
+				}
+				
+				return min;
+			}
+			
+			function findMaxProperty(obj)
+			{
+				var max = "aaaaaaaaaaaaaaa";
+				
+				for (var property in obj)
+				{
+					if (property > max)
+					{
+						max = property;
+					}
+				}
+				
+				return max;
+			}
+			
+			console.log("document.minProperty = " + findMinProperty(document));
+			console.log("document.maxProperty = " + findMaxProperty(document));
+			console.log("window.minProperty = " + findMinProperty(window));
+			console.log("window.maxProperty = " + findMaxProperty(window));
+			console.log("navigator.minProperty = " + findMinProperty(navigator));
+			console.log("navigator.maxProperty = " + findMaxProperty(navigator));
+		</script>
+	</body>
+</html>

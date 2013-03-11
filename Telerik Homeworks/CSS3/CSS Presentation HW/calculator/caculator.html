@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Calculator</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	
+	<body>
+		<div id="wrapper">
+			<img src="images/calculator-icon.png" /><span class="icon-text"> Calculator</span>
+			<img src="images/exit.png" class="exit" />
+			<div id="frame">
+				<nav>
+					<ul>
+						<li>View&nbsp;</li>
+						<li>Edit&nbsp;</li>
+						<li>Help&nbsp;</li>
+					</ul>
+				</nav>
+				
+				<div id="display">8854455</div>
+				
+				<div id="binary">
+					<ul class="bits">
+						<li>0000</li>
+						<li>0000</li>
+						<li>0000</li>
+						<li>0000</li>
+						<li>0000</li>
+						<li>0000</li>
+						<li>0000</li>
+						<li>0000</li>
+					</ul>
+					
+					<ul class="bits-count">
+						<li>63</li>
+						<li class="second">47</li>
+						<li class="third">32</li>
+					</ul>
+					
+					<ul class="bits">
+						<li>0000</li>
+						<li>0000</li>
+						<li>1000</li>
+						<li>0111</li>
+						<li>0001</li>
+						<li>1011</li>
+						<li>1011</li>
+						<li>0111</li>
+					</ul>
+					
+					<ul class="bits-count">
+						<li>31</li>
+						<li class="second">15</li>
+						<li class="third">0</li>
+					</ul>
+				</div>
+				
+				<div id="main-content">
+					<div id="radio-buttons">
+						<form class="radio">
+							<input type="radio" name="notation" value="Hex" />Hex
+							<br />
+							<input type="radio" name="notation" value="Dec" checked="checked"/>Dec
+							<br />
+							<input type="radio" name="notation" value="Ocd" />Oct
+							<br />
+							<input type="radio" name="notation" value="Bin" />Bin
+						</form>
+						
+						<form class="radio">
+							<input type="radio" name="size" value="Qword" checked="checked"/>Qword
+							<br />
+							<input type="radio" name="size" value="Dword" />Dword
+							<br />
+							<input type="radio" name="size" value="Word" />Word
+							<br />
+							<input type="radio" name="size" value="Byte" />Byte
+						</form>
+					</div>
+						
+					<div class="main-buttons">
+						<form class="buttons">
+							<input type="button" value="" disabled="disabled" class="disabled" />
+							<input type="button" value="Mod" class="operation" />
+							<input type="button" value="A" disabled="disabled" class="disabled" />
+							<input type="button" value="MC" class="inset" />
+							<input type="button" value="MR" class="inset" />
+							<input type="button" value="MS" class="inset" />
+							<input type="button" value="M+" class="inset" />
+							<input type="button" value="M-" class="inset" />
+							<br />
+							<input type="button" value="(" class="operation" />
+							<input type="button" value=")" class="operation" />
+							<input type="button" value="B" disabled="disabled" class="disabled" />
+							<input type="button" value="←" class="operation" />
+							<input type="button" value="CE" class="operation" />
+							<input type="button" value="C" class="operation" />
+							<input type="button" value="±" class="operation" />
+							<input type="button" value="√" disabled="disabled" class="disabled" />
+							<br />
+							<input type="button" value="RoL" class="operation" />
+							<input type="button" value="RoR" class="operation" />
+							<input type="button" value="C" disabled="disabled" class="disabled" />
+							<input type="button" value="7" class="digit" />
+							<input type="button" value="8" class="digit" />
+							<input type="button" value="9" class="digit" />
+							<input type="button" value="/" class="operation" />
+							<input type="button" value="%" disabled="disabled" class="disabled" />
+							<br />
+							<input type="button" value="Or" class="operation" />
+							<input type="button" value="Xor" class="operation" />
+							<input type="button" value="D" disabled="disabled" class="disabled" />
+							<input type="button" value="4" class="digit" />
+							<input type="button" value="5" class="digit" />
+							<input type="button" value="6" class="digit" />
+							<input type="button" value="*" class="operation" />
+							<input type="button" value="1/x" disabled="disabled" class="disabled" />
+							<br />
+							<input type="button" value="Lsh" class="operation" />
+							<input type="button" value="Rsh" class="operation" />
+							<input type="button" value="E" disabled="disabled" class="disabled" />
+							<input type="button" value="1" class="digit" />
+							<input type="button" value="2" class="digit" />
+							<input type="button" value="3" class="digit" />
+							<input type="button" value="-" class="operation" />
+							<input class="result operation" type="button" value="=" />
+							<br />
+							<input type="button" value="Not" class="operation" />
+							<input type="button" value="And" class="operation" />
+							<input type="button" value="F" disabled="disabled" class="disabled" />
+							<input class="zero digit" type="button" value="0" />
+							<input type="button" value="." disabled="disabled" class="disabled" />
+							<input type="button" value="+" class="operation" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

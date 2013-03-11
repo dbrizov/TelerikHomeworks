@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Odd or Even?</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<div id="js-console"></div>				 
+		<script src="scripts/js-console.js"></script>
+		<script>
+			function oddOrEven(num)
+			{
+				if (num % 2 == 0)
+				{
+					jsConsole.writeLine("Even");
+				}
+				else
+				{
+					jsConsole.writeLine("Odd");
+				}
+			}
+			
+			var number1 = 4;
+			var number2 = 5;
+			
+			oddOrEven(number1);
+			oddOrEven(number2);
+		</script>
+	</body>
+</html>

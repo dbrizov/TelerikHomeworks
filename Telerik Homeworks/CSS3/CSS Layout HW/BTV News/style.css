@@ -1,0 +1,47 @@
+nav ul li {
+	list-style: none;
+	padding: 10px;
+	display: inline;
+	background-color: #4B5F67;
+}
+
+nav ul li:hover {
+	background-color: #1E3741;
+}
+
+nav ul {
+	margin-left: -40px;
+}
+
+body {
+	background-color: #1E3741;
+}
+
+p {
+	color: #8FA4AF;
+	font-size: 14pt;
+	border-bottom: 2px solid #354B54;
+	width: 300px;
+	padding-bottom: 18px;
+}
+
+a {
+	color: #91A9B3;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 13pt;
+}
+
+section h2 {
+	background-color: #00968C;
+	color: #fff;
+	padding: 5px;
+}
+
+div.section {
+	float: left;
+}
+
+div.image {
+	padding-top: 19px;
+}

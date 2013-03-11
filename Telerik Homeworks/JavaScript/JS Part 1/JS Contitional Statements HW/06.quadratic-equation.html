@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>06.Quadratic equation</title>
+		<link rel="stylesheet" href="styles/js-console.css" />
+	</head>
+	<body>
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+            var a = parseFloat(prompt("a = "));
+            var b = parseFloat(prompt("b = "));
+            var c = parseFloat(prompt("c = "));
+
+            var A;
+            var B;
+            var C;
+
+            if (a != 0)
+            {
+                if (a > 0)
+                {
+                    A = "+" + a + "*x^2";
+                }
+                else
+                {
+                    A = a + "*x^2";
+                }
+            }
+            else
+            {
+                A = "";
+            }
+
+            if (b != 0)
+            {
+                if (b > 0)
+                {
+                    B = "+" + b + "*x";
+                }
+                else
+                {
+                    B = b + "*x";
+                }
+            }
+            else
+            {
+                B = "";
+            }
+
+            if (c != 0)
+            {
+                if (c > 0)
+                {
+                    C = "+" + c;
+                }
+                else
+                {
+                    C = c.toString();
+                }
+            }
+            else
+            {
+                C = "";
+            }
+
+            jsConsole.writeLine(A + B + C + " = 0");
+
+            if (a != 0)
+            {
+                var D = b * b - 4 * a * c;
+
+                if (D > 0)
+                {
+                    var x1 = ((-b) + Math.sqrt(D)) / (2 * a);
+                    var x2 = ((-b) - Math.sqrt(D)) / (2 * a);
+
+                    jsConsole.writeLine("x1 = " + x1);
+                    jsConsole.writeLine("x2 = " + x2);
+                }
+                else if (D == 0)
+                {
+                    var x1 = (-b) / (2 * a);
+
+                    jsConsole.writeLine("x1 = x2 = " + x1);
+                }
+                else if (D < 0)
+                {
+                    jsConsole.writeLine("No real roots exist!");
+                }
+            }
+
+            else if (a == 0)
+            {
+                if (b != 0)
+                {
+                    var x = (-c) / b;
+                    jsConsole.writeLine(x);
+                }
+                else if (b == 0 && c != 0)
+                {
+                    jsConsole.writeLine("No real roots exist!");
+                }
+            }
+
+            if (a == 0 && b == 0 && c == 0)
+            {
+                jsConsole.writeLine("every single \"x\" is a root");
+            }
+		</script>
+	</body>
+</html>

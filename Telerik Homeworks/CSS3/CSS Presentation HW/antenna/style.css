@@ -1,0 +1,10 @@
+div#shell {
+	width: 600px;
+}
+
+div {
+	background-color: black;
+	border: 1px solid #f00;
+	border-radius: 20px;
+	margin-right: 10%;
+}

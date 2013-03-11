@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>03.Finds the max consecutive elements in a given array</title>
+	</head>
+	<body>
+		<h1>Write a script that finds the maximal sequence of equal elements in an array.
+		Example: {2, 1, 1, 2, 3, 3, 2, 2, 2, 1} => {2, 2, 2}.</h1>
+		
+		<script>
+			function findMaxConsecutiveElements(array)
+			{
+				var maxCount = 1; // The count of the max equal consecutive elements
+		        var currentCount = 1; // The current count of the max equal consecutive elements
+		        var previousElement; // Helper for the for() loop
+		        var constructElement = 0; // The element the constructs the row of consecutive elements
+		        
+		        // Find the maxCount and the constructElement
+		        previousElement = array[0];
+		        for (var i = 1; i < array.length; i++)
+		        {
+		            if (array[i] == previousElement)
+		            {
+		                currentCount++;
+		                if (maxCount < currentCount)
+		                {
+		                    maxCount = currentCount;
+		                    constructElement = array[i];
+		                }
+		            }
+		            else
+		            {
+		                currentCount = 1;
+		            }
+		            
+		            previousElement = array[i];
+		        }
+		
+		        // Print the array
+		        console.log(array.join(" "));
+		
+		        // Print the max equal consecutive elements
+		        if (maxCount > 1)
+		        {
+		            var consecutiveElements = "";
+		            
+		            for (var i = 0; i < maxCount; i++)
+		            {
+		                consecutiveElements += constructElement + " ";
+		            }
+		            
+		            console.log("Max consecutive equal elements -> " + consecutiveElements);
+		        }
+		        else
+		        {
+		            console.log("No consecutive elements exist!");
+		        }
+			}
+			
+			// Fucntion test
+			var array1 = new Array(2, 1, 1, 2, 3, 3, 2, 2, 2, 1);
+			findMaxConsecutiveElements(array1);
+			
+			var array2 = new Array(1, 2, 3, 4, 4, 4, 5, 6, 7, 7, 7, 7);
+			findMaxConsecutiveElements(array2);
+			
+			var array3 = new Array(1, 1, 1, 1, 2, 3, 4, 5, 5, 5, 5, 5, 0, 0, 0, 0);
+			findMaxConsecutiveElements(array3);
+		</script>
+	</body>
+</html>
