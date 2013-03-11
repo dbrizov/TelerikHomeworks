@@ -32,46 +32,46 @@
 			function findMostFrequentElement(array)
 			{
 				var oftenCounter = 1; // counter for the most often element
-		        var maxOftenCounter = 1; // this will be the result (the max counter for the most often element)
-		        var previousElement; // Helper for the for() loop
-		        var maxOftenElementValue = 0; // the value of the max often element
-		        
-		        // Print the array
-		        console.log(array.join(" "));
-		
-		        // Sort the array
-		        selectionSort(array);
-		
-		        // Find the max often element
-		        previousElement = array[0];
-		        for (var i = 1; i < array.length; i++)
-		        {
-		            if (previousElement == array[i])
-		            {
-		                oftenCounter++;
-		                
-		                if (maxOftenCounter < oftenCounter)
-		                {
-		                    maxOftenCounter = oftenCounter;
-		                    maxOftenElementValue = array[i];
-		                }
-		            }
-		            else
-		            {
-		                oftenCounter = 1;
-		            }
-		            
-		            previousElement = array[i];
-		        }
-		
-		        if (maxOftenCounter > 1)
-		        {
-		            console.log(maxOftenElementValue + " -> " + maxOftenCounter + " times");
-		        }
-		        else
-		        {
-		            Console.WriteLine("No Such element exists!");
-		        }
+				var maxOftenCounter = 1; // this will be the result (the max counter for the most often element)
+				var previousElement; // Helper for the for() loop
+				var maxOftenElementValue = 0; // the value of the max often element
+
+				// Print the array
+				console.log(array.join(" "));
+
+				// Sort the array
+				selectionSort(array);
+
+				// Find the max often element
+				previousElement = array[0];
+				for (var i = 1; i < array.length; i++)
+				{
+					if (previousElement == array[i])
+					{
+						oftenCounter++;
+						
+						if (maxOftenCounter < oftenCounter)
+						{
+							maxOftenCounter = oftenCounter;
+							maxOftenElementValue = array[i];
+						}
+					}
+					else
+					{
+						oftenCounter = 1;
+					}
+					
+					previousElement = array[i];
+				}
+
+				if (maxOftenCounter > 1)
+				{
+					console.log(maxOftenElementValue + " -> " + maxOftenCounter + " times");
+				}
+				else
+				{
+					Console.WriteLine("No Such element exists!");
+				}
 			}
 			
 			// consider this as the main() method :D
