@@ -9,7 +9,7 @@
 		<script>
 			function findMinProperty(obj)
 			{
-				var min = "zzzzzzzzzzzzzzz";
+				var min = "zz";
 				
 				for (var property in obj)
 				{
@@ -21,10 +21,10 @@
 				
 				return min;
 			}
-			
+
 			function findMaxProperty(obj)
 			{
-				var max = "aaaaaaaaaaaaaaa";
+				var max = "aa";
 				
 				for (var property in obj)
 				{
@@ -36,7 +36,7 @@
 				
 				return max;
 			}
-			
+
 			console.log("document.minProperty = " + findMinProperty(document));
 			console.log("document.maxProperty = " + findMaxProperty(document));
 			console.log("window.minProperty = " + findMinProperty(window));
