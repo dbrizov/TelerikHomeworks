@@ -12,50 +12,50 @@
 			function findMaxConsecutiveElements(array)
 			{
 				var maxCount = 1; // The count of the max equal consecutive elements
-		        var currentCount = 1; // The current count of the max equal consecutive elements
-		        var previousElement; // Helper for the for() loop
-		        var constructElement = 0; // The element the constructs the row of consecutive elements
-		        
-		        // Find the maxCount and the constructElement
-		        previousElement = array[0];
-		        for (var i = 1; i < array.length; i++)
-		        {
-		            if (array[i] == previousElement)
-		            {
-		                currentCount++;
-		                if (maxCount < currentCount)
-		                {
-		                    maxCount = currentCount;
-		                    constructElement = array[i];
-		                }
-		            }
-		            else
-		            {
-		                currentCount = 1;
-		            }
-		            
-		            previousElement = array[i];
-		        }
-		
-		        // Print the array
-		        console.log(array.join(" "));
-		
-		        // Print the max equal consecutive elements
-		        if (maxCount > 1)
-		        {
-		            var consecutiveElements = "";
-		            
-		            for (var i = 0; i < maxCount; i++)
-		            {
-		                consecutiveElements += constructElement + " ";
-		            }
-		            
-		            console.log("Max consecutive equal elements -> " + consecutiveElements);
-		        }
-		        else
-		        {
-		            console.log("No consecutive elements exist!");
-		        }
+		        	var currentCount = 1; // The current count of the max equal consecutive elements
+			        var previousElement; // Helper for the for() loop
+			        var constructElement = 0; // The element the constructs the row of consecutive elements
+			        
+			        // Find the maxCount and the constructElement
+			        previousElement = array[0];
+			        for (var i = 1; i < array.length; i++)
+			        {
+			            if (array[i] == previousElement)
+			            {
+			                currentCount++;
+			                if (maxCount < currentCount)
+			                {
+			                    maxCount = currentCount;
+			                    constructElement = array[i];
+			                }
+			            }
+			            else
+			            {
+			                currentCount = 1;
+			            }
+			            
+			            previousElement = array[i];
+			        }
+			
+			        // Print the array
+			        console.log(array.join(" "));
+			
+			        // Print the max equal consecutive elements
+			        if (maxCount > 1)
+			        {
+			            var consecutiveElements = "";
+			            
+			            for (var i = 0; i < maxCount; i++)
+			            {
+			                consecutiveElements += constructElement + " ";
+			            }
+			            
+			            console.log("Max consecutive equal elements -> " + consecutiveElements);
+			        }
+			        else
+			        {
+			            console.log("No consecutive elements exist!");
+			        }
 			}
 			
 			// Fucntion test
