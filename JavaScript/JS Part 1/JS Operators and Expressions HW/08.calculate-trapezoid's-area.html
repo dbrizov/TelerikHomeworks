@@ -11,12 +11,12 @@
 		<script>
 			function calculateTrapezoidsArea(a, b, h)
 			{
-				return ((a * b) / 2) * h;
+				return ((a + b) / 2) * h;
 			}
 			
-			var a = prompt("a = ");
-			var b = prompt("b = ");
-			var h = prompt("h = ");
+			var a = parseInt(prompt("a = "));
+			var b = parseInt(prompt("b = "));
+			var h = parseInt(prompt("h = "));
 			
 			jsConsole.writeLine(calculateTrapezoidsArea(a, b, h));
 		</script>

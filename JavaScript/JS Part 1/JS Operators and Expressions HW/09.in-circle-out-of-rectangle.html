@@ -9,8 +9,8 @@
 		<div id="js-console"></div>				 
 		<script src="scripts/js-console.js"></script>
 		<script>
-			var x = prompt("x = ");
-			var y = prompt("y = ");
+			var x = parseFloat(prompt("x = "));
+			var y = parseFloat(prompt("y = "));
 	
 	        var outOfRectangle = (x < -1 || x > 5) || (y < -1 || y > 1);
 	        var inCircle = (x - 1) * (x - 1) + (y - 1) * (y - 1) < 9;
