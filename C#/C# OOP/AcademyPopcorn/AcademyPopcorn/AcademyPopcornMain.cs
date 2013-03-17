@@ -39,6 +39,17 @@ namespace AcademyPopcorn
 
                 engine.AddObject(indestructibleBlock);
             }
+            
+            for (int row = 0; row < WorldRows; row++)
+            {
+                Block indestructibleBlock = new IndestructibleBlock(new MatrixCoords(row, 0));
+
+                engine.AddObject(indestructibleBlock);
+
+                indestructibleBlock = new IndestructibleBlock(new MatrixCoords(row, WorldCols - 1));
+
+                engine.AddObject(indestructibleBlock);
+            }
 
             // Exercise 5 - TrailObject test
             //TrailObject trailObject = new TrailObject(new MatrixCoords(10, 15), LifeTime);
@@ -92,17 +103,6 @@ namespace AcademyPopcorn
             Racket theRacket = new ShootingRacket(new MatrixCoords(WorldRows - 1, WorldCols / 2), RacketLength);
 
             engine.AddObject(theRacket);
-
-            for (int row = 0; row < WorldRows; row++)
-            {
-                Block indestructibleBlock = new IndestructibleBlock(new MatrixCoords(row, 0));
-
-                engine.AddObject(indestructibleBlock);
-
-                indestructibleBlock = new IndestructibleBlock(new MatrixCoords(row, WorldCols - 1));
-
-                engine.AddObject(indestructibleBlock);
-            }
         }
 
         static void Main(string[] args)
