@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>05. Count a given number in an integer array</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <script>
+            // countNumberInArray
+            function countNumberInArray(keyNumber, arrayOfNumbers) {
+                var count = 0;
+
+                for (var i = 0; i < arrayOfNumbers.length; i++) {
+                    if (keyNumber == arrayOfNumbers[i]) {
+                        count++;
+                    }
+                }
+
+                return count;
+            }
+
+            var arr = new Array(1, 1, 2, 1, 2, 3, 1, 2, 3, 4);
+
+            console.log(countNumberInArray(1, arr));
+
+            // test function
+            function testFunction() {
+                var arr = new Array(1, 2, 3, 2, 2);
+
+                if (countNumberInArray(2, arr) == 3) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+
+            console.log("countNumberInArray function works fine: " + testFunction());
+        </script>
+    </body>
+</html>

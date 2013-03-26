@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>06. Check if the element at given position in given array of integers is bigger than its two neighbors (when such exist)</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <script>
+            function checkNeighbours(array, index) {
+                if (index >= 1 && index < array.length - 1) {
+                    if (array[index] > array[index - 1] && array[index] > array[index + 1]) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+                else {
+                    console.log("Incorrect Index!");
+                    return false;
+                }
+            }
+
+            var arr = new Array(1, 2, 3, 2, 4, 5, 6, 5);
+
+            var index = parseInt(prompt("array: [" + arr + "]\n" + "input index"));
+
+            console.log(arr);
+            console.log("number bigger than neightbours: " + checkNeighbours(arr, index));
+        </script>
+    </body>
+</html>

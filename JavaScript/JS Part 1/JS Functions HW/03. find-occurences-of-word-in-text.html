@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>03. find all the accurrences of a given word in a text</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <script>
+            function findWordOccurences(word, text, caseSensitive) {
+                caseSensitive = caseSensitive || false;
+
+                var count = 0;
+                var indexes = new Array();
+
+                if (!caseSensitive) {
+                    word = word.toLowerCase();
+                    text = text.toLowerCase();
+                }
+
+                var index = text.indexOf(word);
+
+                while (index >= 0) {
+                    count++;
+                    indexes.push(index);
+
+                    index = text.indexOf(word, index + 1);
+                }
+
+                console.log('The word occurs on indexes -> ' + indexes.join(','));
+                console.log('Word count = ' + count);
+            }
+
+            var text = "My Name is ***. I am 21 years old. I have a brother. His Name is ***. My mother's name is ***. My father's name is ***."
+            var word = "name";
+
+            console.log("Text: " + text);
+            console.log("Word: " + word);
+            console.log('---------------------------------------');
+
+            console.log("Case Insensitive");
+            findWordOccurences(word, text);
+            console.log('---------------------------------------');
+            console.log("Case Sensitive");
+            findWordOccurences(word, text, true);
+        </script>
+    </body>
+</html>

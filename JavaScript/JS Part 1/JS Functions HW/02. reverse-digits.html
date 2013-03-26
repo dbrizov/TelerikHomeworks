@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>02. reverse digits</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <script>
+            function getReversedNumber(number) {
+                var numberAsString = number.toString();
+                var len = numberAsString.length;
+
+                var reversedNumber = 0;
+                var multiplier = 1;
+
+                for (var i = 0; i < len; i++) {
+                    reversedNumber += parseInt(numberAsString[i]) * multiplier;
+                    multiplier *= 10;
+                }
+
+                return reversedNumber;
+            }
+
+            var number = 12345;
+            for (var i = 0; i < 10000; i += 1234) {
+                console.log((number + i).toString() + " -> " + getReversedNumber(number + i));
+            }
+        </script>
+    </body>
+</html>

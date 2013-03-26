@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>04. Count the div elements in the current page</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+
+        <script>
+            function getDivsCount() {
+                return document.getElementsByTagName("div").length;
+            }
+
+            console.log(getDivsCount());
+        </script>
+    </body>
+</html>
