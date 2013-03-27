@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>06. Groups of persons</title>
+        <meta charset="utf-8"/>
+    </head>
+
+    <body>
+        <script>
+            function groupByProperty(array, property) {
+                if (property === "age") {
+                    var ageGroup = new Array();
+                    var age;
+
+                    for (var i = 0; i < array.length; i++) {
+                        age = array[i].age;
+                        if (ageGroup[age]) {
+                            ageGroup[age].push(array[i]);
+                        }
+                        else {
+                            ageGroup[age] = new Array();
+                            ageGroup[age].push(array[i]);
+                        }
+                    }
+
+                    return ageGroup;
+                }
+
+                else if (property === "firstname") {
+                    var firstNameGroup = new Array();
+                    var firstName;
+
+                    for (var i = 0; i < array.length; i++) {
+                        firstName = array[i].firstName;
+                        if (firstNameGroup[firstName]) {
+                            firstNameGroup[firstName].push(array[i]);
+                        }
+                        else {
+                            firstNameGroup[firstName] = new Array();
+                            firstNameGroup[firstName].push(array[i]);
+                        }
+                    }
+
+                    return firstNameGroup;
+                }
+
+                else if (property === "lastname") {
+                    var lastNameGroup = new Array();
+                    var lastName;
+
+                    for (var i = 0; i < array.length; i++) {
+                        lastName = array[i].lastName;
+                        if (lastNameGroup[lastName]) {
+                            lastNameGroup[lastName].push(array[i]);
+                        }
+                        else {
+                            lastNameGroup[lastName] = new Array();
+                            lastNameGroup[lastName].push(array[i]);
+                        }
+                    }
+
+                    return lastNameGroup;
+                }
+            }
+
+            // buildPerson constructor
+            function buildPerson(firstName, lastName, age) {
+                var person = {
+                    firstName: firstName,
+                    lastName: lastName,
+                    age: age,
+
+                    toString: function () {
+                        return this.firstName + " " + this.lastName + " " + this.age;
+                    }
+                }
+
+                return person;
+            }
+
+            // printGroup function
+            function printGroup(group) {
+                for (var prop in group) {
+                    console.log(prop + ":");
+                    for (var i = 0; i < group[prop].length; i++) {
+                        console.log(group[prop][i].toString());
+                    }
+                }
+            }
+
+            // testing of the groupByProperty function
+            var p1 = buildPerson("Ivan", "Ivanov", 20);
+            var p2 = buildPerson("Ivan", "Dortulov", 20);
+            var p3 = buildPerson("Ivan", "Georgiev", 30);
+            var p4 = buildPerson("Georgi", "Ivanov", 30);
+            var p5 = buildPerson("Georgi", "Lozanov", 30);
+            var p6 = buildPerson("Georgi", "Georgiev", 40);
+            var p7 = buildPerson("Pesho", "Ivanov", 40);
+            var p8 = buildPerson("Pesho", "Dortulov", 40);
+            var p9 = buildPerson("Pesho", "Lozanov", 40);
+
+            var people = new Array(p1, p2, p3, p4, p5, p6, p7, p8, p9);
+
+            var ageGroup = groupByProperty(people, "age");
+            printGroup(ageGroup);
+
+            console.log('---------------------------------');
+
+            var firstNameGroup = groupByProperty(people, "firstname");
+            printGroup(firstNameGroup);
+
+            console.log('---------------------------------');
+
+            var lastNameGroup = groupByProperty(people, "lastname");
+            printGroup(lastNameGroup);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>03. Deep Copy</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <script>
+            // deepCopy function
+            function deepClone(obj) {
+                if (typeof obj !== 'object') {
+                    return obj;
+                }
+
+                else if (obj instanceof Array) {
+                    var resultArray = new Array();
+
+                    for (var i = 0; i < obj.length; i++) {
+                        resultArray.push(obj[i]);
+                    }
+
+                    return resultArray;
+                }
+
+                else if (obj instanceof Object) {
+                    var resultObject = new Object();
+
+                    for (var property in obj) {
+                        resultObject[property] = deepClone(obj[property]); // recursively clones the deeper properties
+                    }
+
+                    return resultObject;
+                }
+            }
+
+            // test the deepClone function
+            var number = 5;
+            var number2 = deepClone(5);
+            console.log(number2); // 5;
+
+            var person = {
+                name: {
+                    firstName: "Pesho", // a deeper property
+                    lastName: "Peshov" // a deeper property
+                },
+                age: 15
+            }
+
+            console.log(person.name.firstName + " " + person.name.lastName); // Pesho Peshov
+
+            var person2 = deepClone(person);
+            console.log(person.name.firstName + " " + person.name.lastName); // Pesho Peshov
+
+            person2.name.firstName = "Ivo";
+            person2.name.lastName = "Ivov";
+
+            console.log(person.name.firstName + " " + person.name.lastName); // Pesho Peshov
+            console.log(person2.name.firstName + " " + person2.name.lastName); // Ivo Ivov
+
+            var arr1 = new Array(1, 1, 1);
+            var arr2 = deepClone(arr1);
+
+            arr2[0] = 2;
+
+            console.log(arr1); // [1, 1, 1]
+            console.log(arr2); // [2, 1, 1]
+        </script>
+    </body>
+</html>

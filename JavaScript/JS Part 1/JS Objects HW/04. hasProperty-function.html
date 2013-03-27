@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>04. Checks if a given obj has a given property</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <script>
+            function hasProperty(obj, property) {
+                for (var prop in obj) {
+                    if (prop.toString() === property.toString()) {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            var person = {
+                firstName: "Pesho",
+                lastName: "Peshov",
+                age : 21
+            }
+
+            console.log(hasProperty(person, "firstName")); // true
+            console.log(hasProperty(person, "lastName")); // true
+            console.log(hasProperty(person, "age")); // true
+            console.log(hasProperty(person, "middleName")); // false
+        </script>
+    </body>
+</html>

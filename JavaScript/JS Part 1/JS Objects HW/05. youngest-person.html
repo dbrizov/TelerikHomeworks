@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>05. Finds the youngest person in an array of persons</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <script>
+            function buildPerson(firstName, lastName, age) {
+                var person = {
+                    firstName: firstName,
+                    lastName: lastName,
+                    age: age,
+                    fullName: firstName + " " + lastName
+                }
+
+                return person;
+            }
+
+            function findYoungestPerson(arr) {
+                var youngestPerson = buildPerson("", "", 200);
+
+                for (var i in arr) {
+                    if (arr[i].age < youngestPerson.age) {
+                        youngestPerson = arr[i];
+                    }
+                }
+
+                return youngestPerson;
+            }
+
+            // test the funtions
+            var people = [
+                buildPerson("Pesho", "Peshov", 50),
+                buildPerson("Ivo", "Ivov", 40),
+                buildPerson("Mario", "Mariov", 30),
+                buildPerson("Georgi", "Georgiev", 20), // this one is the youngest
+                buildPerson("Ivan", "Ivanov", 25)];
+
+            var youngestPerson = findYoungestPerson(people);
+
+            console.log(youngestPerson.fullName);
+        </script>
+    </body>
+</html>

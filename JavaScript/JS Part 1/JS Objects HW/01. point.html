@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>01. Point Object</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <script>
+            // makePoint function
+            function makePoint(xCoord, yCoord) {
+                var point = {
+                    x: xCoord,
+                    y: yCoord,
+
+                    toString: function () {
+                        return ("(" + this.x + ", " + this.y + ")");
+                    },
+
+                    equals: function (point) {
+                        if (this.x === point.x && this.y === point.y) {
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
+                    }
+                }
+
+                return point;
+            }
+
+            // calculates the distance between two lines
+            function calculateDistance(firstPoint, secondPoint) {
+                var dx = firstPoint.x - secondPoint.x;
+                var dy = firstPoint.y - secondPoint.y;
+
+                return Math.sqrt(dx * dx - dy * dy);
+            }
+
+            // makeLine function
+            function makeLine(firstPoint, secondPoint) {
+                var line = {
+                    firstPoint: firstPoint,
+                    secondPoint: secondPoint,
+
+                    length: calculateDistance(firstPoint, secondPoint),
+
+                    toString: function () {
+                        return (this.firstPoint.toString() + " -> " + this.secondPoint.toString());
+                    }
+                }
+
+                return line;
+            }
+
+            // isTriangle function - if the sum of the two smaller sides is bigger than the 3th side - then we have a triangle
+            function isTriangle(line1, line2, line3) {
+                function selectionSort(arr) {
+                    for (var i = 0; i < arr.length - 1; i++) {
+                        var minIndex = i;
+
+                        for (var j = i + 1; j < arr.length; j++) {
+                            if (arr[j] < arr[minIndex]) {
+                                minIndex = j;
+                            }
+                        }
+
+                        var temp = arr[i];
+                        arr[i] = arr[minIndex];
+                        arr[minIndex] = temp;
+                    }
+                }
+
+                var lines = new Array(line1.length, line2.length, line3.length);
+                selectionSort(lines);
+
+                if (lines[0] + lines[1] > lines[2]) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+
+            // test
+            var point1 = makePoint(1, 1);
+            var point2 = makePoint(1, 1);
+            var point3 = makePoint(2, 2);
+
+            console.log(point1.toString()); // (1, 1)
+            console.log(point1.equals(point2)); // true
+            console.log(point1.equals(point3)); // false
+
+            var zeroPoint = makePoint(0, 0);
+
+            var line1 = makeLine(zeroPoint, makePoint(3, 0)); // (0, 0) -> (3, 0), length = 3
+            var line2 = makeLine(zeroPoint, makePoint(4, 0)); // (0, 0) -> (4, 0), length = 4
+            var line3 = makeLine(zeroPoint, makePoint(5, 0)) // (0, 0) -> (5, 0), length = 5
+
+            console.log("isTriangle? " + isTriangle(line1, line2, line3)); // true
+
+            var line4 = makeLine(zeroPoint, makePoint(1, 0)); // length = 1
+            var line5 = makeLine(zeroPoint, makePoint(2, 0)); // length = 2;
+            var line6 = makeLine(zeroPoint, makePoint(1, 0)); // length = 1;
+
+            console.log("isTriangle? " + isTriangle(line4, line5, line6)); // false
+        </script>
+    </body>
+</html>
