@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>01. Reverse string</title>
+        <meta charset="utf-8"/>
+    </head>
+
+    <body>
+        <script>
+            function reverseString(str) {
+                var reversed = "";
+
+                for (var i = 0; i < str.length; i++) {
+                    reversed += str[str.length - 1 - i];
+                }
+
+                return reversed;
+            }
+
+            var str = "alenafanela";
+            console.log("string: " + str);
+            console.log("reversed: " + reverseString(str));
+
+            var str2 = "nice too meet you";
+            console.log("string: " + str2);
+            console.log("reversed: " + reverseString(str2));
+        </script>
+    </body>
+</html>

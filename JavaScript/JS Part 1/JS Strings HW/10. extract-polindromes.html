@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>10. Extract polindromes from text</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <script>
+            function isPolindrome(str) {
+                for (var i = 0; i < str.length / 2; i++) {
+                    if (str[i] !== str[str.length - i - 1]) {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            function extractPolindromes(text) {
+                var words = text.match(/\s*[\w]+\s*/g);
+
+                var i;
+                for (i = 0; i < words.length; i++) {
+                    words[i] = words[i].trim();
+                }
+
+                var polindromes = new Array();
+                for (i = 0; i < words.length; i++) {
+                    if (isPolindrome(words[i])) {
+                        polindromes.push(words[i]);
+                    }
+                }
+
+                return polindromes;
+            }
+
+            var text = 'this is a polindrome - ABBA. This is a polindrom too - lamal. This is a polindrome too - exe';
+            var polindromes = extractPolindromes(text);
+            console.log(polindromes);
+        </script>
+    </body>
+</html>

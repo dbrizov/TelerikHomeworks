@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>03. Count substring</title>
+        <meta charset="utf-8"/>
+    </head>
+
+    <body>
+        <script>
+            function countSubstring(text, substring) {
+                var lowerText = text.toLowerCase();
+                var count = 0;
+
+                var index = lowerText.indexOf(substring);
+
+                while (index >= 0) {
+                    count++;
+                    index = lowerText.indexOf(substring, index + 1);
+                }
+
+                return count;
+            }
+
+            var text = "We are living in an yellow submarine. We don't have anything else. Inside the submarine is very tight. So we are drinking all the day. We will move out of it in 5 days.";
+            var substring = "in";
+
+            var count = countSubstring(text, "in");
+
+            console.log(text);
+            console.log('"' + substring + '"' + ' is contained ' + count + ' times');
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>07. Parse URL</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <script>
+            function parseURL(url) {
+                var result = {};
+
+                var lastProtocolIndex = url.indexOf(":");
+                result.protocol = url.substring(0, lastProtocolIndex);
+
+                var serverIndex1 = url.indexOf("//");
+                var serverIndex2 = url.indexOf("/", serverIndex1 + 2);
+                result.server = url.substring(serverIndex1 + 2, serverIndex2);
+
+                result.resource = url.substring(serverIndex2, url.length - 1);
+
+                return result;
+            }
+
+            var url = parseURL("https://developer.mozilla.org/en-US/docs/JavaScript/Guide/Regular_Expressions");
+            console.log("url = " + "https://developer.mozilla.org/en-US/docs/JavaScript/Guide/Regular_Expressions");
+            console.log("protocol = " + url.protocol);
+            console.log("server = " + url.server);
+            console.log("resource = " + url.resource);
+        </script>
+    </body>
+</html>

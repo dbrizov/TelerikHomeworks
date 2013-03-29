@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>12. UL Template</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <script>
+            function buildPerson(name, age) {
+                var person = {
+                    name: name,
+                    age: age
+                }
+
+                return person;
+            }
+
+            function generateList(people, template) {
+                var unorderedList = "";
+                unorderedList += '<ul>';
+
+                for (var i = 0; i < people.length; i++) {
+                    unorderedList += '<li>';
+
+                    var listItemContent = template;
+                    listItemContent = listItemContent.replace('-{name}-', people[i].name.toString());
+                    listItemContent = listItemContent.replace('-{age}-', people[i].age.toString());
+
+                    unorderedList += listItemContent + '</li>';
+                }
+
+                unorderedList += '</ul>';
+
+                return unorderedList;
+            }
+
+            var template = '<strong>-{name}-</strong> <span>-{age}-</span>';
+            var people = [
+                buildPerson('Pesho', 20),
+                buildPerson('Niki', 25),
+                buildPerson('Gosho', 30),
+                buildPerson('Ivan', 35)];
+
+            var list = generateList(people, template);
+            document.write(list);
+        </script>
+    </body>
+</html>

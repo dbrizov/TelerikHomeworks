@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>04. Custom HTML tags</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <script>
+            // upcase teg
+            function executeUpperCaseTag(text) {
+                var index = text.indexOf("<upcase>");
+
+                while (index >= 0) {
+                    var insideTagText = text.substring(index + 8, text.indexOf("</upcase>", index));
+                    var insideTagTextCopy = insideTagText;
+
+                    // This handles the nested tags - only the most global one executed
+                    // Example: <upcase><lowcase></lowcase></upcase> - only the <upcase> tag will be executed
+                    insideTagText = insideTagText.replace(/<mixcase>/g, "");
+                    insideTagText = insideTagText.replace(/<\/mixcase>/g, "");
+                    insideTagText = insideTagText.replace(/<lowcase>/g, "");
+                    insideTagText = insideTagText.replace(/<\/lowcase>/g, "");
+
+                    var replacementUpperCaseText = insideTagText.toUpperCase();
+
+                    text = text.replace(insideTagTextCopy, replacementUpperCaseText);
+                    index = text.indexOf("<upcase>", index + 1);
+                }
+
+                text = text.replace(/<upcase>/g, "");
+                text = text.replace(/<\/upcase>/g, "");
+                return text;
+            }
+
+            // lowcase tag
+            function executeLowerCaseTag(text) {
+                var index = text.indexOf("<lowcase>");
+
+                while (index >= 0) {
+                    var insideTagText = text.substring(index + 9, text.indexOf("</lowcase>", index));
+                    var insideTagTexCopy = insideTagText;
+
+                    insideTagText = insideTagText.replace(/<mixcase>/g, "");
+                    insideTagText = insideTagText.replace(/<\/mixcase>/g, "");
+                    insideTagText = insideTagText.replace(/<upcase>/g, "");
+                    insideTagText = insideTagText.replace(/<\/upcase>/g, "");
+
+                    var replacementLowerCaseText = insideTagText.toLowerCase();
+
+                    text = text.replace(insideTagTexCopy, replacementLowerCaseText);
+                    index = text.indexOf("<lowcase>", index + 1);
+                }
+
+                text = text.replace(/<lowcase>/g, "");
+                text = text.replace(/<\/lowcase>/g, "");
+                return text;
+            }
+
+            // mixcase tag
+            function executeMixCaseTag(text) {
+                var index = text.indexOf("<mixcase>");
+
+                while (index >= 0) {
+                    var insideTagText = text.substring(index + 9, text.indexOf("</mixcase>", index));
+                    var insideTagTextCopy = insideTagText;
+
+                    insideTagText = insideTagText.replace(/<upcase>/g, "");
+                    insideTagText = insideTagText.replace(/<\/upcase>/g, "");
+                    insideTagText = insideTagText.replace(/<lowcase>/g, "");
+                    insideTagText = insideTagText.replace(/<\/lowcase>/g, "");
+
+                    var replacementMixCaseText = "";
+                    for (var i = 0; i < insideTagText.length; i++) {
+                        var randomNumber = Math.floor(Math.random() * 2);
+
+                        if (randomNumber % 2 === 0) {
+                            replacementMixCaseText += insideTagText[i].toUpperCase();
+                        }
+                        else {
+                            replacementMixCaseText += insideTagText[i].toLowerCase();
+                        }
+                    }
+
+                    text = text.replace(insideTagTextCopy, replacementMixCaseText);
+                    index = text.indexOf("<mixcase>", index + 1);
+                }
+
+                text = text.replace(/<mixcase>/g, "");
+                text = text.replace(/<\/mixcase>/g, "");
+                return text;
+            }
+
+            // Executes nested tags: <mixcase><upcase>haha</upcase></mixcase>
+            // First the upcase tag will be executed and then the mixcase tag
+            function executeCaseTags(text) {
+                text = executeUpperCaseTag(text);
+                text = executeLowerCaseTag(text);
+                text = executeMixCaseTag(text);
+
+                return text;
+            }
+
+            var someText1 = "<upcase><lowcase>This is <mixcase>some uppercase text</mixcase></lowcase> in nested tags</upcase>";
+            console.log(someText1);
+            someText1 = executeCaseTags(someText1);
+            console.log(someText1);
+
+            var someText2 = "<mixcase><upcase>This is <lowcase>some mixcase text</lowcase></upcase> in nested tags</mixcase>";
+            console.log(someText2);
+            someText2 = executeCaseTags(someText2);
+            console.log(someText2);
+
+            var someText3 = "<lowcase><mixcase>THIS IS <upcase>SOME LOWERCASE TeXt</upcase></mixcase> IN NESTED TAGS</lowcase>";
+            console.log(someText3);
+            someText3 = executeCaseTags(someText3);
+            console.log(someText3);
+
+            var someText4 = "We are <mixcase>living</mixcase> in a <upcase>yellow submarine</upcase>. We <mixcase>don't</mixcase> have <lowcase>anything</lowcase> else";
+            console.log(someText4);
+            someText4 = executeCaseTags(someText4);
+            console.log(someText4);
+        </script>
+    </body>
+</html>

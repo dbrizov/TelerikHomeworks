@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>09. Extract emails</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <script>
+            function extractEmails(text) {
+                var arrayOfMatches = text.match(/[\w._]+[@][\w.]+[.][a-z]+/g);
+
+                return arrayOfMatches;
+            }
+
+            var text = 'This is not an email (haha@asd). This is an email (pesho.peshov@gmail.com). This is another email (pesho_peshov@dev.mail.bg).';
+            console.log(text);
+            console.log(extractEmails(text));
+        </script>
+    </body>
+</html>

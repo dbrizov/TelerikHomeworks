@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>06. Extract content of html page</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <script>
+            var content = '<html><head><title>Sample site</title></head><body><div id="haha">text<div>more text</div>and more...</div>in body</body></html>';
+            console.log(content);
+            
+            content = content.replace(/<[\/\w ="]+>/g, "");
+            console.log(content);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>02. Check brackets</title>
+        <meta charset="utf-8"/>
+    </head>
+
+    <body>
+        <script>
+            function checkBrackets(str) {
+                var stack = new Array();
+
+                if (str[0] === ')') {
+                    console.log('Incorrect brackets!');
+                    return;
+                }
+                else {
+                    for (var i = 0; i < str.length; i++) {
+                        if (str[i] === '(') {
+                            stack.push(str[i]);
+                        }
+                        else if (str[i] === ')' && stack.length > 0) {
+                            stack.pop();
+                        }
+                        else if (str[i] === ')' && stack.length === 0) {
+                            console.log('Incorrect brackets!');
+                            return;
+                        }
+                    }
+
+                    if (stack.length === 0) {
+                        console.log("Correct brackets!");
+                    }
+                    else {
+                        console.log("Incorrect brackets!");
+                    }
+                }
+            }
+
+            var str = prompt("Input expression with brackets");
+            checkBrackets(str);
+        </script>
+    </body>
+</html>

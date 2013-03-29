@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>08. Replace &lt;a&gt; tag with [URL] tag</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <script>
+            function replaceTags(text) {
+                text = text.replace(/<a href="/g, "[URL=");
+                text = text.replace(/">/g, "]");
+                text = text.replace(/<\/a>/g, "[/URL]");
+
+                return text;
+            }
+
+            var text = '<p>Please visit <a href="http://academy.telerik.com">our site</a> to choose a training course. Also visit <a href="http://www.devbg.org">our forum</a> to discuss the courses.</p>';
+            console.log(text);
+
+            text = replaceTags(text);
+            console.log(text);
+        </script>
+    </body>
+</html>
