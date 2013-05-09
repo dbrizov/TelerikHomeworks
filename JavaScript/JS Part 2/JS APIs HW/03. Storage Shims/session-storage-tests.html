@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>session storage test</title>
+    </head>
+
+    <body>
+        <script src="session-storage.js"></script>
+        <script>
+            mySessionStorage.setItem("gosho", 21);
+            mySessionStorage.setItem("pesho", 25);
+
+            console.log("gosho -> " + mySessionStorage.getItem("gosho"));
+            console.log("pesho -> " + mySessionStorage.getItem("pesho"));
+            console.log("length -> " + mySessionStorage.length());
+
+            console.log("--REMOVE PESHO--");
+            mySessionStorage.removeItem("pesho");
+            console.log("gosho -> " + mySessionStorage.getItem("gosho"));
+            console.log("pesho -> " + mySessionStorage.getItem("pesho"));
+            console.log("length -> " + mySessionStorage.length());
+
+            console.log("--SESSION STORAGE CLEAR--");
+            mySessionStorage.clear();
+            console.log("gosho -> " + mySessionStorage.getItem("gosho"));
+            console.log("pesho -> " + mySessionStorage.getItem("pesho"));
+            console.log("length -> " + mySessionStorage.length());
+        </script>
+    </body>
+</html>

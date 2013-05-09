@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>querySelector shim</title>
+        <script src="querySelector-shim.js"></script>
+    </head>
+
+    <body>
+        <div id="wrapper"></div>
+        <div class="one"></div>
+        <p class="two"></p>
+        <p class="two"></p>
+
+        <script>
+            var wrapper = document.querySelector("#wrapper");
+            wrapper.innerHTML = "Wrapper";
+
+            var divOne = document.querySelector(".one");
+            divOne.innerHTML = "divOne";
+
+            var twos = document.querySelectorAll(".two");
+            for (var i in twos) {
+                twos[i].innerHTML = "twos";
+            }
+        </script>
+    </body>
+</html>
