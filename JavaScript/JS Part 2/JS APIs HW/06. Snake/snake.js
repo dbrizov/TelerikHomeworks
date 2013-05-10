@@ -1,3 +1,12 @@
+var storageCleanerButton = document.getElementById("storage-clear");
+storageCleanerButton/addEventListener("click", clearScore, false);
+
+function clearScore() {
+    localStorage.clear();
+    var rankList = document.getElementById("rank-list");
+    rankList.innerHTML = "Top Five";
+}
+
 (function loadTopFiveScores() {
     function Pair(key, value) {
         this.key = key;
@@ -167,6 +176,7 @@ function Food(width, height) {
     this.coords = new Coords(x, y);
 }
 
+// canvas functions
 function drawField(ctx, width, height) {
     ctx.save();
 
