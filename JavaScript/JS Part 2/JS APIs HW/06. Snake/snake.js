@@ -1,12 +1,12 @@
 function Snake(x, y, bodyLength) {
-	var that = this;
-	that.snakeBody = new Queue();
-	for (var i = 0; i < bodyLength; i++) {
-		that.snakeBody.enqueue(new Coords(x + i, y));
-	}
-
-	that.currentDirection = new Coords(1, 0);
-	that.head = that.snakeBody.getLastElem();
+    var that = this;
+    that.snakeBody = new Queue();
+    for (var i = 0; i < bodyLength; i++) {
+    	that.snakeBody.enqueue(new Coords(x + i, y));
+    }
+    
+    that.currentDirection = new Coords(1, 0);
+    that.head = that.snakeBody.getLastElem();
 }
 
 Snake.prototype = {
