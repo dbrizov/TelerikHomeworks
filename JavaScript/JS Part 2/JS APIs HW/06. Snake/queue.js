@@ -22,15 +22,15 @@ Queue.prototype = {
 	},
 
 	getFirstElem: function () {
-	    return this.arr[0];
+		return this.arr[0];
 	},
 
 	getLastElem: function () {
-	    return this.arr[this.arr.length - 1];
+		return this.arr[this.arr.length - 1];
 	},
 
 	elementAt: function (index) {
-	    return this.arr[index];
+		return this.arr[index];
 	},
 
 	length: function () {
