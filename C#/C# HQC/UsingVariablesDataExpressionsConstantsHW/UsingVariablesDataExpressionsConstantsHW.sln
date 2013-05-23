@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. RefactoredFigure", "RefactoredFigure\01. RefactoredFigure.csproj", "{1FEE0C82-12E2-4FFF-8BBC-053062D11A10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. RefactoredArrayStatistics", "RefactoredArrayStatistics\02. RefactoredArrayStatistics.csproj", "{8E0542CB-9B4C-4F36-B2FE-C5648F1BCCEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FEE0C82-12E2-4FFF-8BBC-053062D11A10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FEE0C82-12E2-4FFF-8BBC-053062D11A10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FEE0C82-12E2-4FFF-8BBC-053062D11A10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FEE0C82-12E2-4FFF-8BBC-053062D11A10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E0542CB-9B4C-4F36-B2FE-C5648F1BCCEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E0542CB-9B4C-4F36-B2FE-C5648F1BCCEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E0542CB-9B4C-4F36-B2FE-C5648F1BCCEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E0542CB-9B4C-4F36-B2FE-C5648F1BCCEA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

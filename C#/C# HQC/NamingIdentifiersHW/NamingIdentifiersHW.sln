@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-02. CSharpRefactoring", "CSharpRefactoring\01-02. CSharpRefactoring.csproj", "{3931EDC0-393C-4BB1-835E-92161551C92E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Mines", "Mines\04. Mines.csproj", "{904BB964-8EC4-429D-9BAB-06DF83D70680}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. JSRefactoring", "JSRefactoring\03. JSRefactoring.csproj", "{8D4509D9-5851-4674-BE94-C73BF40BC09D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3931EDC0-393C-4BB1-835E-92161551C92E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3931EDC0-393C-4BB1-835E-92161551C92E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3931EDC0-393C-4BB1-835E-92161551C92E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3931EDC0-393C-4BB1-835E-92161551C92E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{904BB964-8EC4-429D-9BAB-06DF83D70680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{904BB964-8EC4-429D-9BAB-06DF83D70680}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{904BB964-8EC4-429D-9BAB-06DF83D70680}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{904BB964-8EC4-429D-9BAB-06DF83D70680}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D4509D9-5851-4674-BE94-C73BF40BC09D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D4509D9-5851-4674-BE94-C73BF40BC09D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D4509D9-5851-4674-BE94-C73BF40BC09D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D4509D9-5851-4674-BE94-C73BF40BC09D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
