@@ -1,5 +1,5 @@
 var storageCleanerButton = document.getElementById("storage-clear");
-storageCleanerButton/addEventListener("click", clearScore, false);
+storageCleanerButton.addEventListener("click", clearScore, false);
 
 function clearScore() {
     localStorage.clear();
