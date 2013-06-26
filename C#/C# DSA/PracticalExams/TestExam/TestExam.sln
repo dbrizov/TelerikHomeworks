@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Events", "Events\01. Events.csproj", "{09A94992-349E-4C38-A767-3893B5F3ADDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. ValidateHTML", "ValidateHTML\02. ValidateHTML.csproj", "{B8E4826A-CC8F-42A3-AE4C-3A01C682C1BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09A94992-349E-4C38-A767-3893B5F3ADDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09A94992-349E-4C38-A767-3893B5F3ADDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09A94992-349E-4C38-A767-3893B5F3ADDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09A94992-349E-4C38-A767-3893B5F3ADDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8E4826A-CC8F-42A3-AE4C-3A01C682C1BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8E4826A-CC8F-42A3-AE4C-3A01C682C1BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8E4826A-CC8F-42A3-AE4C-3A01C682C1BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8E4826A-CC8F-42A3-AE4C-3A01C682C1BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
