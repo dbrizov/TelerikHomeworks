@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>School Classical OOP</title>
+    </head>
+    <body>
+        <script src="school-repository.js"></script>
+        <script>
+            // Demo
+            var student1 = schoolRepository.createStudent("Pesho", "Peshov", 14, 8);
+            console.log(student1.introduce());
+
+            var student2 = schoolRepository.createStudent("Gosho", "Goshov", 15, 8);
+            console.log(student2.introduce());
+
+            var teacher = schoolRepository.createTeacher("Mariika", "Dimitrova", 35, "Math");
+            console.log(teacher.introduce());
+
+            var schoolClass = schoolRepository.createClass(
+               '8A', 30, [student1, student2], teacher);
+            console.log(schoolClass);
+
+            var school = schoolRepository.createSchool(
+                'SGSAG "Hristo Botev"', 'Sofia', [schoolClass]);
+            console.log(school);
+        </script>
+    </body>
+</html>

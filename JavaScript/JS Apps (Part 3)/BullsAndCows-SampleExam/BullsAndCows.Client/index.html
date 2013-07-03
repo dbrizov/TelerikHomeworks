@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Bulls and Cows Client</title>
+        <link href="styles/styles.css" rel="stylesheet" />
+        <script src="scripts/class.js"></script>
+        <script src="scripts/crypto-sha1.js"></script>
+        <script src="scripts/jquery-1.10.1.js"></script>
+        <script src="scripts/http-requester.js"></script>
+        <script src="scripts/data-persister.js"></script>
+        <script src="scripts/user-interface.js"></script>
+        <script src="scripts/controller.js"></script>
+    </head>
+
+    <body>
+        <div id="wrapper"></div>
+        <script>
+            var persister = dataPersister.getPersister("http://localhost:40643/api/");
+            var controller = new Controller(persister);
+            controller.loadUI("#wrapper");
+            controller.attachUIEventHandlers("#wrapper");
+        </script>
+    </body>
+</html>

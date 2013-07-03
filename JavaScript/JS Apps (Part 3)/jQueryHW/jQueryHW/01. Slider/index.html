@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>01. Slider</title>
+        <script type="text/javascript" src="../libs/jquery-1.10.1.js"></script>
+    </head>
+
+    <body>
+        <div id="slider-container"></div>
+        <p>If you place your mouse over the slider it wont change automatically</p>
+        <script type="text/javascript" src="slider.js"></script>
+        <script>
+            var slider = new Slider(700, 300, "#slider-container");
+            slider.addSlide('SomeTextSomeTextSomeTextSomeTextSomeTextSomeTextSomeTextSomeTextSomeTextSomeTextSomeTextSomeTextSomeTextSomeTextSomeTextSomeTextSomeTextSomeTextSomeTextSomeTextSomeTextSomeText');
+            slider.addSlide('<img width="200" height="200"src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/211034_247838771909081_1340289379_q.jpg" />');
+            slider.addSlide('<ul><li>Item1</li><li>Item2</li><li>Item3</li></ul>');
+            slider.addSlide('<iframe width="695px" height="295px" src="http://api.jquery.com/"></iframe>');
+            slider.addSlide('<a href="http://telerikacademy.com/">Telerik Academy</a>')
+        </script>
+    </body>
+</html>

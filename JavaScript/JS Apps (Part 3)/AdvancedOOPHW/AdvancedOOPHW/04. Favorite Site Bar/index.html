@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Favorite Site Bar</title>
+        <style>
+            #favorite-site-bar {
+                width: 200px;
+                border: 1px solid black;
+                padding: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <aside id="favorite-site-bar">Favorite Site Bar</aside>
+        <script src="class-create.js"></script>
+        <script src="favorite-site-bar.js"></script>
+        <script>
+            // Demo
+            var mail1 = new Url("abv.bg", "http://abv.bg");
+            var mail2 = new Url("mail.google.com", "https://mail.google.com/");
+            var mail3 = new Url("yahoo", "https://login.yahoo.com/config/login_verify2?.intl=us&.src=ym");
+            var mailUrls = [mail1, mail2, mail3];
+            var mailFolder = new Folder("Mail sites", mailUrls);
+
+            var tracker1 = new Url("Zamunda.NET", "http://www.zamunda.net/");
+            var tracker2 = new Url("ArenaBG.com", "http://arenabg.com/");
+            var trackerUrls = [tracker1, tracker2];
+            var trackerFolder = new Folder("Trackers", trackerUrls);
+
+            var someOtherUrls = [
+                new Url("Google", "https://www.google.bg/"),
+                new Url("Telerik Academy", "http://telerikacademy.com/")
+            ];
+
+            var favoriteSiteBar = new FavoriteSiteBar(
+                [mailFolder, trackerFolder], someOtherUrls);
+            favoriteSiteBar.display("#favorite-site-bar");
+        </script>
+    </body>
+</html>

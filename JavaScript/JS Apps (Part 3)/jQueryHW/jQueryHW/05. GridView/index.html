@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>05. Grid View</title>
+        <link href="styles.css" rel="stylesheet" />
+        <script src="../libs/jquery-1.10.1.js"></script>
+    </head>
+
+    <body>
+        <div id="global-grid"></div>
+        <div id="nested-grid1"></div>
+        <div id="nested-grid2"></div>
+        <script src="grid-view.js"></script>
+        <script>
+            var globalGrid = gridControls.createGridView("#global-grid");
+            globalGrid.addHeader("First name", "Last name", "Grade");
+            globalGrid.addHeader("First name", "Last name", "Grade"); // The header is added second time
+            globalGrid.addRow("Pesho", "Peshov", 3);
+            globalGrid.addRow("Gosho", "Goshov", 4);
+            globalGrid.addRow("Ivan", "Ivanov", 5);
+            globalGrid.addRow("Georgi", "Georgiev", 6);
+            globalGrid.render();
+
+            // Add a nested grid in the first row
+            var nestedGrid1 = new gridControls.createGridView("#nested-grid1");
+            nestedGrid1.addHeader("First name", "Last name", "Grade");
+            nestedGrid1.addRow("Pesho", "Peshov", 3);
+            nestedGrid1.addRow("Gosho", "Goshov", 4);
+
+            globalGrid.rows[0].addNestedGridView(nestedGrid1);
+
+            // Add nested grid in the third row
+            var nestedGrid2 = new gridControls.createGridView("#nested-grid2");
+            nestedGrid2.addHeader("First name", "Last name", "Grade");
+            nestedGrid2.addRow("Pesho", "Peshov", 3);
+            nestedGrid2.addRow("Gosho", "Goshov", 4);
+
+            globalGrid.rows[2].addNestedGridView(nestedGrid2);
+        </script>
+    </body>
+</html>

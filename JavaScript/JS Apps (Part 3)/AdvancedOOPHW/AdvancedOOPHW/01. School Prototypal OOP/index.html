@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>School Prototypal OOP</title>
+    </head>
+
+    <body>
+        <script src="object-shim.js"></script>
+        <script src="school-repository.js"></script>
+        <script>
+            // Demo
+            var student1 = Object.create(schoolRepository.Student);
+            student1.init("Pesho", "Peshov", 14, 8);
+            console.log(student1.introduce());
+
+            var student2 = Object.create(schoolRepository.Student);
+            student2.init("Gosho", "Goshov", 15, 8);
+            console.log(student2.introduce());
+
+            var teacher = Object.create(schoolRepository.Teacher);
+            teacher.init("Mariika", "Dimitrova", 35, "Math");
+            console.log(teacher.introduce());
+
+            var schoolClass = Object.create(schoolRepository.Class);
+            schoolClass.init("8A", 30, [student1, student2], teacher);
+            console.log(schoolClass);
+
+            var school = Object.create(schoolRepository.School);
+            school.init('SGSAG "Hristo Botev"', 'Sofia', [schoolClass]);
+            console.log(school);
+        </script>
+    </body>
+</html>

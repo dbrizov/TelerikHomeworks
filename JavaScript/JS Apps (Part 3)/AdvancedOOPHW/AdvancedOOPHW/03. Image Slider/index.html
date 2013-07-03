@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Image Slider - Prototypal OOP</title>
+    </head>
+
+    <body>
+        <div id="container"></div>
+        <div id="container2"></div>
+        <script src="object-shim.js"></script>
+        <script src="image-slider.js"></script>
+        <script>
+            // Demo
+            var imageSlider = Object.create(ImageSlider);
+            imageSlider.addImage("fish", "images/fish.jpg");
+            imageSlider.addImage("fox", "images/fox.jpg");
+            imageSlider.addImage("frog", "images/frog.jpg");
+            imageSlider.addImage("horse", "images/horse.jpg");
+            imageSlider.addImage("jaguar", "images/jaguar.jpg");
+            imageSlider.addImage("puppy", "images/puppy.jpg");
+            imageSlider.addImage("seabird", "images/seabird.jpg");
+            imageSlider.addImage("snake", "images/snake.jpg");
+            imageSlider.addImage("tiger", "images/tiger.jpg");
+            imageSlider.addImage("tiger2", "images/tiger2.jpg");
+            imageSlider.addImage("wolf", "images/wolf.jpg");
+            imageSlider.appendTo("#container");
+        </script>
+    </body>
+</html>
