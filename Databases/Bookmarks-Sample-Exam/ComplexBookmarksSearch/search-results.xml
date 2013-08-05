@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<search-results>
+	<result-set>
+		<bookmark>
+			<username>peter</username>
+			<title>Intro C# Book</title>
+			<url>http://www.introprogramming.info/intro-csharp-book/</url>
+			<tags>algorithms, book, c#, data-structures, intro, nakov, programming</tags>
+			<notes>Fundamental book of programming. A must read!</notes>
+		</bookmark>
+		<bookmark>
+			<username>peter</username>
+			<title>Nakov's books</title>
+			<url>http://www.nakov.com/books/</url>
+			<tags>book, books, nakov, nakov's, programming</tags>
+		</bookmark>
+	</result-set>
+	<result-set>
+		<bookmark>
+			<username>peter</username>
+			<title>Intro C# Book</title>
+			<url>http://www.introprogramming.info/intro-csharp-book/</url>
+			<tags>algorithms, book, c#, data-structures, intro, nakov, programming</tags>
+			<notes>Fundamental book of programming. A must read!</notes>
+		</bookmark>
+	</result-set>
+	<result-set />
+	<result-set>
+		<bookmark>
+			<username>maria</username>
+			<title>SQL for Dummies</title>
+			<url> http://www.amazon.com/SQL-For-Dummies-Allen-Taylor/dp/0470557419</url>
+			<tags>dummies, dummy, for, sql</tags>
+		</bookmark>
+	</result-set>
+	<result-set>
+		<bookmark>
+			<username>maria</username>
+			<title>SQL for Dummies</title>
+			<url> http://www.amazon.com/SQL-For-Dummies-Allen-Taylor/dp/0470557419</url>
+			<tags>dummies, dummy, for, sql</tags>
+		</bookmark>
+		<bookmark>
+			<username>maria</username>
+			<title>Telerik Academy</title>
+			<url>http://academy.telerik.com</url>
+			<tags>academy, telerik</tags>
+		</bookmark>
+		<bookmark>
+			<username>peter</username>
+			<title>Telerik Academy Forums</title>
+			<url>http://forums.academy.telerik.com</url>
+			<tags>academy, forums, telerik</tags>
+			<notes>The official forum of Telerik Academy: ask your questions and you will be answered soon.</notes>
+		</bookmark>
+	</result-set>
+</search-results>

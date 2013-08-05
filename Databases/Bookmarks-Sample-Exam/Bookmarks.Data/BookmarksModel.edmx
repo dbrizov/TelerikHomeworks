@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BookmarksDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="BookmarksDBModelStoreContainer">
+          <EntitySet Name="Bookmarks" EntityType="BookmarksDBModel.Store.Bookmarks" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Bookmarks_Tags" EntityType="BookmarksDBModel.Store.Bookmarks_Tags" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tags" EntityType="BookmarksDBModel.Store.Tags" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="BookmarksDBModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Bookmarks_Tags_Bookmarks" Association="BookmarksDBModel.Store.FK_Bookmarks_Tags_Bookmarks">
+            <End Role="Bookmarks" EntitySet="Bookmarks" />
+            <End Role="Bookmarks_Tags" EntitySet="Bookmarks_Tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bookmarks_Tags_Tags" Association="BookmarksDBModel.Store.FK_Bookmarks_Tags_Tags">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="Bookmarks_Tags" EntitySet="Bookmarks_Tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bookmarks_Users" Association="BookmarksDBModel.Store.FK_Bookmarks_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Bookmarks" EntitySet="Bookmarks" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Bookmarks">
+          <Key>
+            <PropertyRef Name="BookmarkID" />
+          </Key>
+          <Property Name="BookmarkID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="URL" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Notes" Type="ntext" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bookmarks_Tags">
+          <Key>
+            <PropertyRef Name="BookmarkID" />
+            <PropertyRef Name="TagID" />
+          </Key>
+          <Property Name="BookmarkID" Type="int" Nullable="false" />
+          <Property Name="TagID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="TagID" />
+          </Key>
+          <Property Name="TagID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="nvarchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="PasswordHash" Type="nvarchar" MaxLength="30" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Bookmarks_Tags_Bookmarks">
+          <End Role="Bookmarks" Type="BookmarksDBModel.Store.Bookmarks" Multiplicity="1" />
+          <End Role="Bookmarks_Tags" Type="BookmarksDBModel.Store.Bookmarks_Tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bookmarks">
+              <PropertyRef Name="BookmarkID" />
+            </Principal>
+            <Dependent Role="Bookmarks_Tags">
+              <PropertyRef Name="BookmarkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bookmarks_Tags_Tags">
+          <End Role="Tags" Type="BookmarksDBModel.Store.Tags" Multiplicity="1" />
+          <End Role="Bookmarks_Tags" Type="BookmarksDBModel.Store.Bookmarks_Tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="TagID" />
+            </Principal>
+            <Dependent Role="Bookmarks_Tags">
+              <PropertyRef Name="TagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bookmarks_Users">
+          <End Role="Users" Type="BookmarksDBModel.Store.Users" Multiplicity="1" />
+          <End Role="Bookmarks" Type="BookmarksDBModel.Store.Bookmarks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Bookmarks">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BookmarksDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BookmarksEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Bookmarks" EntityType="BookmarksDBModel.Bookmark" />
+          <EntitySet Name="Tags" EntityType="BookmarksDBModel.Tag" />
+          <EntitySet Name="Users" EntityType="BookmarksDBModel.User" />
+          <AssociationSet Name="FK_Bookmarks_Users" Association="BookmarksDBModel.FK_Bookmarks_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Bookmarks" EntitySet="Bookmarks" />
+          </AssociationSet>
+          <AssociationSet Name="Bookmarks_Tags" Association="BookmarksDBModel.Bookmarks_Tags">
+            <End Role="Bookmarks" EntitySet="Bookmarks" />
+            <End Role="Tags" EntitySet="Tags" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Bookmark">
+          <Key>
+            <PropertyRef Name="BookmarkID" />
+          </Key>
+          <Property Name="BookmarkID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="URL" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="BookmarksDBModel.FK_Bookmarks_Users" FromRole="Bookmarks" ToRole="Users" />
+          <NavigationProperty Name="Tags" Relationship="BookmarksDBModel.Bookmarks_Tags" FromRole="Bookmarks" ToRole="Tags" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="TagID" />
+          </Key>
+          <Property Name="TagID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Bookmarks" Relationship="BookmarksDBModel.Bookmarks_Tags" FromRole="Tags" ToRole="Bookmarks" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Bookmarks" Relationship="BookmarksDBModel.FK_Bookmarks_Users" FromRole="Users" ToRole="Bookmarks" />
+        </EntityType>
+        <Association Name="FK_Bookmarks_Users">
+          <End Role="Users" Type="BookmarksDBModel.User" Multiplicity="1" />
+          <End Role="Bookmarks" Type="BookmarksDBModel.Bookmark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Bookmarks">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Bookmarks_Tags">
+          <End Role="Bookmarks" Type="BookmarksDBModel.Bookmark" Multiplicity="*" />
+          <End Role="Tags" Type="BookmarksDBModel.Tag" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BookmarksDBModelStoreContainer" CdmEntityContainer="BookmarksEntities">
+          <EntitySetMapping Name="Bookmarks">
+            <EntityTypeMapping TypeName="BookmarksDBModel.Bookmark">
+              <MappingFragment StoreEntitySet="Bookmarks">
+                <ScalarProperty Name="BookmarkID" ColumnName="BookmarkID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="BookmarksDBModel.Tag">
+              <MappingFragment StoreEntitySet="Tags">
+                <ScalarProperty Name="TagID" ColumnName="TagID" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="BookmarksDBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Bookmarks_Tags" TypeName="BookmarksDBModel.Bookmarks_Tags" StoreEntitySet="Bookmarks_Tags">
+            <EndProperty Name="Bookmarks">
+              <ScalarProperty Name="BookmarkID" ColumnName="BookmarkID" />
+            </EndProperty>
+            <EndProperty Name="Tags">
+              <ScalarProperty Name="TagID" ColumnName="TagID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

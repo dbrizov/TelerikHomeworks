@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AtmModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="AtmModelStoreContainer">
+          <EntitySet Name="CardAccounts" EntityType="AtmModel.Store.CardAccounts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TransactionsHistory" EntityType="AtmModel.Store.TransactionsHistory" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_TransactionsHistory_CardAccounts" Association="AtmModel.Store.FK_TransactionsHistory_CardAccounts">
+            <End Role="CardAccounts" EntitySet="CardAccounts" />
+            <End Role="TransactionsHistory" EntitySet="TransactionsHistory" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CardAccounts">
+          <Key>
+            <PropertyRef Name="CardAccountId" />
+          </Key>
+          <Property Name="CardAccountId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CardNumber" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="CardPIN" Type="nchar" Nullable="false" MaxLength="4" />
+          <Property Name="CardCash" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TransactionsHistory">
+          <Key>
+            <PropertyRef Name="TransactionId" />
+          </Key>
+          <Property Name="TransactionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OldCash" Type="money" Nullable="false" />
+          <Property Name="NewCash" Type="money" Nullable="false" />
+          <Property Name="CardAccountId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TransactionsHistory_CardAccounts">
+          <End Role="CardAccounts" Type="AtmModel.Store.CardAccounts" Multiplicity="1" />
+          <End Role="TransactionsHistory" Type="AtmModel.Store.TransactionsHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CardAccounts">
+              <PropertyRef Name="CardAccountId" />
+            </Principal>
+            <Dependent Role="TransactionsHistory">
+              <PropertyRef Name="CardAccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AtmModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AtmContext" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="CardAccounts" EntityType="AtmModel.CardAccount" />
+          <EntitySet Name="TransactionsHistories" EntityType="AtmModel.TransactionsHistory" />
+          <AssociationSet Name="FK_TransactionsHistory_CardAccounts" Association="AtmModel.FK_TransactionsHistory_CardAccounts">
+            <End Role="CardAccount" EntitySet="CardAccounts" />
+            <End Role="TransactionsHistory" EntitySet="TransactionsHistories" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CardAccount">
+          <Key>
+            <PropertyRef Name="CardAccountId" />
+          </Key>
+          <Property Name="CardAccountId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CardNumber" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="CardPIN" Type="String" Nullable="false" MaxLength="4" Unicode="true" FixedLength="true" />
+          <Property Name="CardCash" Type="Decimal" Nullable="false" Precision="19" Scale="4" ConcurrencyMode="Fixed" />
+          <NavigationProperty Name="TransactionsHistories" Relationship="AtmModel.FK_TransactionsHistory_CardAccounts" FromRole="CardAccount" ToRole="TransactionsHistory" />
+        </EntityType>
+        <EntityType Name="TransactionsHistory">
+          <Key>
+            <PropertyRef Name="TransactionId" />
+          </Key>
+          <Property Type="Int32" Name="TransactionId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Decimal" Name="OldCash" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="NewCash" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Int32" Name="CardAccountId" Nullable="false" />
+          <NavigationProperty Name="CardAccount" Relationship="AtmModel.FK_TransactionsHistory_CardAccounts" FromRole="TransactionsHistory" ToRole="CardAccount" />
+        </EntityType>
+        <Association Name="FK_TransactionsHistory_CardAccounts">
+          <End Type="AtmModel.CardAccount" Role="CardAccount" Multiplicity="1" />
+          <End Type="AtmModel.TransactionsHistory" Role="TransactionsHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CardAccount">
+              <PropertyRef Name="CardAccountId" />
+            </Principal>
+            <Dependent Role="TransactionsHistory">
+              <PropertyRef Name="CardAccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AtmModelStoreContainer" CdmEntityContainer="AtmContext">
+          <EntitySetMapping Name="CardAccounts">
+            <EntityTypeMapping TypeName="AtmModel.CardAccount">
+              <MappingFragment StoreEntitySet="CardAccounts">
+                <ScalarProperty Name="CardAccountId" ColumnName="CardAccountId" />
+                <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+                <ScalarProperty Name="CardPIN" ColumnName="CardPIN" />
+                <ScalarProperty Name="CardCash" ColumnName="CardCash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionsHistories">
+            <EntityTypeMapping TypeName="AtmModel.TransactionsHistory">
+              <MappingFragment StoreEntitySet="TransactionsHistory">
+                <ScalarProperty Name="CardAccountId" ColumnName="CardAccountId" />
+                <ScalarProperty Name="NewCash" ColumnName="NewCash" />
+                <ScalarProperty Name="OldCash" ColumnName="OldCash" />
+                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

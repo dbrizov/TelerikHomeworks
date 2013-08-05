@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" ?>
+<queries>
+  <query max-results="3">
+    <username>peter</username>
+    <tag>programming</tag>
+    <tag>book</tag>
+  </query>
+  <query max-results="1">
+    <tag>programming</tag>
+    <tag>nakov</tag>
+  </query>
+  <query max-results="100">
+    <tag>mente</tag>
+    <username>kaspichan</username>
+  </query>
+  <query max-results="1">
+    <username>maria</username>
+  </query>
+  <query max-results="3" />
+</queries>

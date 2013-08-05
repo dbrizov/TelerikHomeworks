@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DictionaryMongoDb", "DictionaryMongoDb\DictionaryMongoDb.csproj", "{137C5DDB-84BE-4A6D-8A15-5F531F4853AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DictionaryRedis", "DictionaryRedis\DictionaryRedis.csproj", "{DEA1452C-3405-42CE-B773-6333341FB406}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{137C5DDB-84BE-4A6D-8A15-5F531F4853AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{137C5DDB-84BE-4A6D-8A15-5F531F4853AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{137C5DDB-84BE-4A6D-8A15-5F531F4853AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{137C5DDB-84BE-4A6D-8A15-5F531F4853AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEA1452C-3405-42CE-B773-6333341FB406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEA1452C-3405-42CE-B773-6333341FB406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEA1452C-3405-42CE-B773-6333341FB406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEA1452C-3405-42CE-B773-6333341FB406}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
