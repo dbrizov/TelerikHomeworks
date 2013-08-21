@@ -1,0 +1,3 @@
+﻿<%@ ServiceHost Language="C#" Debug="true"
+    Service="WcfDateService.ServiceDateDisplayer"
+    CodeBehind="ServiceDateDisplayer.svc.cs" %>

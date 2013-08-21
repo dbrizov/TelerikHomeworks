@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MusicStoreDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="MusicStoreDbModelStoreContainer">
+          <EntitySet Name="Albums" EntityType="MusicStoreDbModel.Store.Albums" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Artists" EntityType="MusicStoreDbModel.Store.Artists" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Artists_Albums" EntityType="MusicStoreDbModel.Store.Artists_Albums" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Songs" EntityType="MusicStoreDbModel.Store.Songs" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Artists_Albums_Albums" Association="MusicStoreDbModel.Store.FK_Artists_Albums_Albums">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="Artists_Albums" EntitySet="Artists_Albums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Artists_Albums_Artists" Association="MusicStoreDbModel.Store.FK_Artists_Albums_Artists">
+            <End Role="Artists" EntitySet="Artists" />
+            <End Role="Artists_Albums" EntitySet="Artists_Albums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Songs_Albums" Association="MusicStoreDbModel.Store.FK_Songs_Albums">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="Songs" EntitySet="Songs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Songs_Artists" Association="MusicStoreDbModel.Store.FK_Songs_Artists">
+            <End Role="Artists" EntitySet="Artists" />
+            <End Role="Songs" EntitySet="Songs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Albums">
+          <Key>
+            <PropertyRef Name="AlbumId" />
+          </Key>
+          <Property Name="AlbumId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="Producer" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Artists">
+          <Key>
+            <PropertyRef Name="ArtistsId" />
+          </Key>
+          <Property Name="ArtistsId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DateOfBirth" Type="datetime" Nullable="false" />
+          <Property Name="AlbumId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Artists_Albums">
+          <Key>
+            <PropertyRef Name="ArtistId" />
+            <PropertyRef Name="AlbumId" />
+          </Key>
+          <Property Name="ArtistId" Type="int" Nullable="false" />
+          <Property Name="AlbumId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Songs">
+          <Key>
+            <PropertyRef Name="SongId" />
+          </Key>
+          <Property Name="SongId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="Genre" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ArtistId" Type="int" Nullable="false" />
+          <Property Name="AlbumId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Artists_Albums_Albums">
+          <End Role="Albums" Type="MusicStoreDbModel.Store.Albums" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Artists_Albums" Type="MusicStoreDbModel.Store.Artists_Albums" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="AlbumId" />
+            </Principal>
+            <Dependent Role="Artists_Albums">
+              <PropertyRef Name="AlbumId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Artists_Albums_Artists">
+          <End Role="Artists" Type="MusicStoreDbModel.Store.Artists" Multiplicity="1" />
+          <End Role="Artists_Albums" Type="MusicStoreDbModel.Store.Artists_Albums" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artists">
+              <PropertyRef Name="ArtistsId" />
+            </Principal>
+            <Dependent Role="Artists_Albums">
+              <PropertyRef Name="ArtistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Songs_Albums">
+          <End Role="Albums" Type="MusicStoreDbModel.Store.Albums" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Songs" Type="MusicStoreDbModel.Store.Songs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="AlbumId" />
+            </Principal>
+            <Dependent Role="Songs">
+              <PropertyRef Name="AlbumId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Songs_Artists">
+          <End Role="Artists" Type="MusicStoreDbModel.Store.Artists" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Songs" Type="MusicStoreDbModel.Store.Songs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artists">
+              <PropertyRef Name="ArtistsId" />
+            </Principal>
+            <Dependent Role="Songs">
+              <PropertyRef Name="ArtistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MusicStoreDbModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MusicStoreDbEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Albums" EntityType="MusicStoreDbModel.Album" />
+          <EntitySet Name="Artists" EntityType="MusicStoreDbModel.Artist" />
+          <EntitySet Name="Songs" EntityType="MusicStoreDbModel.Song" />
+          <AssociationSet Name="FK_Songs_Albums" Association="MusicStoreDbModel.FK_Songs_Albums">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="Songs" EntitySet="Songs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Songs_Artists" Association="MusicStoreDbModel.FK_Songs_Artists">
+            <End Role="Artists" EntitySet="Artists" />
+            <End Role="Songs" EntitySet="Songs" />
+          </AssociationSet>
+          <AssociationSet Name="Artists_Albums" Association="MusicStoreDbModel.Artists_Albums">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="Artists" EntitySet="Artists" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Album">
+          <Key>
+            <PropertyRef Name="AlbumId" />
+          </Key>
+          <Property Name="AlbumId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Producer" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Songs" Relationship="MusicStoreDbModel.FK_Songs_Albums" FromRole="Albums" ToRole="Songs" />
+          <NavigationProperty Name="Artists" Relationship="MusicStoreDbModel.Artists_Albums" FromRole="Albums" ToRole="Artists" />
+        </EntityType>
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="ArtistsId" />
+          </Key>
+          <Property Name="ArtistsId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AlbumId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Songs" Relationship="MusicStoreDbModel.FK_Songs_Artists" FromRole="Artists" ToRole="Songs" />
+          <NavigationProperty Name="Albums" Relationship="MusicStoreDbModel.Artists_Albums" FromRole="Artists" ToRole="Albums" />
+        </EntityType>
+        <EntityType Name="Song">
+          <Key>
+            <PropertyRef Name="SongId" />
+          </Key>
+          <Property Name="SongId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Genre" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ArtistId" Type="Int32" Nullable="false" />
+          <Property Name="AlbumId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Album" Relationship="MusicStoreDbModel.FK_Songs_Albums" FromRole="Songs" ToRole="Albums" />
+          <NavigationProperty Name="Artist" Relationship="MusicStoreDbModel.FK_Songs_Artists" FromRole="Songs" ToRole="Artists" />
+        </EntityType>
+        <Association Name="FK_Songs_Albums">
+          <End Role="Albums" Type="MusicStoreDbModel.Album" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Songs" Type="MusicStoreDbModel.Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="AlbumId" />
+            </Principal>
+            <Dependent Role="Songs">
+              <PropertyRef Name="AlbumId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Songs_Artists">
+          <End Role="Artists" Type="MusicStoreDbModel.Artist" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Songs" Type="MusicStoreDbModel.Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artists">
+              <PropertyRef Name="ArtistsId" />
+            </Principal>
+            <Dependent Role="Songs">
+              <PropertyRef Name="ArtistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Artists_Albums">
+          <End Role="Albums" Type="MusicStoreDbModel.Album" Multiplicity="*" />
+          <End Role="Artists" Type="MusicStoreDbModel.Artist" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MusicStoreDbModelStoreContainer" CdmEntityContainer="MusicStoreDbEntities">
+          <EntitySetMapping Name="Albums">
+            <EntityTypeMapping TypeName="MusicStoreDbModel.Album">
+              <MappingFragment StoreEntitySet="Albums">
+                <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Producer" ColumnName="Producer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Artists">
+            <EntityTypeMapping TypeName="MusicStoreDbModel.Artist">
+              <MappingFragment StoreEntitySet="Artists">
+                <ScalarProperty Name="ArtistsId" ColumnName="ArtistsId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Songs">
+            <EntityTypeMapping TypeName="MusicStoreDbModel.Song">
+              <MappingFragment StoreEntitySet="Songs">
+                <ScalarProperty Name="SongId" ColumnName="SongId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Genre" ColumnName="Genre" />
+                <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+                <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Artists_Albums" TypeName="MusicStoreDbModel.Artists_Albums" StoreEntitySet="Artists_Albums">
+            <EndProperty Name="Albums">
+              <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+            </EndProperty>
+            <EndProperty Name="Artists">
+              <ScalarProperty Name="ArtistsId" ColumnName="ArtistId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
