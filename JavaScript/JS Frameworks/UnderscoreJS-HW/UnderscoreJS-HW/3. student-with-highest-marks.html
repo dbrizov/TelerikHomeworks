@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Student with highest marks</title>
+    <script src="scripts/Student.js"></script>
+    <script src="scripts/Underscore.js"></script>
+</head>
+<body>
+    <script>
+        var doncho = new Student('Doncho', 'Minkov');
+        doncho.marks = [4, 4, 4, 4, 4];
+
+        var nakov = new Student('Svetlin', 'Nakov');
+        nakov.marks = [5, 5, 5, 5, 4];
+
+        var niki = new Student('Niki', 'Kostov');
+        niki.marks = [6, 6, 6, 6, 6];
+
+        var students = [doncho, nakov, niki];
+
+        var sortedStudents = _.sortBy(students, function (student) {
+            return student.averageMarks();
+        });
+
+        var studentWithHighestMarks = sortedStudents[sortedStudents.length - 1];
+        console.log(studentWithHighestMarks.getFullName() + ": " + studentWithHighestMarks.averageMarks());
+    </script>
+</body>
+</html>

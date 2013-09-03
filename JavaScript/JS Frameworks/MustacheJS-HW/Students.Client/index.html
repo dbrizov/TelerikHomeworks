@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Students.Client</title>
+    <script src="Scripts/libs/class.js"></script>
+    <script src="Scripts/libs/jquery-2.0.3.js"></script>
+    <script src="Scripts/libs/mustache.js"></script>
+    <script src="Scripts/libs/http-requester.js"></script>
+    <script src="Scripts/app/student.js"></script>
+    <style>
+        div#students div {
+            cursor: pointer;
+        }
+
+            div#students div:hover {
+                background-color: #ff6a00;
+            }
+
+        .hidden {
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <script type="x-mustache-template" id="student-template">
+        <div>{{firstName}} {{lastName}}, age: {{age}}, grade: {{grade}}</div>		
+    </script>
+
+    <script type="x-mustache-template" id="mark-template">
+        <ul class="hidden">
+			{{#marks}} 
+				<li>
+					{{subject}}: <strong>{{score}}</strong>							
+				</li>
+			{{/marks}}
+			{{^marks}}	   
+				<li>
+					This student has no marks, yet	  						
+				</li>
+			{{/marks}}
+		</ul>	
+    </script>
+
+    <h1>In order to work you need to start the Students.Services</h1>
+    <div id="students"></div>
+    <script>
+        $("div#students").on("click", "div", function () {
+            var ul = $(this).children().first();
+            if (ul.hasClass("hidden")) {
+                ul.removeClass("hidden")
+                    .addClass("visible");
+            }
+            else {
+                ul.removeClass("visible")
+                    .addClass("hidden");
+            }
+        });
+
+        var studentTemplate = Mustache.compile(document.getElementById("student-template").innerHTML);
+        var markTemplate = Mustache.compile(document.getElementById("mark-template").innerHTML);
+
+        var studentsContainer = $("#students");
+        httpRequester.getJSON("http://localhost:3438/api/students",
+            function (data) {
+                for (var i = 0; i < data.length; i += 1) {
+                    var studentHtml = studentTemplate(data[i]);
+                    studentsContainer.append(studentHtml);
+
+                    var marksHtml = markTemplate(data[i]);
+                    studentsContainer.children().last().append(marksHtml);
+                }
+            },
+            function (errorData) {
+                students.appendChild(errorData);
+            });
+    </script>
+</body>
+</html>

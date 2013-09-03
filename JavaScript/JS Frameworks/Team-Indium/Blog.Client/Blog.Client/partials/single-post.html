@@ -1,0 +1,34 @@
+﻿<article class="post clearfix">
+    <header>
+        <h2><a href="\#/posts/#= id #">#= title #</a></h2>
+        <p class="text-muted"><strong>posted on: </strong>#= postDate #</p>
+        <div class="tags">
+            <span class="glyphicon glyphicon-tags"></span>
+            # for (var i = 0; i < tags.length; i++) { #
+                <a href="\#/tags/#= tags[i].id #/posts"><span class="label label-info">#= tags[i].name #</span></a>
+            # } #
+        </div>
+    </header>
+    <p>#= text #</p>
+    
+</article>
+
+<h3>Comments</h3>
+
+# for (var i = 0; i < comments.length; i++) { #
+    <div class="comment media">
+        <a class="pull-left" href="\#">
+            <img class="media-object" src="Images/avat.jpg" alt="...">
+        </a>
+        <div class="media-body">
+            <small class="text-muted">on <strong>#= comments[i].postDate #, #= comments[i].commentedBy # says: </strong></small>
+            <p>#= comments[i].text #</p>
+        </div>
+    </div>
+# } #
+
+<div id="comment" class="form-group clearfix">
+    <label>Add Comment</label>
+    <textarea class="form-control" rows="3"></textarea>
+    <a href="\#/posts/#= id #/comment" class="btn btn-primary pull-right">Comment</a>
+</div>

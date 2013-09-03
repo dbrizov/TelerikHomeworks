@@ -1,0 +1,33 @@
+﻿td {
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+th {
+    border: 2px solid black;
+}
+
+button {
+    cursor: pointer;
+}
+
+.red {
+    background-color: #f00;
+    color: #fff;
+}
+
+.blue {
+    background-color: #00f;
+    color: #fff;
+}
+
+.white {
+    background-color: #fff;
+    color: #fff;
+}
+
+#game-field table td {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}

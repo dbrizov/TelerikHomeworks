@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Blog</title>
+    <link href="Styles/kendo/kendo.common.min.css" rel="stylesheet" />
+    <link href="Styles/kendo/kendo.black.min.css" rel="stylesheet" />
+    <link href="Styles/kendo/kendo.rtl.min.css" rel="stylesheet" />
+    <link href="Styles/bootstrap.css" rel="stylesheet" />
+    <link href="Styles/main-styles.css" rel="stylesheet" />
+    <script src="Scripts/libs/jquery-1.9.1.js"></script>
+    <script src="Scripts/libs/kendo.web.min.js"></script>
+    <script src="Scripts/libs/underscore.js"></script>
+    <script src="Scripts/libs/q.min.js"></script>
+    <script src="Scripts/libs/class.js"></script>
+    <script src="Scripts/libs/http-requester.js"></script>
+    <script src="Scripts/libs/crypto-sha1.js"></script>
+    <script src="Scripts/app/data.js"></script>
+    <script src="Scripts/app/view-models.js"></script>
+    <script src="Scripts/app/views.js"></script>
+    <script src="Scripts/app.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#main-nav").kendoMenu();
+        });
+    </script>
+</head>
+<body>
+    <ul id="main-nav">
+        <li>
+            <a href="#/home">Home</a>
+        </li>
+        <li>Appointments
+            <ul>
+                <li>
+                    <a href="#/appointments/new">Create</a>
+
+                </li>
+                <li>
+                    <a href="#/appointments/all">All</a>
+                </li>
+                <li>
+                    <a href="#/appointments/today">Today</a>
+                </li>
+                <li>
+                    <a href="#/appointments/comming">Comming</a>
+                </li>
+                <li>
+                    <a href="#/appointments/current">Current</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            Todo Lists
+            <ul>
+                <li>
+                    <a href="#/lists/new">Create</a>
+                </li>
+                <li>
+                    <a href="#/lists/all">All</a>
+                </li>
+            </ul>
+        </li>
+        <li style="float: right">
+            <a href="#/register">Register</a>
+        </li>
+        <li style="float: right">
+            <a href="#/login">Login</a>
+        </li>
+    </ul>
+    <div id="user-content"></div>
+
+    <div id="main-content" class="container">
+        <div class="row">
+            <aside class="col-md-3">
+                <div class="media">
+                    <div class="page-header media-body">
+                        <h2>Tasks Manager
+                            <br />
+                            <small>SPA application</small>
+                        </h2>
+                    </div>
+                </div>
+            </aside>
+            <section id="main" class="col-md-9 posts"></section>
+        </div>
+    </div>
+</body>
+</html>

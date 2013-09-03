@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Find total number of legs</title>
+    <script src="scripts/Animal.js"></script>
+    <script src="scripts/Underscore.js"></script>
+</head>
+<body>
+    <script>
+        var animals = [
+            new Animal("Blacky", "spider", 8),
+            new Animal("Redy", "spider", 8),
+            new Animal("Kitty", "cat", 4),
+            new Animal("Tom", "cat", 4),
+            new Animal("Pesho", "human", 2),
+            new Animal("Gosho", "human", 2)];
+
+        var legsCount = 0;
+        _.each(animals, function (animal) {
+            legsCount += animal.numberOfLegs;
+        });
+
+        console.log(legsCount); // 2x2 + 2x4 + 2x8 = 28
+    </script>
+</body>
+</html>

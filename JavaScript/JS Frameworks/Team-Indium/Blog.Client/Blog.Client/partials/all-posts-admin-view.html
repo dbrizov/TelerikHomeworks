@@ -1,0 +1,22 @@
+﻿    <article class="post clearfix" ng-repeat="post in posts" id="post-{{post.id}}">
+        <header class="clearfix">
+            <div class="post-title clearfix">
+                <h4 class="pull-left">{{post.title}}</h4>
+                <a href="#/posts/{{post.id}}" class="btn btn-link pull-right">preview<span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+            <p class="text-muted"><strong>posted on: </strong>{{post.postDate}}</p>
+            <div class="tags">
+                <span class="glyphicon glyphicon-tags"></span>
+                <a ng-repeat="tag in post.tags" href="\#/tags/{{tag.id}}/posts">
+                    <span class="label label-info">{{tag.name}}</span>
+                </a>
+            </div>
+        </header>
+        
+        <!--<div class="post-content">
+            {{post.text}}
+        </div>-->
+
+        <button class="btn btn-xs btn-danger pull-right" ng-click="RemovePost(post.id)">Remove Post</button>
+        <a href="#/posts/{{post.id}}/edit" class="btn btn-xs btn-success pull-right">edit</a>
+    </article>

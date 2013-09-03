@@ -1,0 +1,9 @@
+﻿<h1>Click on a todo list to view it's todos
+    <div data-template="single-todo-list" data-bind="source: lists"></div>
+</h1>
+
+<script type="text/x-kendo-template" id="single-todo-list">
+    <h3>
+        <a href="\#/lists/#= id #/todos">#= title #</a>
+    </h3>
+</script>

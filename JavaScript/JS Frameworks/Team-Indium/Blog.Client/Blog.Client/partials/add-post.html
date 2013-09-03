@@ -1,0 +1,16 @@
+﻿<article class="post clearfix">
+    <header>
+        <div class="form-group">
+            <label for="postTitle">Title</label>
+            <input type="text" class="form-control" ng-model="currPost.title" value="{{currPost.title}}"/>
+        </div>
+    </header>
+    
+    <div class="post-content clearfix">
+        <div class="form-group">
+            <label for="postTitle">Content</label>
+            <textarea id="editor" class="form-control" style="width: 100%; height: 500px"></textarea>
+        </div>
+        <button class="btn btn-lg btn-success pull-right" ng-click="addPost()">Add Post</button>
+    </div>
+</article>

@@ -1,0 +1,9 @@
+﻿<div>
+    <h3 id="#= id #">#= title #</h3>
+    # for (var i = 0; i < todos.length; i++) { #
+        <div>
+            <strong>#= todos[i].text #</strong>
+            <a href="\#/todos/#= todos[i].id #" class="btn btn-primary" id="todo-#= todos[i].id #">#= todos[i].isDone === false ? "done" : "not-done" #</a>
+        </div>
+    # } #
+</div>

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>First name before last name</title>
+    <script src="scripts/Student.js"></script>
+    <script src="scripts/Underscore.js"></script>
+</head>
+<body>
+    <script>
+        var students = [
+            new Student('Doncho', 'Minkov'),
+            new Student('Joro', 'Georgiev'),
+            new Student('Ivaylo', 'Kenov'),
+            new Student('Niki', 'Kostov'),
+            new Student('Svetlin', 'Nakov')];
+
+        var filteredStudents = _.filter(students, function (student) {
+			return student.firstName < student.lastName;
+        });
+
+        var sortedStudents = _.sortBy(filteredStudents, function (student) {
+            return student.getFullName();
+        });
+
+        sortedStudents.reverse();
+        
+        _.each(sortedStudents, function (student) {
+            console.log(student.getFullName());
+        });
+    </script>
+</body>
+</html>

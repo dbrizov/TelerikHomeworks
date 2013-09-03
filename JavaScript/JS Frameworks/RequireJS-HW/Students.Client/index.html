@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        div#students-container, div#marks-container {
+            float: left;
+            margin-right: 50px;
+            text-align: center;
+        }
+
+        div#students-container div, div#marks-container div {
+            margin: 5px 0px 5px 0px;
+            width: 200px;
+            border: 2px solid black;
+            cursor: pointer;
+        }
+
+        div#students-container div:hover {
+            background: #ff6a00;
+        }
+    </style>
+    <script src="Scripts/libs/require.js" data-main="Scripts/app-config"></script>
+</head>
+<body>
+    <script type="x-mustache-template" id="student-template">
+        <div id="{{id}}">{{name}}, grade: {{grade}}</div>
+    </script>
+
+    <script type="x-mustache-template" id="mark-template">
+        <div>{{subject}}: <strong>{{score}}</strong></div>	
+    </script>
+
+    <div id="students-container"></div>
+    <div id="marks-container"></div>
+</body>
+</html>

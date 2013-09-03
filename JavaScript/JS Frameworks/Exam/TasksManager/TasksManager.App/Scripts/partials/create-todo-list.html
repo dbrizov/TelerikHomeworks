@@ -1,0 +1,18 @@
+﻿<div>
+    <div>
+        <label for="tb-todo-title">Title</label>
+        <input type="text" id="tb-todo-title" data-bind="value: title" />
+
+        <div>
+            <label for="tb-todo-text">todo-text:</label>
+            <input type="text" id="tb-todo-text" data-bind="value: todoText" />
+
+            <label for="cb-is-done">status:</label>
+            <input type="checkbox" id="cb-is-done" data-bind="value: todoIsDone" />
+
+            <button class="btn btn-primary" data-bind="click: addTodo">Add Todo</button>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" data-bind="click: create">Create</button>
+</div>

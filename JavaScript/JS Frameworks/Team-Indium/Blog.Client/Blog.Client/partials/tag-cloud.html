@@ -1,0 +1,10 @@
+﻿<div class="panel panel-default tag-cloud">
+    <div class="panel-heading">Tags</div>
+    <div class="panel-body">
+        <div data-template="single-tag" data-bind="source: tags"></div>
+    </div>
+</div>
+
+<script type="text/x-kendo-template" id="single-tag">
+    <a href="\#/tags/#= id #/posts" class="label label-info">#= name #</a>
+</script>

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Age between 18 and 24</title>
+    <script src="scripts/Student.js"></script>
+    <script src="scripts/Underscore.js"></script>
+</head>
+<body>
+    <script>
+        var students = [
+            new Student('Doncho', 'Minkov', 17),
+            new Student('Joro', 'Georgiev', 18),
+            new Student('Ivaylo', 'Kenov', 20),
+            new Student('Niki', 'Kostov', 24),
+            new Student('Svetlin', 'Nakov'), 25];
+
+        var studentBetween18and24 = _.filter(students, function (student) {
+            return student.age >= 18 && student.age <= 24;
+        });
+
+        _.each(studentBetween18and24, function (student) {
+            console.log(student.getFullName() + " - age: " + student.age);
+        });
+    </script>
+</body>
+</html>

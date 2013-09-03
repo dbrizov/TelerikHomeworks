@@ -1,0 +1,16 @@
+﻿# for (var i = 0; i < data.length; i++) { #
+    <article class="post clearfix">
+        <header>
+            <h2><a href="\#/posts/#= data[i].id #">#= data[i].title #</a></h2>
+            <p class="text-muted"><strong>posted on: </strong>#= data[i].postDate #</p>
+            <div class="tags">
+                <span class="glyphicon glyphicon-tags"></span>
+                # for (var j = 0; j < data[i].tags.length; j++) { #
+                    <a href="\#/tags/#= data[i].tags[j].id #/posts"><span class="label label-info">#= data[i].tags[j].name #</span></a>
+                # } #
+            </div>
+        </header>
+        <p>#= data[i].text.substr(0, 300) + '...' #</p>
+        <a href="\#/posts/#= data[i].id #" class="btn-link pull-right">read more <span class="glyphicon glyphicon-chevron-right"></span></a>
+    </article>
+# } #

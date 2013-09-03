@@ -1,0 +1,16 @@
+﻿<span>Opened games</span>
+<button id="btn-refresh-opened-games">Refresh</button>
+<input id="tb-new-game-title" type="text" placeholder="Game title" />
+<button id="btn-create-game">Create</button>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Creator</th>
+    </tr>
+    {{#.}}
+    <tr id="{{id}}">
+        <td>{{title}}</td>
+        <td>{{creator}}</td>
+    </tr>
+    {{/.}}
+</table>

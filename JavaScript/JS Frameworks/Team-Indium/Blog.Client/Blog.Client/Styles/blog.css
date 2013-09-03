@@ -1,0 +1,43 @@
+﻿body {
+    background-color: #f9f9f9;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.page-header {
+    margin-top: 0;
+}
+
+section { padding-bottom: 20px; }
+
+article { margin-bottom: 10px; background-color: #fff; padding: 0 20px 10px; }
+article header { margin-bottom: 30px; }
+
+    article header h2 { margin-bottom: 5px; }
+
+div.comment {
+    background-color: #eee;
+}
+
+    div.comment .media-body {
+        padding: 10px;
+    }
+
+.tag-cloud { margin-top: 40px; }
+.tag-cloud a { margin-top: 5px; display: inline-block; }
+
+div#comment {
+    background-color: #eee; padding: 10px;
+}
+
+    div#comment textarea {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 5px;
+    }
+
+div#user-form {
+    text-align: right;
+}

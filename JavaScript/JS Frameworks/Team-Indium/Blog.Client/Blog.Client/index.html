@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Blog</title>
+    <link href="Styles/kendo/kendo.common.min.css" rel="stylesheet" />
+    <link href="Styles/kendo/kendo.black.min.css" rel="stylesheet" />
+    <link href="Styles/kendo/kendo.rtl.min.css" rel="stylesheet" />
+    <link href="Styles/bootstrap.css" rel="stylesheet" />
+    <link href="Styles/blog.css" rel="stylesheet" />
+    <script src="Scripts/libs/jquery-1.9.1.js"></script>
+    <script src="Scripts/libs/kendo.web.min.js"></script>
+    <script src="Scripts/libs/angular.js"></script>
+    <script src="Scripts/libs/q.min.js"></script>
+    <script src="Scripts/libs/class.js"></script>
+    <script src="Scripts/libs/http-requester.js"></script>
+    <script src="Scripts/libs/crypto-sha1.js"></script>
+    <script src="Scripts/app/data.js"></script>
+    <script src="Scripts/app/view-models.js"></script>
+    <script src="Scripts/app/views.js"></script>
+    <script src="Scripts/app.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#main-nav").kendoMenu();
+
+            var today = new Date();
+            $("#calendar").kendoCalendar({
+                value: today
+            }).css('width', '100%');
+        });
+    </script>
+</head>
+<body>
+    <ul id="main-nav">
+        <li>
+            <a href="#/home">Home</a>
+        </li>
+        <li>
+            <a href="#/posts">Posts</a>
+        </li>
+        <li style="float: right">
+            <a href="#/register">Register</a>
+        </li>
+        <li style="float: right">
+            <a href="#/login">Login</a>
+        </li>
+        <li style="float: right; display: none" id="admin-link">
+            <a href="admin.html">Admin</a>
+        </li>
+    </ul>
+    <div id="user-content"></div>
+
+    <div id="main-content" class="container">
+        <div class="row">
+            <aside class="col-md-3">
+                <div class="media">
+                    <a class="pull-left" href="posts.html">
+                        <img class="media-object" src="Images/avat.jpg" alt="..." />
+                    </a>
+                    <div class="page-header media-body">
+                        <h2>Simple Blog
+                            <br />
+                            <small>simple SPA blog system</small>
+                        </h2>
+                    </div>
+                </div>
+                <div id="calendar"></div>
+            </aside>
+            <section id="posts" class="col-md-9 posts">
+                
+            </section>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+﻿<span>My active games</span>
+<button id="btn-refresh-active-games">Refresh</button>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Creator</th>
+        <th>Status</th>
+    </tr>
+    {{#.}}
+    <tr id="{{id}}">
+        <td>{{title}}</td>
+        <td>{{creator}}</td>
+        <td>{{status}}</td>
+    </tr>
+    {{/.}}
+</table>

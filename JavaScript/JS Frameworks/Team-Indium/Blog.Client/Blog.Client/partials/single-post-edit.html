@@ -1,0 +1,34 @@
+﻿
+<article class="post clearfix">
+    <header>
+        <div class="form-group">
+            <label for="postTitle">Title</label>
+            <input type="text" class="form-control" ng-model="currPost.title" value="{{currPost.title}}" />    
+        </div>
+
+        <p class="text-muted"><strong>posted on: </strong>{{currPost.postDate}}</p>
+        
+        <div class="tags">
+            <span class="glyphicon glyphicon-tags"></span>
+            <a ng-repeat="tag in currPost.tags" href="\#/tags/{{tag.id}}/posts"><span class="label label-info">{{tag.name}}</span></a>
+        </div>
+    </header>
+    
+    <div class="post-content clearfix">
+        <div class="form-group">
+            <label for="postTitle">Content</label>
+            <textarea id="editor" class="form-control" style="width: 100%; height: 500px;" ng-model="currPost.text">{{currPost.text}}</textarea>
+        </div>
+        <button class="btn btn-lg btn-success pull-right" ng-click="updatePost()">Save changes</button>
+    </div>
+</article>
+
+<div class="comment media" ng-repeat="comment in currPost.comments">
+    <a class="pull-left" href="\#">
+        <img class="media-object" src="Images/avat.jpg" alt="...">
+    </a>
+    <div class="media-body">
+        <small class="text-muted">on <strong>{{comment.postDate}}, {{comment.commentBy}} says: </strong></small>
+        <p>{{comment.text}}</p>
+    </div>
+</div>

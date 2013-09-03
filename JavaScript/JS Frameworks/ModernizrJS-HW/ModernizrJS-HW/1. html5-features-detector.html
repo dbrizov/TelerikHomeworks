@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>HTML5 Features Detector</title>
+    <link href="Styles/js-console-style.css" rel="stylesheet" />
+    <script src="Scripts/libs/modernizr.js"></script>
+    <script src="Scripts/libs/ua-parser.js"></script>
+    <script src="Scripts/libs/js-console.js"></script>
+</head>
+<body>
+    <div id="js-console"></div>
+    <script>
+        var jsConsole = new JavaScriptConsole("#js-console");
+
+        var parser = new UAParser();
+
+        var browser = parser.getBrowser();
+        jsConsole.writeLine("Browser: {0} {1}", browser.name, browser.version);
+        jsConsole.writeLine();
+
+        var os = parser.getOS();
+        jsConsole.writeLine("Operating System: {0} {1}", os.name, os.version);
+        jsConsole.writeLine();
+
+        var device = parser.getDevice();
+        if (device.type) {
+            jsConsole.writeLine("Device: {0}", device.type);
+        }
+
+        for (var prop in Modernizr) {
+            if (Modernizr[prop]) {
+                jsConsole.writeLine("Modernizr.{0} - Yes", prop);
+            }
+            else {
+                jsConsole.writeWarning("Modernizr.{0} - No", prop);
+            }
+        }
+    </script>
+</body>
+</html>

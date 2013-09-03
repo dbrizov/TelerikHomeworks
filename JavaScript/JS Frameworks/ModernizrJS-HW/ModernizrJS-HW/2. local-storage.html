@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Local Storage</title>
+    <script src="Scripts/libs/modernizr.canvas.goe.storage.js"></script>
+</head>
+<body>
+    <div id="js-console"></div>
+    <script>
+        Modernizr.load({
+            test: Modernizr.localstorage,
+            nope: ['Scripts/libs/storage.js']
+        });
+
+        localStorage.setItem("name", "pesho");
+        document.write(localStorage.getItem("name"));
+    </script>
+</body>
+</html>

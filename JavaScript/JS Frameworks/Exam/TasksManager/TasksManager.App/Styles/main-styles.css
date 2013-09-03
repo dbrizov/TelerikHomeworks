@@ -1,0 +1,19 @@
+﻿body {
+    background-color: #fff;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.page-header {
+    margin-top: 0;
+}
+
+section {
+    padding-bottom: 20px;
+}
+
+div#user-form {
+    text-align: right;
+}

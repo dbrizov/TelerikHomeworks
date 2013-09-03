@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Date Picker</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="Scripts/libs/modernizr.js"></script>
+    <script src="Scripts/libs/jquery-1.10.2.js"></script>
+    <script src="Scripts/libs/jquery-ui-1.10.3.js"></script>
+</head>
+<body>
+    <input id="date-picker" type="date" />
+    <script>
+        if (!Modernizr.inputtypes.date) {
+            $("#date-picker").datepicker();
+        }
+    </script>
+</body>
+</html>

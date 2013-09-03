@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Geolocation</title>
+    <script src="Scripts/libs/modernizr.canvas.goe.storage.js"></script>
+</head>
+<body>
+    <p id="demo">Click the button to get your coordinates:</p>
+    <button id="btn-getLocation">Try It</button>
+    <script>
+        Modernizr.load({
+            test: Modernizr.geolocation,
+            nope: ['Scripts/libs/geo.js'],
+            complete: function () {
+                var x = document.getElementById("demo");
+                function getLocation() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                    }
+                    else { x.innerHTML = "Geolocation is not supported by this browser."; }
+                }
+
+                function showPosition(position) {
+                    x.innerHTML = "Latitude: " + position.coords.latitude +
+                    "<br>Longitude: " + position.coords.longitude;
+                }
+
+                document.getElementById("btn-getLocation").onclick = getLocation;
+            }
+        });
+    </script>
+</body>
+</html>

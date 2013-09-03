@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Students.Services", "Students.Services\Students.Services.csproj", "{42C4A5E7-98DD-4A8A-8B35-9E29E5536464}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Students.Client", "Students.Client\Students.Client.csproj", "{75E02EBD-D21D-4538-AF3D-C16DB043E346}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Students.Data", "Students.Data\Students.Data.csproj", "{CC254DB8-4F58-44C6-801C-0070B35B0196}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComboBox", "ComboBox\ComboBox.csproj", "{8DBBDB5D-12CC-478C-AE55-484FC9C5C238}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42C4A5E7-98DD-4A8A-8B35-9E29E5536464}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42C4A5E7-98DD-4A8A-8B35-9E29E5536464}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42C4A5E7-98DD-4A8A-8B35-9E29E5536464}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42C4A5E7-98DD-4A8A-8B35-9E29E5536464}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75E02EBD-D21D-4538-AF3D-C16DB043E346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75E02EBD-D21D-4538-AF3D-C16DB043E346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75E02EBD-D21D-4538-AF3D-C16DB043E346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75E02EBD-D21D-4538-AF3D-C16DB043E346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC254DB8-4F58-44C6-801C-0070B35B0196}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC254DB8-4F58-44C6-801C-0070B35B0196}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC254DB8-4F58-44C6-801C-0070B35B0196}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC254DB8-4F58-44C6-801C-0070B35B0196}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DBBDB5D-12CC-478C-AE55-484FC9C5C238}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DBBDB5D-12CC-478C-AE55-484FC9C5C238}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DBBDB5D-12CC-478C-AE55-484FC9C5C238}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DBBDB5D-12CC-478C-AE55-484FC9C5C238}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Most popular author</title>
+    <script src="scripts/Book.js"></script>
+    <script src="scripts/Author.js"></script>
+    <script src="scripts/Underscore.js"></script>
+</head>
+<body>
+    <script>
+        var books = [
+            new Book("Intro to C#", "Nakov"),
+            new Book("Intro to Java", "Nakov"),
+            new Book("PHP for Dummies", "Doncho"),
+            new Book("Learn ASP.NET MVC for a day", "Niki")];
+
+        var authors = {};
+        _.each(books, function (book) {
+            var authorName = book.author;
+
+            if (authors[authorName]) {
+                authors[authorName].books += 1;
+            }
+            else {
+                authors[authorName] = new Author(authorName, 1);
+            }
+        });
+
+        var sortedAuthors = _.sortBy(authors, function (author) {
+            return author.books;
+        });
+
+        console.log("Most popular author: " + sortedAuthors[sortedAuthors.length - 1].name + " (" + sortedAuthors[sortedAuthors.length - 1].books + " books)");
+    </script>
+</body>
+</html>

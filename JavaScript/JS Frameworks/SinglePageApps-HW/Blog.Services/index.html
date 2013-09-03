@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Blog</title>
+    <link href="Styles/main-styles.css" rel="stylesheet" />
+    <script src="Scripts/libs/jquery-1.9.1.js"></script>
+    <script src="Scripts/libs/class.js"></script>
+    <script src="Scripts/libs/q.min.js"></script>
+    <script src="Scripts/libs/underscore.js"></script>
+    <script src="Scripts/libs/mustache.js"></script>
+    <script src="Scripts/libs/http-requester.js"></script>
+    <script src="Scripts/libs/crypto-sha1.js"></script>
+    <script src="Scripts/app/users-persister.js"></script>
+    <script src="Scripts/app/posts-persister.js"></script>
+    <script src="Scripts/app/data-persister.js"></script>
+    <script src="Scripts/app/partials.js"></script>
+    <script src="Scripts/app/ui-controller.js"></script>
+    <script src="Scripts/app/controller.js"></script>
+    <script src="Scripts/libs/sammy-0.7.4.js"></script>
+    <script src="Scripts/app-main.js"></script>
+</head>
+<body>
+    <div style="color: red">You need to manualy populate the database with posts</div>
+    <h1>Blog</h1>
+    <div id="user-info"></div>
+    <nav id="main-nav">
+        <ul>
+            <li>
+                <a href="#/" id="btn-home">Home</a>
+            </li>
+            <li>
+                <a href="#/login" id="btn-go-to-login">Login</a>
+            </li>
+            <li>
+                <a href="#/register" id="btn-go-to-register">Register</a>
+            </li>
+            <li>
+                <a href="#/" id="btn-logout">Logout</a>
+            </li>
+            <li>
+                <a href="#/posts" id="btn-posts">Posts</a>
+            </li>
+        </ul>
+    </nav>
+    <div id="main-content">
+        <div id="login-register-form"></div>
+        <div id="posts"></div>
+    </div>
+</body>
+</html>

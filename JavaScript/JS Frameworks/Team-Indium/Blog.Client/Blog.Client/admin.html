@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="admin">
+<head>
+    <title>Blog</title>
+    <script src="Scripts/libs/angular.js"></script>
+    <link href="Styles/kendo/kendo.common.min.css" rel="stylesheet" />
+    <link href="Styles/kendo/kendo.bootstrap.min.css" rel="stylesheet" />
+    <link href="Styles/kendo/kendo.rtl.min.css" rel="stylesheet" />
+    <link href="Styles/bootstrap.css" rel="stylesheet" />
+    <link href="Styles/admin.css" rel="stylesheet" />
+    <script src="Scripts/libs/jquery-1.9.1.js"></script>
+    <script src="Scripts/libs/kendo.web.min.js"></script>
+    <script src="Scripts/libs/q.min.js"></script>
+    <script src="Scripts/libs/class.js"></script>
+    <script src="Scripts/libs/http-requester.js"></script>
+    <script src="Scripts/libs/crypto-sha1.js"></script>
+    <script src="Scripts/app/data.js"></script>
+    <script src="Scripts/app/controller.js"></script>
+    <script src="Scripts/app/view-models.js"></script>
+    <script src="Scripts/app/views.js"></script>
+    <script src="Scripts/app-admin.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#main-nav").kendoMenu();
+
+            var today = new Date();
+            $("#calendar").kendoCalendar({
+                value: today
+            }).css('width', '100%');
+        });
+
+    </script>
+</head>
+<body>
+    <div id="content">
+        <nav>
+		    <ul class="menu">
+                <li>
+                    <a href="#/home">
+                        <span class="content">
+					        <span class="text">Home</span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#/add-post">
+                        <span class="content">
+					        <span class="text">Add Post</span>
+                        </span>
+                    </a>
+                </li>
+                <li ng-controller="PostsController">
+                    <a>
+                        <span class="content">
+					        <span class="text">logged as: {{currUser}}</span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="user-content"></div>
+
+        <section class="panel-content">
+			<header>
+				<span class="title">Simple Blog Administration</span>
+			</header>
+			<div class="content-wrapper">
+
+                <div id="main-content">
+                    <div class="row">
+                        <section id="posts" class="col-md-12" ng-view>
+                        
+                        </section>
+                    </div>
+                </div>
+
+			</div>
+		</section>
+    </div>
+</body>
+</html>

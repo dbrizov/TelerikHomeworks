@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Most common first name and last anem</title>
+    <script src="scripts/Person.js"></script>
+    <script src="scripts/Underscore.js"></script>
+</head>
+<body>
+    <script>
+        var Pair = function (name, nameCount) {
+            this.name = name;
+            this.nameCount = nameCount;
+        }
+
+        var people = [
+            new Person("Pesho", "Peshov"),
+            new Person("Ivan", "Ivanov"),
+            new Person("Ivan", "Georgiev"),
+            new Person("Georgi", "Georgiev")];
+
+        // Find the most common first name
+        var peopleByFirstName = {};
+        _.each(people, function (person) {
+            var personFirstName = person.firstName;
+
+            if (peopleByFirstName[personFirstName]) {
+                peopleByFirstName[personFirstName].nameCount += 1;
+            }
+            else {
+                peopleByFirstName[personFirstName] = new Pair(personFirstName, 1);
+            }
+        });
+
+        var sortedByFirstNameCount = _.sortBy(peopleByFirstName, function (person) {
+            return person.nameCount
+        });
+
+        console.log("Most common first name: " + sortedByFirstNameCount[sortedByFirstNameCount.length - 1].name);
+
+        // Find the most common last name
+        var peopleByLastName = {};
+        _.each(people, function (person) {
+            var personLastName = person.lastName;
+
+            if (peopleByLastName[personLastName]) {
+                peopleByLastName[personLastName].nameCount += 1;
+            }
+            else {
+                peopleByLastName[personLastName] = new Pair(personLastName, 1);
+            }
+        });
+
+        var sortedByLastNameCount = _.sortBy(peopleByLastName, function (person) {
+            return person.nameCount
+        });
+
+        console.log("Most common last name: " + sortedByLastNameCount[sortedByLastNameCount.length - 1].name);
+    </script>
+</body>
+</html>

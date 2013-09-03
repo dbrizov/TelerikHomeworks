@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Animals by species</title>
+    <script src="scripts/Animal.js"></script>
+    <script src="scripts/Underscore.js"></script>
+</head>
+<body>
+    <script>
+        var animals = [
+            new Animal("spider", "insect", 8),
+            new Animal("spider", "insect", 8),
+            new Animal("snake", "reptile", 0),
+            new Animal("snake", "reptile", 0),
+            new Animal("human", "mammal", 2),
+            new Animal("bear", "mammal", 4),
+            new Animal("dog", "mammal", 4)]
+
+        var animalsBySpecies = _.groupBy(animals, function (animal) {
+            return animal.species;
+        });
+
+        console.log("GROUPED BY SPECIES");
+        for (var species in animalsBySpecies) {
+            console.log(species);
+            for (var animal in animalsBySpecies[species]) {
+                console.log(animalsBySpecies[species][animal]);
+            }
+        }
+
+        var animalsSortedByNumberOfLegs = _.sortBy(animals, function (animal) {
+            return animal.numberOfLegs;
+        });
+
+        console.log("\nSORTED BY NUMBER OF LEGS");
+        _.each(animalsSortedByNumberOfLegs, function (animal) {
+            console.log(animal.type + "(" + animal.species + ") - " + animal.numberOfLegs + " legs");
+        });
+    </script>
+</body>
+</html>
