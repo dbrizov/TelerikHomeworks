@@ -1,0 +1,24 @@
+﻿body {
+}
+
+header {
+    background-color: #808080;
+    text-align: center;
+}
+
+footer {
+    background-color: #808080;
+    text-align: center;
+}
+
+aside {
+    display: inline-block;
+}
+
+form {
+    display: inline-block;
+}
+
+section {
+    text-align: center;
+}

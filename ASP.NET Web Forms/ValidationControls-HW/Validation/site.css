@@ -1,0 +1,30 @@
+﻿body {
+    background-color: black;
+}
+
+.block {
+    display:block;
+}
+
+#registerForm {
+
+    width:400px;
+    margin: 0 auto;
+    background-color: #56ae12;
+}
+
+#accept {
+
+    margin: 20px 10px 20px 20px;
+}
+
+#registerBtn {
+
+    margin-left:50px;
+}
+
+.error {
+
+    font-weight:bold;
+    color:red;
+}

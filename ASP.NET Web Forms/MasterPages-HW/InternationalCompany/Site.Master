@@ -1,0 +1,37 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true"
+    CodeBehind="Site.master.cs" Inherits="InternationalCompany.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Task 2</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <header>
+        <h1>Header</h1>
+        <div>Main navigation</div>
+        <nav id="main-nav">
+            <ul>
+                <li>
+                    <a href="~/bg/home" runat="server">Bulgaria</a>
+                </li>
+                <li>
+                    <a href="~/en/home" runat="server">England</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <form id="FormMain" runat="server">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+
+    <footer>
+        &copy; 2013 Footer
+    </footer>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" 
+    CodeBehind="Site.master.cs" Inherits="MasterPages.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Task 1</title>
+    <link href="styles.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <header id="header">
+        <h1>Header</h1>
+    </header>
+
+    <aside id="left-aside">
+        <ul id="left-aside-menu">
+            <li>
+                <a href="~/" runat="server">Home</a>
+            </li>
+            <li>
+                <a href="~/about" runat="server">About</a>
+            </li>
+            <li>
+                <a href="~/profile" runat="server">Profile</a>
+            </li>
+            <li>
+                <a href="~/friends" runat="server">Friends</a>
+            </li>
+        </ul>
+    </aside>
+
+    <form id="MainForm" runat="server">
+        <div>
+            <section id="main-content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
+                </asp:ContentPlaceHolder>
+            </section>
+        </div>
+    </form>
+
+    <footer id="footer">
+        (c) 2013 Footer
+    </footer>
+</body>
+</html>
