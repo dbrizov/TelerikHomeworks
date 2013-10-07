@@ -1,0 +1,26 @@
+﻿@model Library.Models.BookViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Title</h2>
+<div class="lead">
+    <div>by @Model.Author</div>
+    <div>
+        <strong>Category:</strong>
+        @Model.Category
+    </div>
+    <div>
+        <strong>Content:</strong>
+        @if (Model.Content.Length > 100)
+        {
+        @(Model.Content.Substring(0, 100) + "...")
+        }
+        else
+        {
+            @Model.Content
+        }
+    </div>
+</div>
+

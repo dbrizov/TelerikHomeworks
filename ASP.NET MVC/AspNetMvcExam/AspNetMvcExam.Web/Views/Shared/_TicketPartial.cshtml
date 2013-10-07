@@ -1,0 +1,16 @@
+﻿@model AspNetMvcExam.Web.Models.TicketViewModel
+
+<div class="row-fluid">
+    <div class="span3 lead">
+        @Model.Title
+    </div>
+    <div class="span3 lead">
+        @Model.CategoryName
+    </div>
+    <div class="span3 lead">
+        @Model.AuthorName
+    </div>
+    <div class="span3 lead">
+        @Html.ActionLink("More details...", "Details", "Tickets", new { id = Model.Id }, new { @class = "btn" })
+    </div>
+</div>

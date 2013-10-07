@@ -1,0 +1,124 @@
+﻿@model LaptopSystem.Web.Models.LaptopDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.ManufacturerName @Model.Model</h2>
+<div class="row-fluid">
+    <div class="span4">
+        <div>
+            <strong>Monitor:</strong>
+            @Model.MonitorSize"
+        </div>
+        <div>
+            <strong>RAM:</strong>
+            @Model.RamSize GB
+        </div>
+        <div>
+            <strong>Price:</strong>
+            $@Model.Price
+        </div>
+    </div>
+    <div class="span4">
+        <div>
+            <img src="@Model.ImageUrl" alt="@Model.ManufacturerName" />
+        </div>
+    </div>
+    <div class="span4">
+        @if (Model.Weight != null)
+        {
+            <div>
+                <strong>Weight:</strong>
+                @Model.Weight kg
+            </div>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.AdditionalParts))
+        {
+            <div>
+                <strong>Additional Parts:</strong>
+                @Model.AdditionalParts
+            </div>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.Description))
+        {
+            <div>
+                <strong>Description:</strong>
+                @Model.Description
+            </div>
+        }
+    </div>
+</div>
+
+@if (User.Identity.IsAuthenticated && !Model.UserHasVoted)
+{
+    <div class="row-fluid">
+        @using (Ajax.BeginForm("VoteOnLaptop", "Laptops", new AjaxOptions()
+        {
+            HttpMethod = "Post",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "votes-count",
+            OnSuccess = "onHideVoteButton",
+            OnFailure = "onVoteFailure"
+        }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            
+            @Html.Hidden("laptopId", @Model.Id)
+            <input id="btn-vote" type="submit" class="btn" value="Vote" />
+        }
+    </div>
+}
+
+<div class="row-fluid">
+    <strong>Votes:</strong>
+    <span id="votes-count">@Model.Votes</span>
+</div>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="row-fluid">
+        @using (Ajax.BeginForm("PostComment", "Laptops", new AjaxOptions()
+        {
+            HttpMethod = "Post",
+            InsertionMode = InsertionMode.InsertAfter,
+            UpdateTargetId = "laptop-comments",
+            OnFailure = "onCommentFailure"
+        }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            
+            @Html.Hidden("laptopId", @Model.Id)
+            @Html.TextArea("comment")
+            <input type="submit" class="btn" value="Post comment" />
+        }
+    </div>
+}
+
+<div class="row-fluid" id="laptop-comments">
+    @foreach (var comment in Model.Comments)
+    {
+        @Html.Partial("_CommentPartial", comment);
+    }
+</div>
+
+@section Scripts
+    {
+    <script type="text/javascript">
+        function onCommentFailure() {
+            alert("Comment cannot contain emails and cannot be empty");
+        }
+
+        function onHideVoteButton() {
+            $("#btn-vote").hide();
+        }
+
+        function onVoteFailure() {
+            alert("error");
+        }
+    </script>
+}

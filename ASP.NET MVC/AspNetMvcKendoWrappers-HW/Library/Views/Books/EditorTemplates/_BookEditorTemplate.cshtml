@@ -1,0 +1,40 @@
+﻿@model Library.Models.BookViewModel
+
+<div>
+    @Html.HiddenFor(m => m.Id)
+</div>
+
+<div>
+    <strong>Title:</strong>
+    @Html.TextBoxFor(m => m.Title)
+</div>
+
+<div>
+    <strong>Author:</strong>
+    @Html.TextBoxFor(m => m.Author)
+</div>
+
+<div>
+    <strong>ISBN:</strong>
+    @Html.TextBoxFor(m => m.Isbn)
+</div>
+
+<div>
+    <strong>Web site:</strong>
+    @Html.TextBoxFor(m => m.WebSite)
+</div>
+
+<div>
+    <strong>Description:</strong>
+    @Html.TextAreaFor(m => m.Description)
+</div>
+
+<div>
+    <strong>Category:</strong>
+    @(Html.Kendo().DropDownList()
+            .Name("CategoryId")
+            .DataValueField("Id")
+            .DataTextField("Name")
+            .BindTo((System.Collections.IEnumerable)ViewBag.Categories)
+    )
+</div>

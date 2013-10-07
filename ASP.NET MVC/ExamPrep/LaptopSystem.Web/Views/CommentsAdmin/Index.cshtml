@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Administration</h1>
+<h2>Commets</h2>
+
+@(Html.Kendo().Grid<LaptopSystem.Web.Models.CommentViewModel>()
+    .Name("grid-comments")
+    .Pageable()
+    .Sortable()
+    .Filterable()
+    .Editable(edit => edit.Mode(GridEditMode.InLine))
+    .Columns(col => 
+        {
+            col.Bound(m => m.Content);
+            col.Bound(m => m.AuthorName).Title("Author");
+            col.Command(cmd =>
+                {
+                    cmd.Edit();
+                    cmd.Destroy();
+                }).Title("Commands");
+        })
+    .DataSource(data => 
+        {
+            data.Ajax()
+                .Model(m =>
+                    {
+                        m.Id(com => com.Id);
+                        m.Field(com => com.AuthorName).Editable(false);
+                    })
+                .ServerOperation(true)
+                .PageSize(10)
+                .Read("ReadComments", "CommentsAdmin")
+                .Update("UpdateComment", "CommentsAdmin")
+                .Destroy("DeleteComment", "CommentsAdmin");
+        })
+    )

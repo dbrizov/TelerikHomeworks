@@ -1,0 +1,28 @@
+﻿@model IList<LaptopSystem.Web.Models.LaptopViewModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1>Laptop System</h1>
+
+@for (int i = 0; i < Model.Count(); i += 3)
+{
+    <div class="row-fluid">
+        @for (int j = i; j < i + 3 && j < Model.Count(); j++)
+        {
+            <div class="span4">
+                <div class="lead">
+                    @Model[j].Manufacturer @Model[j].Model
+                </div>
+                <div>
+                    <a href="@Url.Action("Details", "Laptops", new { id = Model[j].Id })">
+                        <img src="@Model[j].ImageUrl" alt="@Model[j].Manufacturer" width="200" height="200" />
+                    </a>
+                </div>
+                <div>
+                    <a href="@Url.Action("Details", "Laptops", new { id = Model[j].Id })" class="btn">Price $@Model[j].Price</a>
+                </div>
+            </div>
+        }
+    </div>
+}

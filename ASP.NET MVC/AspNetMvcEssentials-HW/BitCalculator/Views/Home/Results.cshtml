@@ -1,0 +1,46 @@
+﻿@model IEnumerable<BitCalculator.ViewModels.ResultViewModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+    @using (Html.BeginForm("Results", "Home", FormMethod.Post))
+    {
+        <div>
+            <label for="tb-quantity">Quantity: </label>
+            <input type="text" value="1" name="quantity" />
+        </div>
+
+        <div>
+            <label for="drop-down-types">Type: </label>
+            @Html.DropDownList("type", (List<SelectListItem>)ViewBag.TypesDropDown,
+            new
+            {
+                id = "drop-down-types"
+            })
+        </div>
+
+        <div>
+            <label for="drop-down-kilos">Kilo: </label>
+            @Html.DropDownList("kilo", (List<SelectListItem>)ViewBag.KilosDropDown,
+            new
+            {
+                id = "drop-down-kilos"
+            })
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Calculate" />
+    }
+</div>
+
+<div id="results">
+    <table>
+        @foreach (var result in Model)
+        {
+            <tr>
+                <td>@result.Type</td>
+                <td>@result.Value</td>
+            </tr>
+        }
+    </table>
+</div>

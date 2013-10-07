@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "List";
+}
+
+<h1>All laptops</h1>
+
+<div class="row-fluid">
+    @using (Html.BeginForm("Search", "Laptops", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken();
+        
+        <div>Model</div>
+        <div>
+            @(Html.Kendo().AutoComplete()
+                .Name("ModelQuery")
+                .DataTextField("Model")
+                .MinLength(3)
+                .Placeholder("Enter model")
+                .DataSource(data =>
+                    {
+                        data.ServerFiltering(true);
+                        data.Read(read =>
+                            {
+                                read.Action("GetLaptopsModelData", "Laptops")
+                                    .Data("onAdditionalData");
+                            });
+                    })
+            )
+        </div>
+
+        <div>Manufacturer</div>
+        <div>
+            @(Html.Kendo().DropDownList()
+                .Name("ManufacturerQuery")
+                .DataTextField("ManufacturerName")
+                .DataValueField("ManufacturerName")
+                .OptionLabel("All")
+                .DataSource(data =>
+                    {
+                        data.ServerFiltering(true);
+                        data.Read("GetLaptopsManufacturerData", "Laptops");
+                    })
+            )
+        </div>
+
+        <div>Maximum price</div>
+        <div>
+            @(Html.Kendo().NumericTextBox()
+                .Name("PriceQuery")
+                .Min(600)
+                .Max(3000)
+            )
+        </div>
+        
+        <input type="submit" class="btn" value="search" />
+    }
+</div>
+<br />
+
+@(Html.Kendo().ListView<LaptopSystem.Web.Models.LaptopViewModel>()
+    .Name("list-view-laptops")
+    .Pageable()
+    .TagName("div")
+    .ClientTemplateId("kendo-laptop-template")
+    .DataSource(data =>
+    {
+        data.ServerOperation(true);
+        data.PageSize(5);
+        data.Read("ReadLaptops", "Laptops");
+    }))
+
+<script id="kendo-laptop-template" type="text/x-kendo-template">
+    <div class="row-fluid">
+        <div class="span4">
+            <img src="#: ImageUrl #" alt="#: Manufacturer #" />
+        </div>
+        <div class="span4">
+            <h3>#: Manufacturer # #: Model #</h3>
+        </div>
+        <div class="span4">
+            <p><a href="/Laptops/Details/#: Id #" class="btn">Price: #: Price #</a></p>
+        </div>
+    </div>
+</script>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        function onAdditionalData() {
+            return {
+                text: $('#ModelQuery').val()
+            };
+        }
+    </script>
+}

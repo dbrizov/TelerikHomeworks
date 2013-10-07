@@ -1,0 +1,81 @@
+﻿@model AspNetMvcExam.Web.Models.TicketDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Title</h2>
+<h3>@Model.CategoryName</h3>
+<div class="row-fluid">
+    <div class="span4">
+        <div>
+            <strong>Author:</strong>
+            @Model.AuthorName
+        </div>
+        <div>
+            <strong>Priority:</strong>
+            @Model.Priority
+        </div>
+    </div>
+    @if (Model.ScreenshotUrl != null)
+    {
+        <div class="span4">
+            <img src="@Model.ScreenshotUrl" alt="ScreenshotUrl" width="400" height="400" />
+        </div>
+    }
+    
+    @if (Model.Description != null)
+    {
+        <div class="span4">
+            <strong>Description:</strong>
+            @Model.Description
+        </div>
+    }
+</div>
+
+<div id="ticket-comments" class="row-fluid">
+    @foreach (var comment in Model.Comments)
+    {
+        @Html.Partial("_CommentPartial", comment)
+    }
+</div>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="row-fluid">
+        Post a comment
+        @using (Ajax.BeginForm("CommentOnTicket", "Tickets", new AjaxOptions()
+        {
+            HttpMethod = "Post",
+            InsertionMode = InsertionMode.InsertAfter,
+            UpdateTargetId = "ticket-comments",
+            OnFailure = "onCommentFailure"
+        }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+
+            @Html.Hidden("ticketId", @Model.Id)
+            @Html.TextArea("content")
+
+            <div>
+                <input id="btn-post-comment" type="submit" class="btn" value="Submit comment" />
+            </div>
+        }
+    </div>
+}
+
+@section Scripts {
+    <script>
+        function onCommentFailure() {
+            var content = $("#content").val();
+            $("div.help-inline").remove();
+            if (content == null || content.trim() == '') {
+                $("#btn-post-comment").after('<div class="field-validation-error help-inline">The comment cannot empty</div>');
+            }
+            else if (content.length > 500) {
+                $("#btn-post-comment").after('<div class="field-validation-error help-inline">The comment must be at most 500 characters long</div>');
+            }
+        }
+    </script>
+}

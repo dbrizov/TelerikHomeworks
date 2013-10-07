@@ -1,0 +1,70 @@
+﻿@model IEnumerable<AspNetMvcExam.Web.Models.TicketViewModel>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search result</h2>
+
+@using (Html.BeginForm("Search", "Tickets", FormMethod.Post))
+{
+    @Html.AntiForgeryToken();
+
+    <div>Search by category</div>
+    <div>
+        @(Html.Kendo().DropDownList()
+            .Name("categoryId")
+            .DataTextField("Name")
+            .DataValueField("Id")
+            .OptionLabel("All")
+            .DataSource(data =>
+                {
+                    data.ServerFiltering(true);
+                    data.Read("GetCategories", "Tickets");
+                })
+        )
+    </div>
+    <br />
+
+    <input type="submit" class="btn" value="search" />
+}
+
+@if (Model.Count() > 0)
+{
+    <div class="row-fluid">
+        <div class="span3 lead">
+            <strong>Title</strong>
+        </div>
+        <div class="span3 lead">
+            <strong>Category</strong>
+        </div>
+        <div class="span3 lead">
+            <strong>Author</strong>
+        </div>
+        <div class="span3 lead">
+            <strong>Commands</strong>
+        </div>
+    </div>
+
+    foreach (var ticket in Model)
+    {
+        <div class="row-fluid">
+            <div class="span3 lead">
+                @ticket.Title
+            </div>
+            <div class="span3 lead">
+                @ticket.CategoryName
+            </div>
+            <div class="span3 lead">
+                @ticket.AuthorName
+            </div>
+            <div class="span3 lead">
+                @Html.ActionLink("More details...", "Details", "Tickets", new { id = ticket.Id }, new { @class = "btn" })
+            </div>
+        </div>
+    }
+}
+else
+{
+    <h3>No tickets found</h3>
+}

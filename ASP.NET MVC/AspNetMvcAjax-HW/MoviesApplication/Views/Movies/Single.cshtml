@@ -1,0 +1,78 @@
+﻿@model MoviesApplication.ViewModels.MovieViewModel
+@{
+    ViewBag.Title = "Single";
+}
+
+@if (Model != null)
+{
+    <div id="single-book">
+        @Html.Partial("_SingleBookPartial", Model)
+    </div>
+    <div>
+        <button id="btn-show-edit-form" class="btn btn-primary">Edit</button>
+        <a href="/movies/delete/@Model.Id" class="btn btn-danger">Delete</a>
+    </div>
+
+    <div id="form-edit-movie" class="hidden">
+        @using (Ajax.BeginForm("Update",
+            new AjaxOptions()
+            {
+                UpdateTargetId = "single-book",
+                HttpMethod = "POST",
+                InsertionMode = InsertionMode.Replace,
+                OnSuccess = "hideEditForm"
+            }))
+        {
+            <input type="text" name="id" value="@Model.Id" class="hidden" readonly="readonly" />
+
+            <label for="title"><strong>Title</strong></label>
+            <input type="text" name="title" value="@Model.Title" />
+
+            <label for="leadingFemaleRole"><strong>Leading female role</strong></label>
+            <input type="text" name="leadingFemaleRole" value="@Model.LeadingFemaleRole" />
+
+            <label for="leadingMaleRole"><strong>Leading male role</strong></label>
+            <input type="text" name="leadingMaleRole" value="@Model.LeadingMaleRole" />
+
+            <label for="director"><strong>Director</strong></label>
+            <input type="text" name="director" value="@Model.Director" />
+
+            <label for="studio"><strong>Studio</strong></label>
+            <input type="text" name="studio" value="@Model.Studio" />
+
+            <label for="studioAddress"><strong>Studio address</strong></label>
+            <input type="text" name="studioAddress" value="@Model.StudioAddress" />
+
+            <label for="year"><strong>Year</strong></label>
+            <input type="text" name="year" value="@Model.Year" />
+
+            <br />
+            <input type="submit" class="btn btn-primary" value="Update" />
+        }
+
+        <button id="btn-hide-edit-form" class="btn btn-danger">Cancel</button>
+    </div>
+}
+else
+{
+    <h2>Movie not found</h2>
+}
+
+<script type="text/javascript">
+    var showEditForm = function () {
+        $("#form-edit-movie")
+            .removeClass("hidden")
+            .addClass("visible");
+    }
+
+    var hideEditForm = function () {
+        $("#form-edit-movie")
+            .removeClass("visible")
+            .addClass("hidden");
+    }
+
+    $("#btn-show-edit-form").on('click', showEditForm);
+
+    $("#btn-hide-edit-form").on('click', hideEditForm);
+</script>
+

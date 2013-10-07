@@ -1,0 +1,24 @@
+﻿@model Library.Models.BookViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Title</h2>
+<div>
+    <div>
+        <strong>by @Model.Author</strong>
+    </div>
+    <div>
+        <strong>ISBN:</strong>
+        @Model.Isbn
+    </div>
+    <div>
+        <strong>Web site:</strong>
+        <a href="@Model.WebSite">@Model.WebSite</a>
+    </div>
+    <div>
+        <strong>Description:</strong>
+        @Model.Description
+    </div>
+</div>

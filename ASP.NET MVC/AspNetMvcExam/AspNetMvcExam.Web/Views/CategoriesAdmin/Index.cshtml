@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Administration</h2>
+<h3>Categories</h3>
+
+@(Html.Kendo().Grid<AspNetMvcExam.Web.Models.CategoryViewModel>()
+    .Name("grid-comments")
+    .Pageable()
+    .Sortable()
+    .Filterable()
+    .Editable(edit => edit.Mode(GridEditMode.InLine))
+    .Columns(col =>
+        {
+            col.Bound(m => m.Name);
+            col.Command(cmd =>
+                {
+                    cmd.Edit();
+                    cmd.Destroy();
+                }).Title("Commands");
+        })
+        .ToolBar(tool =>
+            {
+                tool.Create();
+            })
+    .DataSource(data =>
+        {
+            data.Ajax()
+                .Model(m =>
+                    {
+                        m.Id(cat => cat.Id);
+                    })
+                .ServerOperation(true)
+                .PageSize(5)
+                .Create("CreateCategory", "CategoriesAdmin")
+                .Read("ReadCategories", "CategoriesAdmin")
+                .Update("UpdateCategory", "CategoriesAdmin")
+                .Destroy("DeleteCategory", "CategoriesAdmin");
+        })
+)
+

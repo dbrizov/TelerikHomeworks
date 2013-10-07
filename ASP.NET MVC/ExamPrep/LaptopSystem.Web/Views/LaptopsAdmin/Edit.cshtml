@@ -1,0 +1,112 @@
+﻿@model LaptopSystem.Models.Laptop
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="form-horizontal">
+        <legend>Laptop</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Model, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.Model)
+                @Html.ValidationMessageFor(model => model.Model, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.ManufacturerId, "ManufacturerId", new { @class = "control-label" })
+            <div class="controls">
+                @Html.DropDownList("ManufacturerId", String.Empty)
+                @Html.ValidationMessageFor(model => model.ManufacturerId, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.MonitorSize, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.MonitorSize)
+                @Html.ValidationMessageFor(model => model.MonitorSize, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.HardDiskSize, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.HardDiskSize)
+                @Html.ValidationMessageFor(model => model.HardDiskSize, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.RamSize, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.RamSize)
+                @Html.ValidationMessageFor(model => model.RamSize, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.ImageUrl, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.ImageUrl)
+                @Html.ValidationMessageFor(model => model.ImageUrl, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Price, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.Price)
+                @Html.ValidationMessageFor(model => model.Price, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Weight, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.Weight)
+                @Html.ValidationMessageFor(model => model.Weight, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.AdditionalParts, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.AdditionalParts)
+                @Html.ValidationMessageFor(model => model.AdditionalParts, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Description, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.Description)
+                @Html.ValidationMessageFor(model => model.Description, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Save" class="btn" />
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

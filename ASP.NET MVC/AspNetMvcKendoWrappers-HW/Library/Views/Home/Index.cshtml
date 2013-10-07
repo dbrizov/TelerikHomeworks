@@ -1,0 +1,59 @@
+﻿@model IList<Library.Models.BooksByCategoryViewModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm("Search", "Books", FormMethod.Get))
+{
+    @(Html.Kendo().AutoComplete()
+        .Name("query")
+        .DataTextField("Title")
+        .MinLength(3)
+        .HtmlAttributes(new { style = "width:250px" })
+        .Placeholder("Search")
+        .DataSource(source =>
+        {
+            source.Read(read =>
+            {
+                read.Action("GetBooks", "Books")
+                    .Data("onAdditionalData");
+            })
+            .ServerFiltering(true);
+        })
+    )
+
+    <button id="btn-search" class="btn btn-primary" type="submit">
+        <i class="icon-search"></i>
+        Search
+    </button>
+}
+
+<h1>Library System</h1>
+
+@for (int i = 0; i < Model.Count; i += 3)
+{
+    <div class="row-fluid">
+        @for (int j = i; j < i + 3 && j < Model.Count; j++)
+        {
+            <div class="span4">
+                <h3>@Model[j].Name</h3>
+                <ul class="lead">
+                    @foreach (var book in Model[j].Books)
+                    {
+                        <li>
+                            <a href="~/Books/Details?bookId=@book.Id">@book.Title by @book.Author</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+}
+
+<script>
+    function onAdditionalData() {
+        return {
+            text: $("#query").val()
+        };
+    }
+</script>

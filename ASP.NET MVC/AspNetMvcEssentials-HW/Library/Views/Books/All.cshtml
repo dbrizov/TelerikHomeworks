@@ -1,0 +1,49 @@
+﻿@model PagedList.IPagedList<Library.Models.BookViewModel>
+
+@{
+    ViewBag.Title = "All";
+}
+
+<div class="span12">
+    <h2>All Books</h2>
+    <div class="lead">
+        @foreach (var book in Model)
+        {
+            <div>
+                <a href="/Books/Details?id=@book.Id">@book.Title by @book.Author</a>
+            </div>
+        }
+    </div>
+
+    <div>
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @if (Model.HasPreviousPage)
+        {
+            @Html.ActionLink("<<", "All", new { page = 1 })
+            @Html.Raw(" ")
+            @Html.ActionLink("< Prev", "All", new { page = Model.PageNumber - 1 })
+        }
+        else
+        {
+            @:<<
+            @Html.Raw(" ")
+            @:< Prev
+        }
+
+        @if (Model.HasNextPage)
+        {
+            @Html.ActionLink("Next >", "All", new { page = Model.PageNumber + 1 })
+            @Html.Raw(" ")
+            @Html.ActionLink(">>", "All", new { page = Model.PageCount })
+        }
+        else
+        {
+            @:Next >
+            @Html.Raw(" ")
+            @:>>
+        }
+    </div>
+    <div>
+        <a href="~/Books/Create" class="btn btn-primary">Create</a>
+    </div>
+</div>

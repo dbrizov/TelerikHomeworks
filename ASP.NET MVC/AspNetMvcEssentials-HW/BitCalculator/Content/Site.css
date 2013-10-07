@@ -1,0 +1,13 @@
+﻿body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+td {
+    border: 1px solid black;
+    border-spacing: 0;
+    border-collapse: collapse;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}

@@ -1,0 +1,44 @@
+﻿@using Library.Models
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Categories</h2>
+<div class="row-fluid">
+    @(Html.Kendo()
+    .Grid<CategoryViewModel>()
+    .Name("grid-categories")
+    .Columns(columns =>
+    {
+        columns.Bound(model => model.Name).Width(150);
+        columns.Command(command =>
+            {
+                command.Edit();
+                command.Destroy();
+            });
+    })
+    .ToolBar(toolbar => toolbar.Create())
+    .Pageable()
+    .Sortable()
+    .Resizable(resize => resize.Columns(true))
+    .Editable(edit =>
+    {
+        edit.Mode(GridEditMode.InLine);
+    })
+    .DataSource(data =>
+    {
+        data.Ajax()
+            .PageSize(5)
+            .ServerOperation(true)
+            .Model(model =>
+            {
+                model.Id(c => c.Id);
+                model.Field(c => c.Id).Editable(false);
+            })
+            .Update(update => update.Action("Update", "Categories"))
+            .Create(create => create.Action("Create", "Categories"))
+            .Destroy(destroy => destroy.Action("Delete", "Categories"))
+            .Read("All", "Categories");
+    }))
+</div>

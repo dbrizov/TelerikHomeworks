@@ -1,0 +1,49 @@
+﻿@using Library.Models
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Books</h2>
+<div class="row-fluid">
+    @(Html.Kendo()
+    .Grid<BookViewModel>()
+    .Name("grid-books")
+    .Columns(columns =>
+    {
+        columns.Bound(model => model.Title);
+        columns.Bound(model => model.Author);
+        columns.Bound(model => model.Isbn);
+        columns.Bound(model => model.WebSite);
+        columns.Bound(model => model.Description);
+        columns.Bound(model => model.CategoryName).Title("Category");
+        columns.Command(command =>
+            {
+                command.Edit();
+                command.Destroy();
+            });
+    })
+    .ToolBar(toolbar => toolbar.Create())
+    .Pageable()
+    .Sortable()
+    .Resizable(resize => resize.Columns(true))
+    .Editable(edit =>
+    {
+        edit.Mode(GridEditMode.PopUp)
+            .TemplateName("_BookEditorTemplate");
+    })
+    .DataSource(data =>
+    {
+        data.Ajax()
+            .PageSize(5)
+            .ServerOperation(true)
+            .Model(model =>
+            {
+                model.Id(b => b.Id);
+            })
+            .Update(update => update.Action("Update", "Books"))
+            .Create(create => create.Action("Create", "Books"))
+            .Destroy(destroy => destroy.Action("Delete", "Books"))
+            .Read("All", "Books");
+    }))
+</div>

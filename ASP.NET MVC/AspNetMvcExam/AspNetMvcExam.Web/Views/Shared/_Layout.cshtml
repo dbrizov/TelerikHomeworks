@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/kendo")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/kendo")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div>
+        <ul id="kendo-menu">
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li>@Html.ActionLink("Add ticket", "Create", "Tickets")</li>
+                <li>@Html.ActionLink("View all tickets", "List", "Tickets")</li>
+            }
+
+            @if (User.IsInRole("Admin"))
+            {
+                <li>
+                    Administration
+                    <ul>
+                        <li>
+                            <a href="/CategoriesAdmin/Index">Categories</a>
+                        </li>
+                        <li>
+                            <a href="/CommentsAdmin/Index">Comments</a>
+                        </li>
+                    </ul>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="container">
+        @Html.Partial("_LoginPartial")
+        <h1>Ticketing System</h1>
+    </div>
+
+    <div class="container">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#kendo-menu").kendoMenu();
+        });
+    </script>
+</body>
+</html>

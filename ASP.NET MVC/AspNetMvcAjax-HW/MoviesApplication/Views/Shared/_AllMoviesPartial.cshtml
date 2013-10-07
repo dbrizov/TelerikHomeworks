@@ -1,0 +1,7 @@
+﻿@model IEnumerable<MoviesApplication.ViewModels.MovieViewModel>
+@foreach (var movie in Model)
+{
+    <div>
+        <a href="/movies/single/@movie.Id">@movie.Title</a>
+    </div>
+}

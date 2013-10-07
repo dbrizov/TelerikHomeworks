@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "List";
+}
+
+<h2>All tickets</h2>
+@using (Html.BeginForm("Search", "Tickets", FormMethod.Post))
+{
+    @Html.AntiForgeryToken();
+    
+    <div>Search by category</div>
+    <div>
+        @(Html.Kendo().DropDownList()
+            .Name("categoryId")
+            .DataTextField("Name")
+            .DataValueField("Id")
+            .OptionLabel("All")
+            .DataSource(data =>
+                {
+                    data.ServerFiltering(true);
+                    data.Read("GetCategories", "Tickets");
+                })
+        )
+    </div>
+    <br />
+    
+    <input type="submit" class="btn" value="search" />
+}
+
+<div class="row-fluid">
+    <div class="span3">
+        <h3>Title</h3>
+    </div>
+    <div class="span3">
+        <h3>Category</h3>
+    </div>
+    <div class="span2">
+        <h3>Author</h3>
+    </div>
+    <div class="span2">
+        <h3>Priority</h3>
+    </div>
+    <div class="span2">
+        <h3>Commands</h3>
+    </div>
+</div>
+
+@(Html.Kendo().ListView<AspNetMvcExam.Web.Models.TicketViewModel>()
+    .Name("list-view-laptops")
+    .Pageable()
+    .TagName("div")
+    .ClientTemplateId("kendo-laptop-template")
+    .DataSource(data =>
+    {
+        data.ServerOperation(true);
+        data.PageSize(5);
+        data.Read("ReadTickets", "Tickets");
+    }))
+
+<script id="kendo-laptop-template" type="text/x-kendo-template">
+    <div class="row-fluid">
+        <div class="span3">
+            <div class="lead">#: Title #</div>
+        </div>
+        <div class="span3">
+            <div class="lead">#: CategoryName #</div>
+        </div>
+        <div class="span2">
+            <div class="lead">#: AuthorName #</div>
+        </div>
+        <div class="span2">
+            <div class="lead">
+                # if (Priority == 0) { #
+                    Low
+                # } #
+
+                # if (Priority == 1) { #
+                    Medium
+                # } #
+
+                # if (Priority == 2) { #
+                    High
+                # } #
+            </div>
+        </div>
+        <div class="span2">
+            <a href="/Tickets/Details/#: Id #" class="btn">More details...</a>
+        </div>
+    </div>
+</script>

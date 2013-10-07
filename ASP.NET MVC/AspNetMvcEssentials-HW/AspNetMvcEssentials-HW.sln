@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.20827.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitCalculator", "BitCalculator\BitCalculator.csproj", "{1DCB5662-77BC-4EBF-934B-BBB4D644A224}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{E3132EA0-35AD-4896-B476-5C2DC6E4CBB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Models", "Library.Models\Library.Models.csproj", "{1376AF00-552F-4EF8-A9D3-27D0C3B49DCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Data", "Library.Data\Library.Data.csproj", "{BACB67F3-CC8A-42A2-B4E9-E64EA28C4D4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Repositories", "Library.Repositories\Library.Repositories.csproj", "{2820B49D-6115-45DD-A397-3F2DE75B4ECC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5FC035AF-AC24-4008-8741-FF1416738453}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DCB5662-77BC-4EBF-934B-BBB4D644A224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DCB5662-77BC-4EBF-934B-BBB4D644A224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DCB5662-77BC-4EBF-934B-BBB4D644A224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DCB5662-77BC-4EBF-934B-BBB4D644A224}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3132EA0-35AD-4896-B476-5C2DC6E4CBB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3132EA0-35AD-4896-B476-5C2DC6E4CBB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3132EA0-35AD-4896-B476-5C2DC6E4CBB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3132EA0-35AD-4896-B476-5C2DC6E4CBB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1376AF00-552F-4EF8-A9D3-27D0C3B49DCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1376AF00-552F-4EF8-A9D3-27D0C3B49DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1376AF00-552F-4EF8-A9D3-27D0C3B49DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1376AF00-552F-4EF8-A9D3-27D0C3B49DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BACB67F3-CC8A-42A2-B4E9-E64EA28C4D4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BACB67F3-CC8A-42A2-B4E9-E64EA28C4D4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BACB67F3-CC8A-42A2-B4E9-E64EA28C4D4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BACB67F3-CC8A-42A2-B4E9-E64EA28C4D4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2820B49D-6115-45DD-A397-3F2DE75B4ECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2820B49D-6115-45DD-A397-3F2DE75B4ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2820B49D-6115-45DD-A397-3F2DE75B4ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2820B49D-6115-45DD-A397-3F2DE75B4ECC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

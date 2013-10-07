@@ -1,0 +1,79 @@
+﻿@model IEnumerable<MoviesApplication.ViewModels.MovieViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Movies</h2>
+<div id="all-movies" class="lead">
+    @Html.Partial("_AllMoviesPartial", Model)
+</div>
+<div id="form-create-movie" class="hidden">
+    @using (Ajax.BeginForm("Create",
+            new AjaxOptions()
+            {
+                UpdateTargetId = "all-movies",
+                HttpMethod = "POST",
+                InsertionMode = InsertionMode.Replace,
+                OnSuccess = "hideCreateForm"
+            }))
+    {
+        <label for="title"><strong>Title</strong></label>
+        <input type="text" name="title" />
+
+        <label for="leadingFemaleRole"><strong>Leading female role</strong></label>
+        <input type="text" name="leadingFemaleRole" />
+
+        <label for="leadingMaleRole"><strong>Leading male role</strong></label>
+        <input type="text" name="leadingMaleRole" />
+
+        <label for="director"><strong>Director</strong></label>
+        <input type="text" name="director" />
+
+        <label for="studio"><strong>Studio</strong></label>
+        <input type="text" name="studio" />
+
+        <label for="studioAddress"><strong>Studio address</strong></label>
+        <input type="text" name="studioAddress" />
+
+        <label for="year"><strong>Year</strong></label>
+        <input type="text" name="year" />
+
+        <br />
+        <input type="submit" class="btn btn-primary" value="Create" />
+    }
+
+    <button id="btn-hide-create-form" class="btn btn-danger">Cancel</button>
+</div>
+<div>
+    <button id="btn-show-create-form" class="btn btn-primary">Create</button>
+</div>
+
+<script type="text/javascript">
+    var showCreateButton = function () {
+        $("#btn-show-create-form").show();
+    }
+
+    var hideCreateButton = function () {
+        $("#btn-show-create-form").hide();
+    }
+
+    var showCreateForm = function () {
+        $("#form-create-movie")
+            .removeClass("hidden")
+            .addClass("visible");
+
+        hideCreateButton();
+    }
+
+    var hideCreateForm = function () {
+        $("#form-create-movie")
+            .removeClass("visible")
+            .addClass("hidden");
+
+        showCreateButton();
+    }
+
+    $("#btn-show-create-form").on('click', showCreateForm);
+
+    $("#btn-hide-create-form").on('click', hideCreateForm);
+</script>

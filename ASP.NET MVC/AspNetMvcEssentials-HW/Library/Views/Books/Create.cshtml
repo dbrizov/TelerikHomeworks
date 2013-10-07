@@ -1,0 +1,52 @@
+﻿@model Library.Models.CreateBookViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm("Create", "Books", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="form-horizontal">
+        <legend>Book</legend>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Title, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Author, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.Author)
+                @Html.ValidationMessageFor(model => model.Author)
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Content, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.Content)
+                @Html.ValidationMessageFor(model => model.Content)
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.CategoryId, new { @class = "control-label" })
+            <div class="controls">
+                @Html.DropDownListFor(model => model.CategoryId,
+                    (IEnumerable<SelectListItem>)ViewBag.Categories)
+                @Html.ValidationMessageFor(model => model.CategoryId)
+            </div>
+        </div>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </fieldset>
+}

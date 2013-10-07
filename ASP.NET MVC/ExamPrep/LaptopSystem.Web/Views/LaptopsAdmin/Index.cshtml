@@ -1,0 +1,73 @@
+﻿@using LaptopSystem.Web.HtmlHelperExtensions;
+
+@model IEnumerable<LaptopSystem.Models.Laptop>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Manufacturer.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonitorSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HardDiskSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RamSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            Commands
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.CutLongString(20, item.Manufacturer.Name)
+        </td>
+        <td>
+            @Html.CutLongString(20, item.Model)
+        </td>
+        <td>
+            @Html.CutLongString(20, item.MonitorSize.ToString())
+        </td>
+        <td>
+            @Html.CutLongString(20, item.HardDiskSize.ToString())
+        </td>
+        <td>
+            @Html.CutLongString(20, item.RamSize.ToString())
+        </td>
+        <td>
+            <img src="@item.ImageUrl" width="50" height="50" />
+        </td>
+        <td>
+            @Html.CutLongString(20, item.Price.ToString())
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

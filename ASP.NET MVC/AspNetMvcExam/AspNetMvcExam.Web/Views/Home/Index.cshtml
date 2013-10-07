@@ -1,0 +1,32 @@
+﻿@model IList<AspNetMvcExam.Web.Models.TicketViewModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@for (int i = 0; i < Model.Count(); i += 3)
+{
+    <div class="row-fluid">
+        @for (int j = i; j < i + 3 && j < Model.Count(); j++)
+        {
+            <div class="span4">
+                <h2>
+                    @Model[j].Title
+                </h2>
+                <div>
+                    <strong>Category:</strong>
+                    @Model[j].CategoryName
+                </div>
+                <div>
+                    <strong>Author:</strong>
+                    @Model[j].AuthorName
+                </div>
+                <div>
+                    @Model[j].CommentsCount comment(s)
+                </div>
+                <div>
+                    <a href="@Url.Action("Details", "Tickets", new { id = Model[j].Id })" class="btn">Mode details...</a>
+                </div>
+            </div>
+        }
+    </div>
+}

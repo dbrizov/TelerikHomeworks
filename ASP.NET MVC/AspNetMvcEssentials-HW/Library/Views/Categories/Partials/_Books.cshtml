@@ -1,0 +1,55 @@
+﻿@model PagedList.IPagedList<Library.Models.BookViewModel>
+
+<div class="lead">
+    <h2>Books</h2>
+    @foreach (var book in Model)
+    {
+        <div>
+            <a href="~/Books/Details?id=@book.Id">@book.Title by @book.Author</a>
+        </div>
+    }
+</div>
+
+<div>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @if (Model.HasPreviousPage)
+    {
+        @Ajax.ActionLink("<Prev", "Books",
+        new
+        {
+            page = Model.PageNumber - 1,
+            categoryId = Model[0].CategoryId
+        },
+        new AjaxOptions()
+        {
+            HttpMethod = "Get",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "books-by-category"
+        })
+    }
+    else
+    {
+        <span>&lt;Prev</span>
+    }
+
+    @if (Model.HasNextPage)
+    {
+        @Ajax.ActionLink("Next>", "Books",
+        new
+        {
+            page = Model.PageCount,
+            categoryId = Model[0].CategoryId
+        },
+        new AjaxOptions()
+        {
+            HttpMethod = "Get",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "books-by-category"
+        })
+    }
+    else
+    {
+        <span>Next&gt;</span>
+    }
+</div>
+

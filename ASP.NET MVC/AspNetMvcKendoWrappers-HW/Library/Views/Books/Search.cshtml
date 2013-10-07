@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Library.Models.BookViewModel>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<ul class="lead">
+    @foreach (var book in Model)
+    {
+        <li>
+            <a href="~/Books/Details?bookId=@book.Id">@book.Title by @book.Author</a>
+            (Category: @book.CategoryName)
+        </li>
+    }
+</ul>
