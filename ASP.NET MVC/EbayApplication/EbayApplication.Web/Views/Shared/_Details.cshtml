@@ -1,0 +1,69 @@
+﻿@model EbayApplication.Web.Models.ProductModels.ProductViewModel
+
+<div id="picture-modal" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">@Model.Title</h3>
+    </div>
+    <div class="modal-body text-center">
+        <img src="~/img/products/@Model.ImageUrl" width="400" height="400" />
+    </div>
+    <div class="modal-footer">
+        <button type="button" data-dismiss="modal" aria-hidden="true" class="btn btn-primary">Close</button>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <fieldset>
+        <div class="span3">
+            <div class="thumbnail">
+                <a data-toggle="modal" href="#picture-modal">
+                    <img alt="300x200" style="width: 300px; height: 200px;" src="~/img/products/@Model.ImageUrl">
+                </a>
+            </div>
+        </div>
+
+        <div class="span9">
+            <div>
+                <b>@Html.DisplayFor(model => model.Title)</b>
+            </div>
+            <hr />
+
+            <div>
+                Item Condition:  <b>@Html.DisplayFor(model => model.Condition)</b>
+            </div>
+
+            <div class="container">
+                <div class="span5">
+                    <div>Price: @Html.DisplayFor(model => model.Price)</div>
+                </div>
+            </div>
+
+            <dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.StartingPrice)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.StartingPrice)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DateAdded)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DateAdded)
+                </dd>
+            </dl>
+        </div>
+    </fieldset>
+</div>

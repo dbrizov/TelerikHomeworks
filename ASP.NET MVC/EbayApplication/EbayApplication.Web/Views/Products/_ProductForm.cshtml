@@ -1,0 +1,98 @@
+﻿@model EbayApplication.Web.Models.ProductModels.AddProductViewModel
+
+<div class="control-group"></div>
+<div class="control-group">
+    @Html.LabelFor(model => model.Title, new { @class = "control-label" })
+    <div class="controls">
+        @Html.EditorFor(model => model.Title)
+        @Html.ValidationMessageFor(model => model.Title, null, new { @class = "help-inline" })
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(model => model.Description, new { @class = "control-label" })
+    <div class="controls">
+        @Html.EditorFor(model => model.Description)
+        @Html.ValidationMessageFor(model => model.Description, null, new { @class = "help-inline" })
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(model => model.Price, new { @class = "control-label" })
+    <div class="controls">
+        @Html.EditorFor(model => model.Price)
+        @Html.ValidationMessageFor(model => model.Price, null, new { @class = "help-inline" })
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(model => model.StartingPrice, new { @class = "control-label" })
+    <div class="controls">
+        @Html.EditorFor(model => model.StartingPrice)
+        @Html.ValidationMessageFor((model => model.StartingPrice), null, new { @class = "help-inline" })
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(model => model.DeliveryTime, new { @class = "control-label" })
+    <div class="controls">
+        @Html.EditorFor(model => model.DeliveryTime)
+        @Html.ValidationMessageFor((model => model.DeliveryTime), null, new { @class = "help-inline" })
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(model => model.AuctionTime, new { @class = "control-label" })
+    <div class="controls">
+        @Html.EditorFor(model => model.AuctionTime)
+        @Html.ValidationMessageFor((model => model.AuctionTime), null, new { @class = "help-inline" })
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(model => model.Condition, new { @class = "control-label" })
+    <div class="controls">
+        @Html.DropDownListFor(model => model.Condition, new SelectList(Enum.GetValues(typeof(EbayApplication.Models.Condition))))
+
+        @Html.ValidationMessageFor(model => model.Condition, null, new { @class = "help-inline" })
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(model => model.AuctionType, new { @class = "control-label" })
+    <div class="controls">
+        @Html.DropDownListFor(model => model.AuctionType, new SelectList(Enum.GetValues(typeof(EbayApplication.Models.AuctionType))))
+
+        @Html.ValidationMessageFor(model => model.AuctionType, null, new { @class = "help-inline" })
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(model => model.ImageUrl, new { @class = "control-label" })
+    <div class="controls">
+        @(Html.Kendo()
+                .Upload()
+                .Name("upload")
+                .Multiple(false)
+                .Async(async =>
+                {
+                    async.AutoUpload(false)
+                        .Save("UploadedFiles", "Products");
+                })
+                .Events(e => e.Complete("imageUrl")))
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(model => model.Category.Id, new { @class = "control-label" })
+    <div class="controls">
+        @Html.DropDownListFor(model => model.Category.Id, (IEnumerable<SelectListItem>)ViewBag.Categories)
+        @Html.ValidationMessageFor(model => model.Category.Id, null, new { @class = "help-inline" })
+    </div>
+</div>
+
+<input id="hiddenImageUrl" type="hidden" value="" name="ImageUrl" />
+
+<div class="form-actions no-color">
+    <input type="submit" value="Create" class="btn btn-primary" id="sender" />
+</div>

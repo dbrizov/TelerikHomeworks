@@ -1,0 +1,20 @@
+﻿@using EbayApplication.Web.HelperExtensions;
+
+@model PagedList.IPagedList<EbayApplication.Web.Models.ProductModels.ProductViewModel>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+@if (Model.Count > 0)
+{
+    @Html.Partial("_ListedProducts", Model);
+
+    <div class='row-fluid pagination pagination-centered'>
+        @Html.Pager(10, Model, "Search", new { product = Url.Encode(Request.Params["product"]) })
+    </div>
+}
+else
+{
+    <h2>No products found</h2>
+}

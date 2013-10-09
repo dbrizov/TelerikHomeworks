@@ -1,0 +1,69 @@
+﻿@model EbayApplication.Web.Models.AuctionModels.AuctionCreateModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="form-horizontal">
+        <legend>Auction</legend>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.ProductId, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.DropDownListFor(model => model.ProductId, (IEnumerable<SelectListItem>)ViewBag.OwnProducts)
+                        @Html.ValidationMessageFor(model => model.ProductId, null, new { @class = "help-inline" })
+                        </div>
+                    </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.CurrentPrice, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.CurrentPrice)
+                @Html.ValidationMessageFor(model => model.CurrentPrice, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Duration, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.Duration)
+                @Html.ValidationMessageFor(model => model.Duration, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.DeliveryDuration, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.DeliveryDuration)
+                @Html.ValidationMessageFor(model => model.DeliveryDuration, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Type, new { @class = "control-label" })
+            <div class="controls">
+                @Html.DropDownListFor(model => model.Type, new SelectList(Enum.GetValues(typeof(EbayApplication.Models.AuctionType))))
+                @Html.ValidationMessageFor(model => model.Type, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

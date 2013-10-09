@@ -1,0 +1,44 @@
+﻿@using EbayApplication.Web.Models.ProductModels;
+
+@model IEnumerable<EbayApplication.Web.Models.ProductModels.ProductViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Products</h2>
+
+<div>
+    @(Html.Kendo().Grid<ProductViewModel>()
+        .Name("grid-products")
+        .Columns(columns =>
+            {
+                columns.Bound(p => p.Title).Width(100);
+                columns.Bound(p => p.StartingPrice).Width(100);
+                columns.Bound(p => p.Price).Width(100);
+                columns.Bound(p => p.Category).Width(100);
+                columns.Bound(p => p.Condition).Width(100);
+                columns.Bound(p => p.ImageUrl).Width(100)
+                    .ClientTemplate("<img src='/img/products/#= ImageUrl #' width='100' height='100' />");
+                columns.Command(commands =>
+                    {
+                        commands.Edit();
+                    }).Title("Commands").Width(200);
+            })
+        .Editable(edit => edit.Mode(GridEditMode.PopUp).TemplateName("_ProductEditorTemplate"))
+        .Pageable()
+        .Sortable()
+        .Filterable()
+        .DataSource(data =>
+            {
+                data.Ajax()
+                    .ServerOperation(true)
+                    .PageSize(10)
+                    .Model(model =>
+                        {
+                            model.Id(p => p.Id);
+                        })
+                    .Read("ReadProducts", "AdminProducts")
+                    .Update("UpdateProduct", "AdminProducts");
+            })
+    )
+</div>

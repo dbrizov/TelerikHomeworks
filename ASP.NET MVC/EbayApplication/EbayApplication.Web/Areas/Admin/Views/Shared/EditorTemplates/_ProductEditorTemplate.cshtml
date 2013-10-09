@@ -1,0 +1,50 @@
+﻿@model EbayApplication.Web.Models.ProductModels.ProductViewModel
+
+<div class="control-group">
+    <div class="controls">
+        @Html.HiddenFor(m => m.Id)
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(m => m.Title)
+    <div class="controls">
+        @Html.TextBoxFor(m => m.Title)
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(m => m.Description)
+    <div class="controls">
+        @Html.TextBoxFor(m => m.Description)
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(m => m.Category)
+    <div class="controls">
+        @(Html.Kendo().DropDownListFor(p => p.Category)
+            .DataValueField("Name")
+            .DataTextField("Name")
+            .DataSource(data =>
+                {
+                    data.ServerFiltering(true);
+                    data.Read("ReadCategories", "AdminProducts");
+                })
+        )
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(m => m.Condition)
+    <div class="controls">
+        @(Html.Kendo().DropDownListFor(p => p.Condition)
+            .DataValueField("Value")
+            .DataTextField("Name")
+            .DataSource(data =>
+                {
+                    data.Read("ReadProductConditions", "AdminProducts");
+                })
+        )
+    </div>
+</div>

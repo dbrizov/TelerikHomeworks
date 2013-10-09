@@ -1,0 +1,59 @@
+﻿@model EbayApplication.Web.Models.AuctionModels.AuctionDetailedViewModel
+
+@if (this.ViewContext.FormContext == null)
+{
+    this.ViewContext.FormContext = new FormContext();
+}
+
+<div id="auction-panel" class="well">
+
+
+    @if (@Model.Type == EbayApplication.Models.AuctionType.Normal)
+    {
+        @Html.Partial("_NormalAuction", Model);
+       
+    }
+    else
+    {
+        @Html.Partial("_Auction", Model);
+    
+    }
+
+</div>
+
+<script>
+
+
+    function displayWindow() {
+        $("#window").show();
+
+        var window = $("#window");
+
+        if (!window.data("kendoWindow")) {
+            var messageWindow = window.kendoWindow({
+                width: "300px",
+                height: "200px",
+                title: "Message",
+                resizable: false,
+                draggable: false,
+                actions: {},
+                close: updatePage
+            }).data("kendoWindow");
+
+            messageWindow.center();
+        }
+    }
+
+
+    $("#window-close-button").on("click", function () {
+        var window = $("#window").data("kendoWindow");
+
+        window.close();
+    });
+
+    function updatePage() {
+        document.location.href="/Delivery/ByUser?username=@User.Identity.Name";
+    }
+</script>
+
+

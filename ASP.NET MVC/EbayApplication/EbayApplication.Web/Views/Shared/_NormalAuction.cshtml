@@ -1,0 +1,18 @@
+﻿@model EbayApplication.Web.Models.AuctionModels.AuctionDetailedViewModel
+
+@Ajax.ActionLink("Buy it now", "Buy", "Auctions", new { id = Model.Id }, new AjaxOptions {
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "window-message",
+    OnSuccess = "displayWindow"}, new { @class = "btn btn-success" }) 
+
+@Ajax.ActionLink("Add to shopping cart", "AddToShoppingCart", "ShoppingCart", new { id = Model.Id }, new AjaxOptions
+{
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "window-message",
+    OnSuccess = "displayWindow"
+}, new { @class = "btn btn-success" }) 
+
+<div id="window" style="display:none">
+    <p id="window-message"></p>
+    <input type="button" class="btn btn-success" id="window-close-button" value="Okay" />
+</div>

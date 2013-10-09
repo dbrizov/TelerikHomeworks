@@ -1,0 +1,48 @@
+﻿@model EbayApplication.Web.Models.AuctionModels.AuctionDetailedViewModel
+
+@if (DateTime.Compare(Model.ExpiringDate, DateTime.Now) > 0)
+{
+
+<strong>Current price: @Model.CurrentPrice </strong><br />
+<strong>Ends on:  <em>@Model.ExpiringDate.ToString("d-MMM-yyyy hh:mm:ss", System.Globalization.CultureInfo.InvariantCulture)</em></strong>
+    if (Model.CurrentBuyer != User.Identity.Name)
+    {
+        using (Ajax.BeginForm("Bid", "Auctions", null,
+                        new AjaxOptions()
+                        {
+                            HttpMethod = "POST",
+                            UpdateTargetId = "auction-panel",
+                            InsertionMode = InsertionMode.Replace
+                        }))
+        {
+            @Html.TextBox("OfferedPrice", (int)@Model.CurrentPrice + 1 ,  new { @type="number", pattern=@"\d*", step="1" })
+            @Html.Hidden("AuctionId", Model.Id)
+    
+           <input type="submit" class="btn btn-primary" value="Bid"/>
+        }
+    }
+    
+     
+
+}
+else
+{
+    if (Model.CurrentBuyer == User.Identity.Name)
+    {
+        @Ajax.ActionLink(
+                    "Get the product", "CloseAuction", "Auctions", 
+                    new { @id = Model.Id }, 
+                    new AjaxOptions() { UpdateTargetId="window", InsertionMode = InsertionMode.Replace, OnSuccess="displayWindow" }, 
+                    new { @class = "btn btn-success" }
+        );
+    
+        <div id="window" style="display:none">
+
+        </div>
+    }
+    else
+    {
+        <p>There isn't auction for this product</p>
+    }
+}
+

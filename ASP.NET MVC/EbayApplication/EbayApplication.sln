@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.20827.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EbayApplication.Models", "EbayApplication.Models\EbayApplication.Models.csproj", "{CA5F5DEA-19A4-43EF-AEBD-A7D24874CB5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EbayApplication.Data", "EbayApplication.Data\EbayApplication.Data.csproj", "{36F52CFF-E666-49CF-A151-CE513507D552}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EbayApplication.Web", "EbayApplication.Web\EbayApplication.Web.csproj", "{EDD7F567-A5D2-4DC5-8A61-3DBC5F61D93A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EbayApplication.Repositories", "EbayApplication.Repositories\EbayApplication.Repositories.csproj", "{47B1B7DE-7BB0-4F0A-A0B8-4602E8805FA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EbayApplication.Tests", "EbayApplication.Tests\EbayApplication.Tests.csproj", "{C976AC5B-5E65-499A-87A1-AC9338597FDC}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs14
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = EbayApplication.Models\\EbayApplication.Models.csproj
+		SccProjectName1 = EbayApplication.Models
+		SccLocalPath1 = EbayApplication.Models
+		SccProjectUniqueName2 = EbayApplication.Data\\EbayApplication.Data.csproj
+		SccProjectName2 = EbayApplication.Data
+		SccLocalPath2 = EbayApplication.Data
+		SccProjectUniqueName3 = EbayApplication.Web\\EbayApplication.Web.csproj
+		SccProjectName3 = EbayApplication.Web
+		SccLocalPath3 = EbayApplication.Web
+		SccProjectUniqueName4 = EbayApplication.Repositories\\EbayApplication.Repositories.csproj
+		SccProjectName4 = EbayApplication.Repositories
+		SccLocalPath4 = EbayApplication.Repositories
+		SccProjectUniqueName5 = EbayApplication.Tests\\EbayApplication.Tests.csproj
+		SccProjectName5 = EbayApplication.Tests
+		SccLocalPath5 = EbayApplication.Tests
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA5F5DEA-19A4-43EF-AEBD-A7D24874CB5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA5F5DEA-19A4-43EF-AEBD-A7D24874CB5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA5F5DEA-19A4-43EF-AEBD-A7D24874CB5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA5F5DEA-19A4-43EF-AEBD-A7D24874CB5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36F52CFF-E666-49CF-A151-CE513507D552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36F52CFF-E666-49CF-A151-CE513507D552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36F52CFF-E666-49CF-A151-CE513507D552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36F52CFF-E666-49CF-A151-CE513507D552}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDD7F567-A5D2-4DC5-8A61-3DBC5F61D93A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDD7F567-A5D2-4DC5-8A61-3DBC5F61D93A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDD7F567-A5D2-4DC5-8A61-3DBC5F61D93A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDD7F567-A5D2-4DC5-8A61-3DBC5F61D93A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47B1B7DE-7BB0-4F0A-A0B8-4602E8805FA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47B1B7DE-7BB0-4F0A-A0B8-4602E8805FA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47B1B7DE-7BB0-4F0A-A0B8-4602E8805FA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47B1B7DE-7BB0-4F0A-A0B8-4602E8805FA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C976AC5B-5E65-499A-87A1-AC9338597FDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C976AC5B-5E65-499A-87A1-AC9338597FDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C976AC5B-5E65-499A-87A1-AC9338597FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C976AC5B-5E65-499A-87A1-AC9338597FDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

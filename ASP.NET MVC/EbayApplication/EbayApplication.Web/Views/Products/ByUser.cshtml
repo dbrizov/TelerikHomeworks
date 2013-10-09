@@ -1,0 +1,54 @@
+﻿@model IEnumerable<EbayApplication.Web.Models.ProductModels.ProductViewModel>
+
+
+@{
+    ViewBag.Title = "ByUser";
+}
+
+<h2>My Products</h2>
+
+@if (Model.Count() > 0)
+{
+    foreach (var product in Model)
+    {
+        <div class="row-fluid">
+            <div class="well clearfix">
+                <div class="span2">
+                    <a href="~/Products/Details?id=@product.Id">
+                        <img alt="200x150" style="width: 200px; height: 150px;" src="~/img/products/@product.ImageUrl">
+                    </a>
+                </div>
+
+                <div class="span10">
+                    <div class="row-fluid lead">
+                        <div class="span5">
+                            <a href="~/Products/Details?id=@product.Id">@product.Title</a>
+                            <div>
+                                <strong>Category:</strong>
+                                @product.Category
+                            </div>
+                            <div>
+                                <strong>Condition:</strong>
+                                @product.Condition
+                            </div>
+                            <div>
+                                <strong>Price:</strong>
+                                $@product.Price
+                            </div>
+                        </div>
+                        <div class="span7">
+                            <div>
+                                <strong>Description:</strong>
+                                @product.Description
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <h3>You dont have any products</h3>
+}

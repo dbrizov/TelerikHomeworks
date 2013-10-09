@@ -1,0 +1,144 @@
+﻿@model IList<EbayApplication.Web.Models.ProductModels.ProductViewModel>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row-fluid">
+    <div class="span4">
+        <h1>Medusa's Ebay</h1>
+        <ul class="lead">
+            <li>Find what you need and buy it as easy as clicking on a button</li>
+            <li>Sell what you want, whenever you want</li>
+            <li>Make bids and have fun</li>
+        </ul>
+        <p><a href="~/Home/About" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    </div>
+
+    <div class="span8">
+        <section class="carousel">
+            <div id="myCarousel" class="carousel slide">
+                <ol class="carousel-indicators">
+                    <li class="active" data-slide-to="0" data-target="#myCarousel"></li>
+                    <li class="" data-slide-to="1" data-target="#myCarousel"></li>
+                    <li class="" data-slide-to="2" data-target="#myCarousel"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img alt="" src="~/img/carousel/bootstrap-mdo-sfmoma-01.jpg" />
+                        <div class="carousel-caption">
+                            <h4>First Thumbnail label</h4>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img alt="" src="~/img/carousel/bootstrap-mdo-sfmoma-02.jpg" />
+                        <div class="carousel-caption">
+                            <h4>Second Thumbnail label</h4>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img alt="" src="~/img/carousel/bootstrap-mdo-sfmoma-03.jpg" />
+                        <div class="carousel-caption">
+                            <h4>Third Thumbnail label</h4>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="left carousel-control" data-slide="prev" href="#myCarousel">‹</a>
+                <a class="right carousel-control" data-slide="next" href="#myCarousel">›</a>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div id="products">
+    @for (int i = 0; i < Model.Count; i += 4)
+    {
+        <div class="row-fluid">
+            <ul class="thumbnails">
+                @for (int j = i; j < i + 4 && j < Model.Count; j++)
+                {
+                    <li class="span3">
+                        <div class="thumbnail">
+                            <a href="~/Products/Details/@Model[j].Id">
+                                <img alt="300x200" style="width: 300px; height: 200px;" src="~/img/products/@Model[j].ImageUrl">
+                            </a>
+                        </div>
+                        <div class="caption">
+                            <h3>@Model[j].Title</h3>
+                            <p>
+                                @if (Model[j].Description.Length > 100)
+                                {
+                                    @(Model[j].Description.Substring(0, 100) + "...")
+                                }
+                                else
+                                {
+                                    @Model[j].Description
+                                }
+                            </p>
+                            <p>
+                                @Html.ActionLink("Details", "Details", "Products", new { id = Model[j].Id }, new { @class = "btn btn-primary" })
+                            </p>
+                            <p class="lead text-right">$@Model[j].Price </p>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        var page = 2;
+        var count = 24;
+        $(window).scroll(function () {
+            if ($(window).scrollTop() == ($(document).height() - $(window).height())) {
+                $.getJSON("/Products/GetPage?page=" + page + "&count=" + count, function (data) {
+
+                    for (var i = 0; i < data.length; i += 4) {
+                        var html =
+                            '<div class="row-fluid">' +
+                                '<ul class="thumbnails">';
+
+                        for (var j = i; j < i + 4 && j < data.length; j += 1) {
+                            var description;
+                            if (data[j].Description.length > 100) {
+                                description = data[j].Description.substr(0, 100);
+                            }
+                            else {
+                                description = data[j].Description;
+                            }
+
+                            html += '<li class="span3">' +
+                                        '<div class="thumbnail">' +
+                                            '<img alt="300x200" style="width: 300px; height: 200px;" src="/img/products/' + data[j].ImageUrl + '">' +
+                                        '</div>' +
+                                            '<div class="caption">' +
+                                            '<h3>' + data[j].Title + '</h3>' +
+                                            '<p>' + description + '</p>' +
+                                            '<p>' +
+                                                '<a class="btn btn-primary" href="/Products/Details/' + data[j].Id + '">Details</a>' +
+                                            '</p>' +
+                                            '<p class="lead text-right">$' + data[j].Price.toFixed(2) + '</p>' +
+                                        '</div>' +
+                                    '</li>';
+                        }
+
+                        html += '</ul>' +
+                            '</div>';
+
+                        $("#products").append(html);
+                    }
+
+                    if (data.length != 0) {
+                        page += 1;
+                    }
+                });
+            }
+        })
+    </script>
+}

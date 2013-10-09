@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EbayApplication.Web.Models.DeliveryModels.DeliveryViewModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Number</th>
+
+            <th>State</th>
+
+            <th>Time to arrive</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (EbayApplication.Web.Models.DeliveryModels.DeliveryViewModel currentDelivery in Model)
+        {
+            <tr>
+                <td>@currentDelivery.Id.ToString().Substring(24, 7)</td>
+                <td>@currentDelivery.State</td>
+                <td>@currentDelivery.TimeToArrive.ToString("dd-MMM-yyyy  HH:mm", System.Globalization.CultureInfo.InvariantCulture)</td>
+                @if (currentDelivery.State == EbayApplication.Models.DeliveryState.Delivered)
+                {
+                    <td><button disabled="disabled" class="btn btn-success">Delivered</button></td>
+                }
+                else
+                {
+                    <td>@Ajax.ActionLink("Check package", "CloseDelivery", 
+                            new { @id = currentDelivery.Id }, 
+                            new AjaxOptions() { 
+                                InsertionMode = InsertionMode.Replace,
+                                UpdateTargetId = "window-message",
+                                OnComplete = "displayWindow"}, 
+                            new { @class = "btn btn-warning" }) 
+                    </td>
+                }
+            </tr>
+        }
+
+    </tbody>
+</table>

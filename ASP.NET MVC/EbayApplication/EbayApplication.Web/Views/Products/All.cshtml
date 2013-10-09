@@ -1,0 +1,14 @@
+﻿@using EbayApplication.Web.HelperExtensions;
+
+@model PagedList.IPagedList<EbayApplication.Web.Models.ProductModels.ProductViewModel>
+
+@{
+    ViewBag.Title = "All";
+}
+
+
+@Html.Partial("_ListedProducts", Model)
+
+<div class="row-fluid pagination pagination-centered">
+    @Html.Pager(10, Model, "All")
+</div>

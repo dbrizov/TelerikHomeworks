@@ -1,0 +1,48 @@
+﻿@model IEnumerable<EbayApplication.Web.Models.DeliveryModels.DeliveryViewModel>
+@{
+    ViewBag.Title = "ByUser";
+}
+
+<h2>My deliveries</h2>
+
+<div id="all-deliveries">
+    @Html.Partial("_DeliveriesByUser", Model)
+</div>
+
+<div id="window" style="display:none">
+    <p id="window-message"></p>
+    <input type="button" class="btn btn-success" id="window-close-button" value="Okay" />
+</div>
+
+<script>
+    function displayWindow() {
+        var kWindow = $("#window");
+        
+        var messageWindow = kWindow.kendoWindow({
+            width: "300px",
+            height: "200px",
+            title: "Message",
+            resizable: false,
+            draggable: false,
+            actions: {},
+            close: updatePage
+        }).data("kendoWindow");
+        
+        messageWindow.open().center();
+        $("#window").show();
+    }
+
+    $("#window-close-button").on("click", function () {
+        var window = $("#window").data("kendoWindow");
+
+        window.close();
+    });
+
+    function updatePage() {
+        $.get('@Url.Action("DeliveriesByUser", "Delivery",new {@username = User.Identity.Name})', function (data) {
+            $('#all-deliveries').replaceWith(data);
+
+            $("#window").hide();
+        });
+    }
+</script>

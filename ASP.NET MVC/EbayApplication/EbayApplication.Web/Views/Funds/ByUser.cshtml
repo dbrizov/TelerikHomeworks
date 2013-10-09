@@ -1,0 +1,48 @@
+﻿@model IEnumerable<EbayApplication.Models.Transaction>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Latest transactions</h2>
+
+<h3>Current balance: @ViewBag.Balance</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Funds
+            </th>
+            <th>
+                Data
+            </th>
+            <th>
+                Type
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transaction in Model)
+        {
+            <tr class="@(transaction.Type == EbayApplication.Models.TransactionType.Deposit ? "success" : "")"> 
+                <td>
+                    @transaction.Id.ToString().Substring(25, 7)
+                </td>
+                <td>
+                    @transaction.Funds
+                </td>
+                <td>
+                    @transaction.Date.ToString("d-MMM-yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture)
+                </td>
+                <td>
+                    @transaction.Type
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,125 @@
+﻿@model IEnumerable<EbayApplication.Web.Models.AuctionModels.AuctionDetailedViewModel>
+@{
+    ViewBag.Title = "ByUser";
+}
+
+<h2>My current auctions</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Number
+            </th>
+            <th>
+                For product
+            </th>
+            <th>
+                Started
+            </th>
+            <th>
+                Ends
+            </th>
+            <th>
+                Are you curent buyer ?
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (EbayApplication.Web.Models.AuctionModels.AuctionDetailedViewModel currentAuction in Model)
+        {
+            <tr>
+                <td>
+                    @currentAuction.Id.ToString().Substring(25, 8)
+                </td>
+
+                <td>
+                    @currentAuction.ProductName
+                </td>
+
+
+                <td>
+                    @currentAuction.DateStarted.ToString("d-MMM-yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture)
+                </td>
+
+
+                <td>
+                    @currentAuction.ExpiringDate.ToString("d-MMM-yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture)
+                </td>
+
+
+                <td>
+                    @if (currentAuction.IsFinished == true)
+                    {
+                        if (currentAuction.CurrentBuyer == User.Identity.Name)
+                        {
+                            @Ajax.ActionLink("Get the product", "CloseAuction", "Auctions",
+                                            new { id = currentAuction.Id}, new AjaxOptions() 
+                                            {
+                                                HttpMethod = "POST",
+                                                InsertionMode = InsertionMode.Replace,
+                                                UpdateTargetId = "window-message",
+                                                OnComplete = "displayWindow"
+                                            }, new {@class = "btn btn-success"});
+                        }
+                        else 
+                        {
+                            @:Auction ended. Will be removed soon
+                        }
+                    }
+                    else 
+                    {
+                        if (currentAuction.CurrentBuyer == User.Identity.Name)
+                        {
+                            <button class="btn btn-success" disabled="disabled">Yes</button>
+                        }
+                        else 
+                        {
+                            @Html.ActionLink("Go to auction", "Details", "Products", new { @id = currentAuction.Product.Id }, null);  
+                        }  
+                    }
+                       
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div id="window" style="display:none">
+    <p id="window-message"></p>
+    <input type="button" class="btn btn-success" id="window-close-button" value="Okay" />
+</div>
+
+<script>
+    function displayWindow() {
+        var kWindow = $("#window");
+
+        var messageWindow = kWindow.kendoWindow({
+            width: "300px",
+            height: "200px",
+            title: "Message",
+            resizable: false,
+            draggable: false,
+            actions: {},
+            close: updatePage
+        }).data("kendoWindow");
+
+        messageWindow.open().center();
+        $("#window").show();
+    }
+
+    $("#window-close-button").on("click", function () {
+        var window = $("#window").data("kendoWindow");
+
+        window.close();
+    });
+
+    function updatePage() {
+        $.get('@Url.Action("DeliveriesByUser", "Delivery",new {@username = User.Identity.Name})', function (data) {
+            $('#all-deliveries').replaceWith(data);
+
+            $("#window").hide();
+        });
+    }
+</script>

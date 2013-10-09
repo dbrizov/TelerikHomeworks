@@ -1,0 +1,9 @@
+﻿@model IEnumerable<EbayApplication.Web.Models.ProductModels.ProductFlatViewModel>
+
+@foreach (var product in Model)
+{
+    <div class="pull-left similar-element">
+        <img src="/img/products/@product.ImageUrl" alt="Product image" width="100" height="100" /> <br />
+        @Html.ActionLink("View", "Details", new { @id = product.Id }, new { @class = "btn btn-small" })
+    </div>
+}

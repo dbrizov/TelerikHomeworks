@@ -1,0 +1,42 @@
+﻿@using EbayApplication.Web.Areas.Admin.Models;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Categories</h2>
+
+<div>
+    @(Html.Kendo().Grid<CategoryViewModel>()
+        .Name("grid-categories")
+        .Columns(col =>
+            {
+                col.Bound(cat => cat.Name);
+                col.Command(cmd =>
+                    {
+                        cmd.Edit();
+                    })
+                    .Title("Commants");
+            })
+        .ToolBar(tool =>
+            {
+                tool.Create();
+            })
+        .Pageable()
+        .Sortable()
+        .Filterable()
+        .DataSource(data =>
+            {
+                data.Ajax()
+                    .ServerOperation(true)
+                    .PageSize(10)
+                    .Model(model =>
+                        {
+                            model.Id(m => m.Id);
+                        })
+                    .Create("CreateCategory", "AdminCategories")
+                    .Read("ReadCategories", "AdminCategories")
+                    .Update("UpdateCategory", "AdminCategories");
+            })
+    )
+</div>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<EbayApplication.Web.Models.AuctionModels.AuctionViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> Products to buy </h2>
+@if(Model.Count() != 0)
+{
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Started on</th>
+            <th>Exprires on</th>
+            <th>Actions</th>
+        </tr>
+        
+    </thead>
+
+    <tbody>
+        @foreach (var auction in Model)
+        {
+            <tr>
+                <td>@auction.ProductName</td>
+                <td>@auction.DateStarted</td>
+                <td>@auction.ExpiringDate</td>
+                <td>@Ajax.ActionLink("Remove", "RemoveFromShoppingCart", "ShoppingCart", new { id = auction.Id }, null, new { @class = "btn btn-primary"})</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<td>@Ajax.ActionLink("Buy products", "BuyProducts", "ShoppingCart", null, null, new { @class = "btn btn-primary" })</td>
+}
+else
+{
+<h4> There aren't any products in shopping cart. </h4>
+}
