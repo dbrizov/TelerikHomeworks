@@ -22,8 +22,11 @@ namespace LargestConnectedArea
             {
                 for (int j = 0; j < labyrinth.GetLength(1); j++)
                 {
-                    connectedAreaSize = 0;
-                    GetConnectedAreaSize(i, j);
+                    if (labyrinth[i, j] != '*' && labyrinth[i, j] != 'v')
+                    {
+                        connectedAreaSize = 0;
+                        GetConnectedAreaSize(i, j);
+                    }
                 }
             }
         }
