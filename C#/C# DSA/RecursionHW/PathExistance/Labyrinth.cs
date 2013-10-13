@@ -117,7 +117,7 @@ namespace PathExistance
                 this.labyrinth[row, col] = VisitedCell;
 
                 existsPath = ExistsPathBetweenTheStartAndEndCells(row, col - 1) ||
-                             ExistsPathBetweenTheStartAndEndCells(row, col + 1)|| 
+                             ExistsPathBetweenTheStartAndEndCells(row, col + 1) || 
                              ExistsPathBetweenTheStartAndEndCells(row - 1, col) ||
                              ExistsPathBetweenTheStartAndEndCells(row + 1, col);
 
