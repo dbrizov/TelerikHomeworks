@@ -7,33 +7,61 @@
 <h2> Products to buy </h2>
 @if(Model.Count() != 0)
 {
-<table class="table">
-    <thead>
-        <tr>
-            <th>Product</th>
-            <th>Started on</th>
-            <th>Exprires on</th>
-            <th>Actions</th>
-        </tr>
-        
-    </thead>
-
-    <tbody>
-        @foreach (var auction in Model)
-        {
+    <table class="table">
+        <thead>
             <tr>
-                <td>@auction.ProductName</td>
-                <td>@auction.DateStarted</td>
-                <td>@auction.ExpiringDate</td>
-                <td>@Ajax.ActionLink("Remove", "RemoveFromShoppingCart", "ShoppingCart", new { id = auction.Id }, null, new { @class = "btn btn-primary"})</td>
+                <th>Product</th>
+                <th>Started on</th>
+                <th>Exprires on</th>
+                <th>Actions</th>
             </tr>
-        }
-    </tbody>
-</table>
+        
+        </thead>
 
-<td>@Ajax.ActionLink("Buy products", "BuyProducts", "ShoppingCart", null, null, new { @class = "btn btn-primary" })</td>
+        <tbody>
+            @foreach (var auction in Model)
+            {
+                <tr>
+                    <td>@auction.ProductName</td>
+                    <td>@auction.DateStarted</td>
+                    <td>@auction.ExpiringDate</td>
+                    <td>
+                        @Ajax.ActionLink("Remove", "RemoveFromShoppingCart", "ShoppingCart", new { id = auction.Id },
+                            new AjaxOptions()
+                            {
+                                OnComplete = "refreshPage"
+                            },
+                            new { @class = "btn btn-primary" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div>
+        @Ajax.ActionLink("Buy products", "BuyProducts", "ShoppingCart", null,
+            new AjaxOptions()
+            {
+                OnComplete = "refreshPage",
+                OnFailure = "showErrorMessage"
+            },
+            new { @class = "btn btn-primary" })
+    </div>
 }
 else
 {
-<h4> There aren't any products in shopping cart. </h4>
+    <h4> There aren't any products in shopping cart. </h4>
+}
+
+@section Scripts
+{
+    <script>
+        function refreshPage() {
+            location.reload();
+        }
+
+        function showErrorMessage() {
+            alert("An error has accured. Please try again later.");
+        }
+    </script>
 }
